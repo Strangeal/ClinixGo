@@ -1,4 +1,7 @@
 class Doctor < ApplicationRecord
+  has_many :appointments, dependent: :destroy
+  has_many :users, through: :appointments
+
   validates :name, :email, :hospital, :specialities, :available_days, :photo, :start_time, :end_time, presence: true
   validates :bio, presence: true, length: { minimum: 10, maximum: 1000 }
   validates :reviews, :patients, numericality: { only_integer: true }
