@@ -8,9 +8,8 @@ class User < ApplicationRecord
   validate :gender_valid
 
   def gender_valid
-    unless ["male", "female", "non-binary"].include?(gender)
-      errors.add(:gender, "must be male, female, or non-binary")
-    end
-  end
+    return if %w[male female non-binary].include?(gender)
 
+    errors.add(:gender, 'must be male, female, or non-binary')
+  end
 end
