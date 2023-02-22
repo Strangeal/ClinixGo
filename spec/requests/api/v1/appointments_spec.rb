@@ -30,11 +30,11 @@ RSpec.describe 'api/v1/appointments', type: :request do
   before(:each) do
     @user = User.create(name: 'Samed', age: 13, gender: 'male')
     @first_doc = Doctor.create(name: 'Mike Venom', bio: 'Lorem ipsum is placeholder',
-      photo: 'https://img.freepik.com/free-photo/world-doctors-day-thinking-blonde-young-doctor-with-stethoscope-lab-coat_140725-162409.jpg?', available_days: 'Moday - Frinday', specialities: 'Primary Care Doctor', hospital: 'NYU Langone Health', start_time: '08: 00 AM', end_time: '20: 00 PM', email: 'doc.mikevenom@apple.com', phone: 1_555_000_213, reviews: 235, experience: 4, rating: 4.8, patients: 25)
+                               photo: 'https://img.freepik.com/free-photo/world-doctors-day-thinking-blonde-young-doctor-with-stethoscope-lab-coat_140725-162409.jpg?', available_days: 'Moday - Frinday', specialities: 'Primary Care Doctor', hospital: 'NYU Langone Health', start_time: '08: 00 AM', end_time: '20: 00 PM', email: 'doc.mikevenom@apple.com', phone: 1_555_000_213, reviews: 235, experience: 4, rating: 4.8, patients: 25)
 
-    @appointment = Appointment.create(user: @user, doctor: @first_doc, appointment_date: "Wed, 02 Dec 2020", start_time: "08:00", end_time: "09:20")
+    @appointment = Appointment.create(user: @user, doctor: @first_doc, appointment_date: 'Wed, 02 Dec 2020', start_time: '08:00', end_time: '09:20')
   end
-  
+
   describe 'GET /api/v1/users/:user_id/appointments' do
     it 'returns a list of appointments for the user' do
       get "/api/v1/users/#{@user.id}/doctors/#{@first_doc.id}/appointments"
