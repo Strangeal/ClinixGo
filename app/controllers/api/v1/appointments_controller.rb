@@ -13,7 +13,9 @@ class Api::V1::AppointmentsController < ApplicationController
     appointment.doctor = doctor
 
     if appointment.save
-      render json: appointment, status: :created, message: 'Appointment was successfully created'
+      render json: {
+        data: appointment, message: 'Appointment was successfully created'
+      }, status: :created
     else
       render json: {
         data: appointment.errors.full_messages
