@@ -262,6 +262,7 @@ DEPENDENCIES
   jsbundling-rails
   pg (~> 1.1)
   puma (~> 5.0)
+  rack-test
   rails (~> 7.0.4, >= 7.0.4.2)
   rails-controller-testing
   rspec-rails
