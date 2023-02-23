@@ -8,6 +8,7 @@ node_modules/
 
 # Ignore bundler config.
 /.bundle
+/vendor/bundle
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -36,3 +37,4 @@ node_modules/
 !/app/assets/builds/.keep
 
 /node_modules
+.yarn
