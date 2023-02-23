@@ -11,4 +11,5 @@ Rails.application.routes.draw do
       end
     end
   end
+  get '*path', to: 'root#index', via: :all
 end
