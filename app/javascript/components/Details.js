@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { AiOutlineAreaChart } from 'react-icons/ai';
-import { FaCommentDots, FaHospitalSymbol } from 'react-icons/fa';
+import { FaCommentDots, FaHospitalSymbol, FaUsers } from 'react-icons/fa';
 import { GiRoundStar } from 'react-icons/gi';
 import docImg from '../../assets/images/doc1.png';
 import '../styles/Details.css';
@@ -10,7 +10,7 @@ const Details = () => (
   <section id="details">
     <div className="container mt-5">
       <div className="row gy-5 align-items-sm-center">
-        <div className="col-sm-6 order-last order-sm-first">
+        <div className="col-sm-6 order-last order-sm-first d-none d-sm-block">
           <div className="img-container position-relative slide-in-fwd-left">
             <div className="blob">
               <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -33,18 +33,40 @@ const Details = () => (
         <div className="col-sm-6 order-first order-sm-last">
           <div className="container fade-in-fwd">
             <div className="doc-header">
-              <h2>
-                Jenna
-                <span className="fw-light"> Miles</span>
-              </h2>
-              <p className="doc-title text-uppercase">Professional Dentist</p>
-              <p className="text-muted d-flex align-items-center gap-1">
-                <span>
-                  <FaHospitalSymbol />
-                </span>
-                <span>St. Bonnaventure Hospital</span>
-              </p>
-              <div className="more-details d-flex gap-3">
+              <div className="doc-card shadow-sm d-flex align-items-center gap-2">
+                <div className="image-sm d-block d-sm-none">
+                  <img
+                    src={docImg}
+                    alt="Doctor"
+                    className="img-fluid img-responsive"
+                  />
+                </div>
+                <div>
+                  <h2>
+                    Jenna
+                    <span className="fw-light"> Miles</span>
+                  </h2>
+                  <p className="doc-title text-uppercase">
+                    Professional Dentist
+                  </p>
+                  <p className="text-muted d-flex align-items-center gap-1">
+                    <span>
+                      <FaHospitalSymbol />
+                    </span>
+                    <span>St. Bonnaventure Hospital</span>
+                  </p>
+                </div>
+              </div>
+              <div className="more-details d-flex gap-3 mt-2 mt-sm-0 justify-content-evenly justify-content-sm-start">
+                <div className="d-flex flex-column justify-content-center align-items-center">
+                  <div className="icon-div">
+                    <FaUsers className="line-chart" />
+                  </div>
+                  <div className="d-flex flex-column justify-content-center">
+                    <h6 className="text-center fw-bold">500+</h6>
+                    <span>patients</span>
+                  </div>
+                </div>
                 <div className="d-flex flex-column justify-content-center align-items-center">
                   <div className="icon-div">
                     <AiOutlineAreaChart className="line-chart" />
@@ -86,6 +108,14 @@ const Details = () => (
             <div className="mt-4">
               <h4 className="mb-2">Working Time</h4>
               <p>Monday - Friday, 08:00 AM - 09:00 PM</p>
+            </div>
+            <div className="doc-details-actions mt-4 mt-sm-2">
+              <button
+                type="button"
+                className="btn btn-success d-block w-100 rounded-pill"
+              >
+                Book Appointment
+              </button>
             </div>
           </div>
         </div>

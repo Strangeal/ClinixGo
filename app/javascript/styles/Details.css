@@ -12,7 +12,7 @@ h6 {
 }
 
 div.doc-header p.doc-title {
-  color: #96bf01;
+  color: #6d8b00;
   margin-bottom: 0;
 }
 
@@ -28,8 +28,26 @@ svg.line-chart {
   font-size: 1.5rem;
 }
 
+.text-muted > span:nth-child(2) {
+  font-size: 0.9rem;
+}
+
 div.d-flex:nth-child(2) > span:nth-child(2) {
   font-size: 0.8rem;
+}
+
+div.doc-card {
+  background-color: #96bf0130;
+  padding: 1rem;
+  border-radius: 2rem;
+}
+
+.doc-card > div:nth-child(2) > h2:nth-child(1) {
+  font-size: 1.4rem;
+}
+
+div.image-sm img {
+  width: 6rem;
 }
 
 .slide-in-fwd-left {
@@ -113,5 +131,24 @@ div.d-flex:nth-child(2) > span:nth-child(2) {
 @media screen and (min-width: 768px) {
   img.doc-detail-img {
     width: 22rem;
+  }
+
+  div.doc-card {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none !important;
+  }
+
+  .text-muted > span:nth-child(2) {
+    font-size: 1rem;
+  }
+
+  div.d-flex:nth-child(2) > span:nth-child(2) {
+    font-size: initial;
+  }
+
+  div.doc-details-actions button {
+    width: initial !important;
   }
 }
