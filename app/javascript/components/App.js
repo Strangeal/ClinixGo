@@ -6,7 +6,7 @@ const App = () => {
   return (
     <div>
       <h1>Hello World!</h1>
-
+      
       <Routes>
         <Route path="/demo" element={<Demo />} />
       </Routes>
@@ -14,4 +14,4 @@ const App = () => {
   );
 }
 
-export default App
+export default App;
