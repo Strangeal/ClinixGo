@@ -1,12 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-const Demo = () => {
-
-  return (
-    <div>
-      <p>demo</p>
-    </div>
-  )
-};
+const Demo = () => (
+  <div>
+    <p>demo</p>
+  </div>
+);
 
 export default Demo;

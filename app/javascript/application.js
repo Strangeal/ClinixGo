@@ -9,16 +9,15 @@ import { Provider } from 'react-redux';
 import store from './redux/configureStore';
 import App from './components/App';
 
-
-  document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-    <Provider store={store}>
-    <App />
-    </Provider>
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById('root'),
-)
+    <React.StrictMode>
+      <BrowserRouter>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </BrowserRouter>
+    </React.StrictMode>,
+    document.getElementById('root'),
+  );
 });
