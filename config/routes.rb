@@ -9,6 +9,7 @@ Rails.application.routes.draw do
           resources :appointments
         end
       end
+      post "auth/login", to: "users#login"
     end
   end
 end
