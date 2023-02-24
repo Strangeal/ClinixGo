@@ -1,1 +1,2 @@
-export const myApi = 'http://localhost:3000/api/v1';
+const myApi = 'http://localhost:3000/api/v1';
+export default myApi;

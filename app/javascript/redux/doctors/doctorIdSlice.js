@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { myApi } from '../myApi';
+import myApi from '../myApi';
 
 const initialState = {
   doctorsId: [],
