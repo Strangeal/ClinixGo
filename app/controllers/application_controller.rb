@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
-  # before_action :authenticate_request
+  before_action :authenticate_request
   attr_reader :current_user
 
   def encode_token(payload, exp = 7.days.from_now)
