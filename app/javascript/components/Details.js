@@ -8,7 +8,7 @@ import '../styles/Details.css';
 const Details = () => (
   <section id="details">
     <div className="container mt-5">
-      <div className="row gy-5 align-items-sm-center">
+      <div className="row gy-5 align-items-sm-center container-position">
         <div className="col-sm-6 order-last order-sm-first d-none d-sm-block">
           <div className="img-container position-relative slide-in-fwd-left">
             <div className="blob">
