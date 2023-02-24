@@ -1,0 +1,18 @@
+div.img-not-found img {
+  width: 20rem;
+}
+
+div.oops-container p {
+  width: 20rem;
+}
+
+div.oops-container button {
+  background-color: #96bf01;
+  width: 7rem;
+  text-transform: uppercase;
+  border-radius: 5rem;
+}
+
+div.oops-container button:hover {
+  background-color: #759405;
+}

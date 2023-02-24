@@ -3,7 +3,6 @@ import React from 'react';
 import { AiOutlineAreaChart } from 'react-icons/ai';
 import { FaCommentDots, FaHospitalSymbol, FaUsers } from 'react-icons/fa';
 import { GiRoundStar } from 'react-icons/gi';
-import docImg from '../../assets/images/doc1.png';
 import '../styles/Details.css';
 
 const Details = () => (
@@ -23,7 +22,7 @@ const Details = () => (
             </div>
             <div className="position-absolute top-0 w-100 text-center">
               <img
-                src={docImg}
+                src="https://res.cloudinary.com/dskl0qde4/image/upload/v1677227659/assets/rvzpkwlpfiwtntpdxezk.png"
                 alt="Doctor"
                 className="doc-detail-img img-fluid img-responsive"
               />
@@ -36,7 +35,7 @@ const Details = () => (
               <div className="doc-card shadow-sm d-flex align-items-center gap-2">
                 <div className="image-sm d-block d-sm-none">
                   <img
-                    src={docImg}
+                    src="https://res.cloudinary.com/dskl0qde4/image/upload/v1677227659/assets/rvzpkwlpfiwtntpdxezk.png"
                     alt="Doctor"
                     className="img-fluid img-responsive"
                   />
