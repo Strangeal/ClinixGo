@@ -25,7 +25,7 @@ const doctorSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(fetchDocData.pending, (state, action) => {
+      .addCase(fetchDocData.pending, (state) => {
         const IsPending = state;
         IsPending.status = 'pending';
       })
@@ -34,7 +34,7 @@ const doctorSlice = createSlice({
         IsFulfilled.status = 'fulfilled';
         IsFulfilled.doctors = action.payload;
       })
-      .addCase(fetchDocData.rejected, (state, action) => {
+      .addCase(fetchDocData.rejected, (state) => {
         const IsRejected = state;
         IsRejected.status = 'rejected';
       });

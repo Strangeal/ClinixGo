@@ -25,7 +25,7 @@ const appointmentSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(fetchAppointData.pending, (state, action) => {
+      .addCase(fetchAppointData.pending, (state) => {
         const IsPending = state;
         IsPending.status = 'pending';
       })
@@ -33,9 +33,8 @@ const appointmentSlice = createSlice({
         const IsFulfilled = state;
         IsFulfilled.status = 'fulfilled';
         IsFulfilled.appointments = action.payload;
-        console.log(action.payload);
       })
-      .addCase(fetchAppointData.rejected, (state, action) => {
+      .addCase(fetchAppointData.rejected, (state) => {
         const IsRejected = state;
         IsRejected.status = 'rejected';
       });

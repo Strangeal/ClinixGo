@@ -9,9 +9,9 @@ const initialState = {
 
 export const fetchDocIdData = createAsyncThunk(
   'doctorsId/fetchDocIdData',
-  async ({doctor_id}, thunkAPI) => {
+  async ({ doctorId }, thunkAPI) => {
     try {
-      const response = await axios.get(`${myApi}/doctors/${doctor_id}`);
+      const response = await axios.get(`${myApi}/doctors/${doctorId}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -25,7 +25,7 @@ const doctorIdSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(fetchDocIdData.pending, (state, action) => {
+      .addCase(fetchDocIdData.pending, (state) => {
         const IsPending = state;
         IsPending.status = 'pending';
       })
@@ -34,7 +34,7 @@ const doctorIdSlice = createSlice({
         IsFulfilled.status = 'fulfilled';
         IsFulfilled.doctorsId = action.payload;
       })
-      .addCase(fetchDocIdData.rejected, (state, action) => {
+      .addCase(fetchDocIdData.rejected, (state) => {
         const IsRejected = state;
         IsRejected.status = 'rejected';
       });
