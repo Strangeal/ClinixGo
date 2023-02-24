@@ -1,20 +1,16 @@
 class Api::V1::AppointmentsController < ApplicationController
   def index
-    user = User.find(params[:user_id])
-    appointments = user.appointments
+    appointments = User.first.appointments # replace user.first with current_user
     render json: appointments, status: :ok
   end
 
   def create
     appointment = Appointment.new(appointment_params)
-    user = User.find(params[:user_id])
-    doctor = Doctor.find(params[:doctor_id])
-    appointment.user = user
-    appointment.doctor = doctor
+    appointment.user = User.first # replace user.first with current_user
 
     if appointment.save
       render json: {
-        data: appointment, message: 'Appointment was successfully created'
+        message: 'Appointment was successfully created'
       }, status: :created
     else
       render json: {
@@ -26,6 +22,6 @@ class Api::V1::AppointmentsController < ApplicationController
   private
 
   def appointment_params
-    params.require(:appointment).permit(:appointment_date, :start_time, :end_time)
+    params.require(:appointment).permit(:appointment_date, :start_time, :end_time, :doctor_id)
   end
 end
