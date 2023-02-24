@@ -7,9 +7,8 @@ class Api::V1::UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
-      render json: {
-        data: @user, message: 'User created'
-      }, status: :created
+      token = encode_token({ user_id: @user.id })
+      render json: { user: @user, token:, message: 'User created' }, status: :created
     else
       render json: @user.errors.full_messages, status: :unprocessable_entity, message: 'Sorry! Something went wrong'
     end
@@ -18,6 +17,6 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :age, :gender)
+    params.require(:user).permit(:name, :username, :password, :age, :gender, :email)
   end
 end
