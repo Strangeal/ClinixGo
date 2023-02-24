@@ -30,6 +30,12 @@ module.exports = {
     sourceMapFilename: '[file].map',
     path: path.resolve(__dirname, 'app/assets/builds'),
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      usedExports: true,
+    },
+  },
   plugins: [
 
     new webpack.optimize.LimitChunkCountPlugin({
