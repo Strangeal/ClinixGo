@@ -8,8 +8,8 @@ import '../styles/Details.css';
 const Details = () => (
   <section id="details">
     <div className="container mt-5">
-      <div className="row gy-5 align-items-sm-center">
-        <div className="col-sm-6 order-last order-sm-first d-none d-sm-block">
+      <div className="row align-items-lg-center">
+        <div className="col-md-6 order-last order-md-first d-none d-md-block">
           <div className="img-container position-relative slide-in-fwd-left">
             <div className="blob">
               <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -29,11 +29,11 @@ const Details = () => (
             </div>
           </div>
         </div>
-        <div className="col-sm-6 order-first order-sm-last">
+        <div className="col-md-6 order-first order-md-last">
           <div className="container fade-in-fwd">
             <div className="doc-header">
               <div className="doc-card shadow-sm d-flex align-items-center gap-2">
-                <div className="image-sm d-block d-sm-none">
+                <div className="image-sm d-block d-md-none">
                   <img
                     src="https://res.cloudinary.com/dskl0qde4/image/upload/v1677227659/assets/rvzpkwlpfiwtntpdxezk.png"
                     alt="Doctor"
@@ -56,7 +56,7 @@ const Details = () => (
                   </p>
                 </div>
               </div>
-              <div className="more-details d-flex gap-3 mt-2 mt-sm-0 justify-content-evenly justify-content-sm-start">
+              <div className="more-details d-flex gap-3 mt-2 mt-md-0 justify-content-evenly justify-content-md-start">
                 <div className="d-flex flex-column justify-content-center align-items-center">
                   <div className="icon-div">
                     <FaUsers className="line-chart" />
@@ -66,7 +66,7 @@ const Details = () => (
                     <span>patients</span>
                   </div>
                 </div>
-                <div className="d-flex flex-column justify-content-center align-items-center">
+                <div className="d-flex flex-column justify-content-center align-items-center d-md-none d-lg-flex">
                   <div className="icon-div">
                     <AiOutlineAreaChart className="line-chart" />
                   </div>
