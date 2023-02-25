@@ -7,17 +7,22 @@ import Navbar from './Navbar';
 import NotFound from './NotFound';
 
 const App = () => (
-  <div>
-    {/* <h1 className="text-primary">Hello World!</h1> */}
-    <Navbar />
-    <div>
-      <Routes>
-        <Route path="/demo" element={<Demo />} />
-        <Route path="/details" element={<Details />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+  <section className="container-fluid px-0">
+    <div className="row">
+      <div className="col-2">
+          <Navbar />
+      </div>
+      <div className="col-10">
+        <Routes>
+          <Route path="/demo" element={<Demo />} />
+          <Route path="/details" element={<Details />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
     </div>
-  </div>
+  </section>
+      
+    
 );
 
 export default App;
