@@ -10,10 +10,16 @@ text color ----- #191919 */
   color: #96bf01;
 }
 
-.nav-link {
+.nav-link,
+.current_username {
   color: #191919;
 }
 
 .nav-icon {
   color: #96bf01;
+}
+
+.dropdown-nav {
+  position: absolute;
+  bottom: 0;
 }
