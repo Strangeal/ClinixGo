@@ -4,7 +4,6 @@ const webpack = require('webpack');
 module.exports = {
   mode: 'development', // production
   devtool: 'source-map',
-  cache: false,
   entry: {
     application: './app/javascript/application.js', // keep
     // another: './app/javascript/another-module.js',
