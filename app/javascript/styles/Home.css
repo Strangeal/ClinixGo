@@ -1,0 +1,89 @@
+span.dot {
+  height: 20rem;
+  width: 20rem;
+  background-color: #ebe8e871;
+  border-radius: 50%;
+  display: inline-block;
+};
+
+img {
+  width: 50%;
+  height: 50%;
+  border-radius: 10rem;
+}
+
+.container {
+  position: relative; /* set the main container as a reference for absolute positioning */
+}
+
+.dot {
+  position: absolute; /* position the span element absolutely */
+  top: 60%; /* position the top edge of the span element at 50% of the container height */
+  left: 50%; /* position the left edge of the span element at 50% of the container width */
+  transform: translate(-50%, -50%); /* center the span element horizontally and vertically */
+  z-index: -1; /* set the z-index of the span element behind the img element */
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10rem;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+p,
+.dotted {
+  font-size: 1rem;
+  color: rgb(189, 188, 188);
+}
+
+.dotted {
+  margin-top: -1rem;
+  font-weight: 300;
+  font-size: 2rem;
+}
+
+.sub-header,
+.btm-text {
+  font-weight: 500;
+}
+
+.bottom-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .doctors-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  section.container {
+    padding: 5rem 0;
+  }
+
+  img {
+    width: 60%;
+    height: 60%;
+  }
+
+  span.dot {
+    height: 13rem;
+    width: 13rem;
+    background-color: #ebe8e871;
+    border-radius: 50%;
+    display: inline-block;
+  };
+
+}
