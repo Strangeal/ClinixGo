@@ -9,10 +9,10 @@ import NotFound from './NotFound';
 const App = () => (
   <section className="container-fluid px-0">
     <div className="row">
-      <div className="col-2">
+      <div className="col-3">
           <Navbar />
       </div>
-      <div className="col-10">
+      <div className="col-9">
         <Routes>
           <Route path="/demo" element={<Demo />} />
           <Route path="/details" element={<Details />} />
