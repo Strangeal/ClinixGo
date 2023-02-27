@@ -1,5 +1,5 @@
 import React from 'react';
-import demo from '../styles/demo.module.css'
+import demo from '../styles/demo.module.css';
 
 const Demo = () => (
   <div>
