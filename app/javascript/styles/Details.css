@@ -92,9 +92,9 @@ div.image-sm img {
 
 .fade-in-fwd {
   -webkit-animation:
-    fade-in-fwd 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) 1.5s
+    fade-in-fwd 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) 0.5s
     both;
-  animation: fade-in-fwd 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) 1.5s both;
+  animation: fade-in-fwd 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) 0.5s both;
 }
 
 /**
@@ -152,5 +152,12 @@ div.image-sm img {
 
   div.doc-details-actions button {
     width: initial !important;
+  }
+
+  .fade-in-fwd {
+    -webkit-animation:
+      fade-in-fwd 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) 1.5s
+      both;
+    animation: fade-in-fwd 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) 1.5s both;
   }
 }
