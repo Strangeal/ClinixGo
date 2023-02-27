@@ -11,7 +11,7 @@ const App = () => (
     {/* <h1 className="text-primary">Hello World!</h1> */}
 
     <Routes>
-      <Route path="/homepage" element={<Homepage/>} />
+      <Route path="/" element={<Homepage />} />
       <Route path="/demo" element={<Demo />} />
       <Route path="/details/:id" element={<Details />} />
       <Route path="*" element={<NotFound />} />
