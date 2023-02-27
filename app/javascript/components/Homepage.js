@@ -14,9 +14,13 @@ const Homepage = () => {
    }, [dispatch]);
 
   return (
-    <section className="container mt-4">
+    <section className="container mt-4 main-container">
+      <div >
       <h1 className="text-center">Oncall Doctors</h1>
       <p className="text-center sub-header">Please choose a specialist</p>
+      </div>
+
+      <p className="text-center dotted mb-5">................</p>
 
       <main className="doctors-container">
         {doctorsList.map((doctor) => (
