@@ -11,6 +11,26 @@
   users = User.create(name: "Adel", gender: "male", age: 25)
 end
 
+doc_1 = Doctor.create(
+  name: "Dr. Justine Smith",
+  bio: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+  Pariatur repellendus cumque vero excepturi. Quis quibusdam,
+  expedita sunt modi eaque enim possimus totam, rerum perferendis
+  saepe nobis.",
+  photo: "https://res.cloudinary.com/db3ckadxp/image/upload/v1677239506/doc1_rzintp.png",
+  available_days: "Monday - Friday",
+  specialities: "Professional Dentist",
+  hospital: "St. Bonaventure Hospital",
+  start_time: "08:00 AM",
+  end_time: "09:00 PM",
+  email: "john.smith@gmail.com",
+  phone: 1234567890,
+  reviews: 123,
+  experience: 7,
+  rating: 4.8,
+  patients: 67
+)
+
 
 doc_2 = Doctor.create(
   name: "Rodney Stilinsky",
