@@ -4,24 +4,24 @@ span.dot {
   background-color: #ebe8e871;
   border-radius: 50%;
   display: inline-block;
-};
+}
 
 img {
-  width: 50%;
-  height: 50%;
+  width: 10rem;
+  height: 10rem;
   border-radius: 10rem;
 }
 
 .container {
-  position: relative; /* set the main container as a reference for absolute positioning */
+  position: relative;
 }
 
 .dot {
-  position: absolute; /* position the span element absolutely */
-  top: 60%; /* position the top edge of the span element at 50% of the container height */
-  left: 50%; /* position the left edge of the span element at 50% of the container width */
-  transform: translate(-50%, -50%); /* center the span element horizontally and vertically */
-  z-index: -1; /* set the z-index of the span element behind the img element */
+  position: absolute; 
+  top: 60%; 
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  z-index: -1; 
 }
 
 .img-fluid {
@@ -60,14 +60,20 @@ p,
   gap: 0.5rem;
 }
 
+p.btm-text {
+  display: -webkit-box;
+  width: 13rem;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 @media screen and (min-width: 768px) {
   .doctors-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    gap: 1rem;
-  }
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+}
 
   section.container {
     padding: 5rem 0;
@@ -79,11 +85,8 @@ p,
   }
 
   span.dot {
-    height: 13rem;
-    width: 13rem;
-    background-color: #ebe8e871;
-    border-radius: 50%;
-    display: inline-block;
+    height: 14rem;
+    width: 14rem;
   };
 
 }
