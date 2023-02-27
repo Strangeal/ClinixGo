@@ -5,6 +5,7 @@ import Demo from './Demo';
 import Details from './Details';
 import Navbar from './Navbar';
 import NotFound from './NotFound';
+import Homepage from './Homepage';
 
 const App = () => (
   <section className="container-fluid px-0">
@@ -14,8 +15,9 @@ const App = () => (
       </div>
       <div className="col-9">
         <Routes>
-          <Route path="/demo" element={<Demo />} />
-          <Route path="/details" element={<Details />} />
+          <Route path="/" element={<Homepage />} />
+      <Route path="/demo" element={<Demo />} />
+          <Route path="/details/:id" element={<Details />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
