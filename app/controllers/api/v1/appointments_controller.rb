@@ -1,12 +1,12 @@
 class Api::V1::AppointmentsController < ApplicationController
   def index
-    appointments = User.first.appointments # replace user.first with current_user
+    appointments = current_user.appointments
     render json: appointments, status: :ok
   end
 
   def create
     appointment = Appointment.new(appointment_params)
-    appointment.user = User.first # replace user.first with current_user
+    appointment.user = current_user
 
     if appointment.save
       render json: {

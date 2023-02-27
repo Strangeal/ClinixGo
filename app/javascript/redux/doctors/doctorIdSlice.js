@@ -3,7 +3,7 @@ import axios from 'axios';
 import myApi from '../myApi';
 
 const initialState = {
-  doctorsId: [],
+  doctorsId: null,
   status: null,
 };
 
