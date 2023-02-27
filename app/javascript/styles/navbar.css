@@ -1,9 +1,9 @@
-
 /* Lemon green ---- #96bf01
 White
 text color ----- #191919 */
 .nav-bg-color {
   box-shadow: 0 0 3px 2px #ede7e7;
+  z-index: 99;
 }
 
 .nav-brand-color {
