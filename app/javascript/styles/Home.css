@@ -1,7 +1,7 @@
-span.dot {
+/* span.dot {
   height: 20rem;
   width: 20rem;
-  background-color: #ebe8e871;
+  background-color: #96bf011a;
   border-radius: 50%;
   display: inline-block;
 }
@@ -10,7 +10,7 @@ img {
   width: 10rem;
   height: 10rem;
   border-radius: 10rem;
-}
+} */
 
 .container {
   position: relative;
@@ -24,11 +24,24 @@ img {
   z-index: -1;
 }
 
+div.home-img-container {
+  text-align: center;
+  border-bottom-left-radius: 11rem;
+  overflow: hidden;
+  border-bottom-right-radius: 11rem;
+}
+
+div.home-img-container img {
+  width: 17rem;
+  height: 24rem;
+}
+
+/*
 .img-fluid {
   max-width: 100%;
   height: auto;
   border-radius: 10rem;
-}
+} */
 
 h1 {
   font-size: 3rem;
@@ -68,24 +81,32 @@ p.btm-text {
   overflow: hidden;
 }
 
+@media screen and (max-width: 768px) {
+  /* span.dot {
+    height: 11rem;
+    width: 11rem;
+  } */
+}
+
 @media screen and (min-width: 768px) {
   .doctors-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-content: space-between;
+    gap: 1rem;
   }
 
   section.container {
     padding: 5rem 0;
   }
 
-  img {
-    width: 60%;
-    height: 60%;
-  }
+  /* img {
+    width: 85%;
+    height: 85%;
+  } */
 
-  span.dot {
-    height: 14rem;
-    width: 14rem;
-  }
+  /* span.dot {
+    height: 11rem;
+    width: 11rem;
+  } */
 }
