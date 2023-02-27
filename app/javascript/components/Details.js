@@ -12,7 +12,7 @@ import '../styles/Details.css';
 
 const Details = () => {
   const { id } = useParams();
-  const doctorObj = useSelector((state) => state.doctorsId.doctor);
+  const doctorObj = useSelector((state) => state.doctorsId.doctorsId);
   const dispatch = useDispatch();
 
   useEffect(() => {
