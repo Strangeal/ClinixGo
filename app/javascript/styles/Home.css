@@ -17,11 +17,11 @@ img {
 }
 
 .dot {
-  position: absolute; 
-  top: 60%; 
+  position: absolute;
+  top: 60%;
   left: 50%;
-  transform: translate(-50%, -50%); 
-  z-index: -1; 
+  transform: translate(-50%, -50%);
+  z-index: -1;
 }
 
 .img-fluid {
@@ -70,10 +70,10 @@ p.btm-text {
 
 @media screen and (min-width: 768px) {
   .doctors-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-content: space-between;
-}
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-between;
+  }
 
   section.container {
     padding: 5rem 0;
@@ -87,6 +87,5 @@ p.btm-text {
   span.dot {
     height: 14rem;
     width: 14rem;
-  };
-
+  }
 }
