@@ -26,7 +26,7 @@ export const registerUser = createAsyncThunk(
         },
       );
       const data = await response.json();
-      console.log("DATA>>>", data);
+      return data
     } catch (error) {
       throw thunkAPI.rejectWithValue(error.message)
     }
@@ -38,8 +38,6 @@ const initialState = {
     name: '',
     username: '',
     email: '',
-    gender: '',
-    age: '',
     password: '',
     pending: true,
     success: false,
@@ -53,7 +51,27 @@ const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {},
-  extraReducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(registerUser.pending, (state) => {
+        const newState = state.user;
+        newState.pending = true;
+        newState.error = false;
+      })
+      .addCase(registerUser.fulfilled, (state, action) =>{
+        let newState = state.user;
+        newState.pending = false;
+        newState.error = false;
+        newState = action.payload.user;
+      })
+      .addCase(registerUser.rejected, (state, action) => {
+        const newState = state.user;
+        newState.pending = false;
+        newState.error = true;
+        const err = action.payload.map((e) => e);
+        newState.errorMessage = err;
+      })
+  },
 });
 
 export const userSelector = (state) => state.user;
