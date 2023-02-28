@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import '../styles/App.css';
+import AddDoctor from './add-doctor/AddDoctor';
 import Demo from './Demo';
 import Details from './Details';
 import Homepage from './Homepage';
@@ -18,6 +19,7 @@ const App = () => (
           <Route path="/" element={<Homepage />} />
           <Route path="/demo" element={<Demo />} />
           <Route path="/details/:id" element={<Details />} />
+          <Route path="/add_doctor" element={<AddDoctor />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
