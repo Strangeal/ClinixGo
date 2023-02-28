@@ -43,12 +43,12 @@ div.home-img-container img {
   border-radius: 10rem;
 } */
 
-h1 {
+section.home h1 {
   font-size: 3rem;
   font-weight: 700;
 }
 
-p,
+section.home p,
 .dotted {
   font-size: 1rem;
   color: rgb(189, 188, 188);
