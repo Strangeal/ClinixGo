@@ -1,0 +1,128 @@
+/* Lemon green ---- #96bf01
+White
+text color ----- #191919 */
+
+.appointment-header {
+  font-size: 2rem;
+}
+
+.background-of-card {
+  border: 2px solid #f5f5f5;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+  left: -100%; /* start the card off the left side of the page */
+  animation: slide-in 1s forwards; /* run the animation for 1 second */
+}
+
+
+.background-of-card:nth-child(2) {
+  animation-delay: 0.4s; /* delay the animation of the second b.background-of-card by 0.2s */
+}
+
+.background-of-card:nth-child(3) {
+  animation-delay: 0.6s; /* delay the animation of the third card by 0.4s */
+}
+
+
+.background-of-card:hover {
+  border: 2px solid #96bf01;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  transition: background-color 400ms ease-in-out;
+  transition: border 400ms ease-in-out;
+}
+
+.card-image {
+  width: 20%;
+  height: 20%;
+  border-radius: 8rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 1rem;
+}
+
+.app-icons {
+  color: #96bf01;
+  font-size: 1.2rem;
+  margin: 0.5rem;
+}
+
+.appointments-section {
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sub-content {
+  display: flex;
+}
+
+@keyframes slide-in {
+  to {
+    left: 0; /* move the card to the center of the page */
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+
+  .appointment-header {
+    font-size: 3rem;
+  }
+
+  .background-of-card {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  
+  .background-of-card:hover {
+    flex-direction: row;
+  }
+  
+  .card-image {
+    width: 20%;
+    height: 20%;
+    border-radius: 8rem;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .app-icons {
+    color: #96bf01;
+    font-size: 1.5rem;
+    gap: 1rem;
+    margin: 1rem;
+  }
+  
+  .appointments-section {
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .sub-content {
+    display: flex;
+  }
+  
+}
