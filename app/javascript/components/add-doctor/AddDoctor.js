@@ -60,6 +60,18 @@ const AddDoctor = () => {
   const nextStep = () => {
     setStep(step + 1);
   };
+
+  const renderSwitch = () => {
+    switch (step) {
+      case 0:
+        return <PersonalInfo nextStep={nextStep} />;
+      case 1:
+        return <Availability prevStep={prevStep} nextStep={nextStep} />;
+      default:
+        return null;
+    }
+  };
+
     <section
       id="add-doctor"
       className="py-5 vh-lg-100 d-flex flex-column justify-content-center"
