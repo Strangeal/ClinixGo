@@ -14,6 +14,7 @@ h6 {
 div.doc-header p.doc-title {
   color: #6d8b00;
   margin-bottom: 0;
+  font-size: 0.7rem;
 }
 
 div.icon-div {
@@ -29,7 +30,9 @@ svg.line-chart {
 }
 
 .text-muted > span:nth-child(2) {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+  margin-top: 0.5rem;
 }
 
 div.d-flex:nth-child(2) > span:nth-child(2) {
@@ -50,9 +53,12 @@ div.image-sm img {
   width: 6rem;
 }
 
+div.about p {
+  font-size: 0.95rem;
+}
+
 .slide-in-fwd-left {
-  -webkit-animation:
-    slide-in-fwd-left 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+  -webkit-animation: slide-in-fwd-left 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)
     both;
   animation: slide-in-fwd-left 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
@@ -132,7 +138,11 @@ div.image-sm img {
 
 @media screen and (min-width: 768px) {
   img.doc-detail-img {
-    width: 22rem;
+    width: 17rem;
+  }
+
+  div.doc-header p.doc-title {
+    font-size: initial;
   }
 
   div.doc-card {
@@ -144,9 +154,15 @@ div.image-sm img {
 
   .text-muted > span:nth-child(2) {
     font-size: 1rem;
+    line-height: initial;
+    margin-top: initial;
   }
 
   div.d-flex:nth-child(2) > span:nth-child(2) {
+    font-size: initial;
+  }
+
+  div.about p {
     font-size: initial;
   }
 
