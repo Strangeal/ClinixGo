@@ -42,51 +42,6 @@ const Register = () => {
             </label>
           </div>
           <div className="mb-3">
-            <label htmlFor="ageFormControlInput" className="form-label">
-              Age
-              <input 
-                type="number"
-                className="form-control"
-                id="ageFormControlInput"
-                placeholder="Your Age"
-                name="age"
-              />
-            </label>
-          </div>
-          <div>
-            <p>Select Gender</p>
-            <div className="mb-3">
-            <label htmlFor="radioFormControlInput" className="form-label">
-              <input 
-                type="radio"
-                className="form-check-input"
-                value="male"
-              />
-               Male
-            </label>
-          </div>
-          <div className="mb-3">
-            <label htmlFor="radioFormControlInput" className="form-label">
-              <input 
-                type="radio"
-                className="form-check-input"
-                value="female"
-              />
-              Female
-            </label>
-          </div>
-          <div className="mb-3">
-            <label htmlFor="radioFormControlInput" className="form-label">
-              <input 
-                type="radio"
-                className="form-check-input"
-                value="non-binary"
-              />
-               Non-Binary
-            </label>
-          </div>
-          </div>
-          <div className="mb-3">
             <label htmlFor="passwordFormControlInput" className="form-label">
               Password
               <input 
