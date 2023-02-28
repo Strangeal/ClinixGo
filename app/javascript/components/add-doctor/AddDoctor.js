@@ -72,6 +72,7 @@ const AddDoctor = () => {
     }
   };
 
+  return (
     <section
       id="add-doctor"
       className="py-5 vh-lg-100 d-flex flex-column justify-content-center"
@@ -79,6 +80,29 @@ const AddDoctor = () => {
       <h1 className="mt-1 d-none d-lg-block text-center mt-lg-5">
         Add a Doctor
       </h1>
+      <div className="d-flex flex-column flex-lg-row justify-content-center align-items-center justify-content-lg-evenly w-100">
+        <div className="add-doc-img">
+          <img
+            src="https://res.cloudinary.com/dskl0qde4/image/upload/v1677582575/undraw_doctors_p6aq_tiqpge.svg"
+            alt="Doctor SVG"
+            className="img-fluid"
+          />
+        </div>
+        <h1 className="mt-1 d-lg-none">Add a Doctor</h1>
+
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={onSubmit}
+        >
+          {(props) => {
+            {
+              /* console.log(props); */
+            }
+            return <Form>{renderSwitch()}</Form>;
+          }}
+        </Formik>
+      </div>
     </section>
   );
 };
