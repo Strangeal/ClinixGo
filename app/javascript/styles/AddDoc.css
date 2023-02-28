@@ -1,0 +1,25 @@
+div.add-doc-img img {
+  width: 10rem;
+}
+
+@media screen and (min-width: 768px) {
+  section#add-doctor form {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  div.add-doc-img img {
+    width: 20rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  section#add-doctor form {
+    width: 30%;
+  }
+
+  div.add-doc-img img {
+    width: 25rem;
+  }
+}
