@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 import '../../styles/AddDoc.css';
 import Availability from './Availability';
 import PersonalInfo from './PersonalInfo';
+
 const initialValues = {
   name: '',
   email: '',
@@ -51,6 +52,14 @@ const validationSchema = Yup.object({
 });
 
 const AddDoctor = () => {
+  const [step, setStep] = useState(1);
+  const prevStep = () => {
+    setStep(step - 1);
+  };
+
+  const nextStep = () => {
+    setStep(step + 1);
+  };
     <section
       id="add-doctor"
       className="py-5 vh-lg-100 d-flex flex-column justify-content-center"
