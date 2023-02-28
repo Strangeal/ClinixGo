@@ -4,6 +4,8 @@ import '../styles/App.css';
 import Demo from './Demo';
 import Details from './Details';
 import NotFound from './NotFound';
+import Register from './Register';
+import Login from './Login';
 
 const App = () => (
   <div>
@@ -12,6 +14,8 @@ const App = () => (
     <Routes>
       <Route path="/demo" element={<Demo />} />
       <Route path="/details/:id" element={<Details />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/login" element={<Login />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </div>
