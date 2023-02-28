@@ -53,6 +53,11 @@ const validationSchema = Yup.object({
 
 const AddDoctor = () => {
   const [step, setStep] = useState(1);
+
+  const onSubmit = (values) => {
+    console.log(values);
+  };
+
   const prevStep = () => {
     setStep(step - 1);
   };
