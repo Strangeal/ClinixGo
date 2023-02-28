@@ -1,3 +1,24 @@
+/* eslint-disable import/no-extraneous-dependencies */
+import { Form, Formik } from 'formik';
+import moment from 'moment';
+import React, { useState } from 'react';
+import * as Yup from 'yup';
+import '../../styles/AddDoc.css';
+const initialValues = {
+  name: '',
+  email: '',
+  bio: '',
+  photo: '',
+  available_days: '',
+  specialities: '',
+  hospital: '',
+  start_time: '',
+  end_time: '',
+  phone: '',
+  reviews: 0,
+  ratings: 0,
+  patients: 0,
+};
 const AddDoctor = () => {
     <section
       id="add-doctor"
