@@ -53,14 +53,20 @@ export const loginUser = createAsyncThunk(
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            username,
-            password
+            user: {
+              username,
+              password
+            }
           }),
         },
       );
       const data = response.json();
-      console.log("DATALOGIN>>>", data)
-      return data;
+      if(data.response === 200){
+        localStorage.setItem("token", data.token);
+        return data;
+      }
+      const error = data.errors;
+      return thunkAPI.rejectWithValue(error);
     } catch (error) {
       throw thunkAPI.rejectWithValue(error.message);
     }
@@ -108,6 +114,28 @@ const userSlice = createSlice({
         newState.error = true;
         const err = action.payload.map((e) => e);
         newState.errorMessage = err;
+      })
+    builder
+      .addCase(loginUser.pending, (state) => {
+        const newState = state.user;
+        newState.pending = true;
+        newState.error = false;
+      })
+      .addCase(loginUser.fulfilled, (state, action) => {
+        const newState = state.user;
+        newState.pending = false;
+        newState.success = true;
+        newState.error = false;
+        newState.username = action.payload.user.username;
+        newState.message = action.payload.message;
+        return newState;
+      })
+      .addCase(loginUser.rejected, (state, action) => {
+        const newState = state.user;
+        newState.pending = false;
+        newState.error = true;
+        newState.errorMessage = action.payload.errors;
+        console.log("LOGINERROR>>>", action.payload)
       })
   },
 });
