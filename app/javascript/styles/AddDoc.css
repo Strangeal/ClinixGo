@@ -1,5 +1,30 @@
+@import 'primereact/resources/themes/lara-light-indigo/theme.css';
+@import 'primereact/resources/primereact.min.css';
+@import 'primeicons/primeicons.css';
+
+section#add-doctor {
+  width: 96%;
+}
+
 div.add-doc-img img {
   width: 10rem;
+}
+
+span.p-calendar {
+  width: 100%;
+}
+
+span.is-invalid input#start_time,
+span.is-invalid input#end_time {
+  border: 1px solid red;
+  color: red;
+}
+
+span.is-invalid input#start_time:focus,
+span.is-invalid input#end_time:focus {
+  border: 1px solid red;
+  color: red;
+  box-shadow: 0 0 0 0.2rem red;
 }
 
 @media screen and (min-width: 768px) {
@@ -9,12 +34,20 @@ div.add-doc-img img {
 }
 
 @media screen and (min-width: 992px) {
+  section#add-doctor {
+    width: 100%;
+  }
+
   div.add-doc-img img {
     width: 20rem;
   }
 }
 
 @media screen and (min-width: 1200px) {
+  section#add-doctor {
+    width: 85%;
+  }
+
   section#add-doctor form {
     width: 30%;
   }
