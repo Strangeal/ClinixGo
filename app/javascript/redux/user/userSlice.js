@@ -60,12 +60,12 @@ export const loginUser = createAsyncThunk(
           }),
         },
       );
-      const data = response.json();
-      if(data.response === 200){
+      const data = await response.json();
+      if(response.status === 200){
         localStorage.setItem("token", data.token);
         return data;
       }
-      const error = data.errors;
+      const error = data.error;
       return thunkAPI.rejectWithValue(error);
     } catch (error) {
       throw thunkAPI.rejectWithValue(error.message);
@@ -128,14 +128,12 @@ const userSlice = createSlice({
         newState.error = false;
         newState.username = action.payload.user.username;
         newState.message = action.payload.message;
-        return newState;
       })
       .addCase(loginUser.rejected, (state, action) => {
         const newState = state.user;
         newState.pending = false;
         newState.error = true;
-        newState.errorMessage = action.payload.errors;
-        console.log("LOGINERROR>>>", action.payload)
+        newState.errorMessage = action.payload;
       })
   },
 });

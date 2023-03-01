@@ -8,7 +8,9 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector(userSelector);
+  console.log("USER>>>", user)
   const { error, errorMessage, message, success } = user.user;
+  console.log("MESSAGE>>>", message)
   const [state, setState] = useState({
     username: '',
     password: ''
@@ -38,7 +40,7 @@ const Login = () => {
     if (error) {
       toast.error(errorMessage);
     }
-  }, [])
+  }, [error, errorMessage, success, message, navigate])
   return (
     <div className="container">
       <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
