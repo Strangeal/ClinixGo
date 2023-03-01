@@ -1,11 +1,12 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable import/no-extraneous-dependencies */
 import { Form, Formik } from 'formik';
-import moment from 'moment';
 import React, { useState } from 'react';
 import * as Yup from 'yup';
 import '../../styles/AddDoc.css';
 import Availability from './Availability';
 import PersonalInfo from './PersonalInfo';
+import Reviews from './Reviews';
 
 const initialValues = {
   name: '',
@@ -35,27 +36,23 @@ const validationSchema = Yup.object({
   specialities: Yup.string().required('Specialities is required'),
   hospital: Yup.string().required('Hospital name is required'),
   start_time: Yup.string().required('Start time is required'),
-  end_time: Yup.string()
-    .required('End time is required')
-    .test('is-greater', 'End Time must be greater', (value) => {
-      // eslint-disable-next-line camelcase
-      const { start_time } = this.parent;
-      return moment(value, 'HH:mm').isSameOrAfter(moment(start_time, 'HH:mm'));
-    }),
+  end_time: Yup.string().required('End time is required'),
   email: Yup.string()
     .email('Must be a valid email address')
     .required('Email is required'),
   phone: Yup.string().required('Phone is required'),
   reviews: Yup.number().required('Reviews is required'),
-  ratings: Yup.number().required('Ratings is required'),
+  rating: Yup.number().required('Ratings is required'),
   patients: Yup.number().required('Patients is required'),
+  experience: Yup.number().required('Years of experience is required'),
 });
 
 const AddDoctor = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(0);
+  const [days, setDays] = useState('');
 
   const onSubmit = (values) => {
-    console.log(values);
+    values.available_days = days;
   };
 
   const prevStep = () => {
@@ -71,7 +68,15 @@ const AddDoctor = () => {
       case 0:
         return <PersonalInfo nextStep={nextStep} />;
       case 1:
-        return <Availability prevStep={prevStep} nextStep={nextStep} />;
+        return (
+          <Availability
+            prevStep={prevStep}
+            nextStep={nextStep}
+            setDays={setDays}
+          />
+        );
+      case 2:
+        return <Reviews prevStep={prevStep} />;
       default:
         return null;
     }
@@ -80,9 +85,9 @@ const AddDoctor = () => {
   return (
     <section
       id="add-doctor"
-      className="py-5 vh-lg-100 d-flex flex-column justify-content-center"
+      className="py-5 py-lg-3 vh-lg-100 d-flex flex-column justify-content-center"
     >
-      <h1 className="mt-1 d-none d-lg-block text-center mt-lg-5">
+      <h1 className="mt-1 d-none d-lg-block text-center mb-lg-5">
         Add a Doctor
       </h1>
       <div className="d-flex flex-column flex-lg-row justify-content-center align-items-center justify-content-lg-evenly w-100">
@@ -100,12 +105,7 @@ const AddDoctor = () => {
           validationSchema={validationSchema}
           onSubmit={onSubmit}
         >
-          {(props) => {
-            {
-              /* console.log(props); */
-            }
-            return <Form>{renderSwitch()}</Form>;
-          }}
+          {() => <Form>{renderSwitch()}</Form>}
         </Formik>
       </div>
     </section>
