@@ -31,7 +31,6 @@ export const registerUser = createAsyncThunk(
         return data;
       }
       const errors = data.errors.map((error) => error);
-      console.log("ERRORS>>>", errors)
       return thunkAPI.rejectWithValue(errors);
     } catch (error) {
       throw thunkAPI.rejectWithValue(error.message)
@@ -78,7 +77,6 @@ const userSlice = createSlice({
         const newState = state.user;
         newState.pending = false;
         newState.error = true;
-        console.log("ERRORREDUCER>>>", action.payload)
         const err = action.payload.map((e) => e);
         newState.errorMessage = err;
       })

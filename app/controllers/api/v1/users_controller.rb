@@ -11,7 +11,7 @@ class Api::V1::UsersController < ApplicationController
       token = encode_token({ user_id: @user.id })
       render json: { user: @user, token:, message: 'User created' }, status: :created
     else
-      render json: @user.errors.full_messages, status: :unprocessable_entity, message: 'Sorry! Something went wrong'
+      render json: { errors: @user.errors.full_messages,  message: 'Sorry! Something went wrong' }, status: :unprocessable_entity
     end
   end
 

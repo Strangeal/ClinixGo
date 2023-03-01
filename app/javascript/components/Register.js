@@ -13,11 +13,9 @@ const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector(userSelector);
-  console.log("USER>>>", user)
   const {
     error, errorMessage, success, message,
   } = user.user;
-  console.log("Message>>>", message)
   const handleChange = (e) => {
     setState({
       ...state,
