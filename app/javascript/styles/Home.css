@@ -1,17 +1,3 @@
-/* span.dot {
-  height: 20rem;
-  width: 20rem;
-  background-color: #96bf011a;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-img {
-  width: 10rem;
-  height: 10rem;
-  border-radius: 10rem;
-} */
-
 .container {
   position: relative;
 }
@@ -35,13 +21,6 @@ div.home-img-container img {
   width: 17rem;
   height: 24rem;
 }
-
-/*
-.img-fluid {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10rem;
-} */
 
 h1 {
   font-size: 3rem;
@@ -81,14 +60,16 @@ p.btm-text {
   overflow: hidden;
 }
 
-@media screen and (max-width: 768px) {
-  /* span.dot {
-    height: 11rem;
-    width: 11rem;
-  } */
+@media screen and (min-width: 760px) {
+  .doctors-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    gap: 1rem;
+  }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1115px) {
   .doctors-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -99,14 +80,4 @@ p.btm-text {
   section.container {
     padding: 5rem 0;
   }
-
-  /* img {
-    width: 85%;
-    height: 85%;
-  } */
-
-  /* span.dot {
-    height: 11rem;
-    width: 11rem;
-  } */
 }
