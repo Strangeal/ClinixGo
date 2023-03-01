@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { registerUser, userSelector } from '../redux/user/userSlice';
 const Register = () => {
   const [state, setState] = useState({
@@ -10,7 +11,13 @@ const Register = () => {
     password: ''
   });
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const user = useSelector(userSelector);
+  console.log("USER>>>", user)
+  const {
+    error, errorMessage, success, message,
+  } = user.user;
+  console.log("Message>>>", message)
   const handleChange = (e) => {
     setState({
       ...state,
@@ -28,6 +35,18 @@ const Register = () => {
     }),
     );
   };
+
+  useEffect(() => {
+    if (success) {
+      toast.success(message);
+      navigate('/login');
+    }
+
+    if (error) {
+      const err = errorMessage.map((e) => e);
+      toast.error(err[0]);
+    }
+  }, [error, errorMessage, success, message, navigate]);
   return (
     <div className="container">
       <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">

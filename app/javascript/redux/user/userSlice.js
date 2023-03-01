@@ -26,7 +26,13 @@ export const registerUser = createAsyncThunk(
         },
       );
       const data = await response.json();
-      return data
+      if(response.status === 201){
+        localStorage.setItem('token', data.token);
+        return data;
+      }
+      const errors = data.errors.map((error) => error);
+      console.log("ERRORS>>>", errors)
+      return thunkAPI.rejectWithValue(errors);
     } catch (error) {
       throw thunkAPI.rejectWithValue(error.message)
     }
@@ -59,15 +65,20 @@ const userSlice = createSlice({
         newState.error = false;
       })
       .addCase(registerUser.fulfilled, (state, action) =>{
-        let newState = state.user;
+        const newState = state.user;
         newState.pending = false;
+        newState.success = true;
         newState.error = false;
-        newState = action.payload.user;
+        newState.name = action.payload.user.name;
+        newState.email = action.payload.user.email;
+        newState.username = action.payload.user.username;
+        newState.message = action.payload.message;
       })
       .addCase(registerUser.rejected, (state, action) => {
         const newState = state.user;
         newState.pending = false;
         newState.error = true;
+        console.log("ERRORREDUCER>>>", action.payload)
         const err = action.payload.map((e) => e);
         newState.errorMessage = err;
       })
