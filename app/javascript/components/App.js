@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/App.css';
-import Demo from './Demo';
+import Appointment from './Appointment';
 import Details from './Details';
 import NotFound from './NotFound';
 import Register from './Register';
@@ -17,7 +17,7 @@ const App = () => {
       {/* <h1 className="text-primary">Hello World!</h1> */}
   
       <Routes>
-        <Route path="/demo" element={<Demo />} />
+        <Route path="/appointment" element={<Appointment />} />
         <Route path="/details/:id" element={<Details />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />

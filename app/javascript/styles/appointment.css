@@ -1,0 +1,50 @@
+.form-content {
+  text-align: center;
+  padding: 2rem 1rem 0 1rem;
+}
+
+.appointment-img {
+  width: 30rem;
+}
+
+.form-content h2 {
+  font-weight: 700;
+}
+
+.form-content p {
+  color: #19191971;
+}
+
+.appointment-label {
+  font-size: 0.8rem;
+}
+
+.form-input {
+  border-bottom: 1px solid #ced4da;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+}
+
+.form-input:focus {
+  outline: none;
+}
+
+@media screen and (min-width: 768px) {
+  .form-content {
+    background-color: #f7f8fa;
+    padding: 0 1.5rem;
+    height: 100vh;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .form-content {
+    padding: 0 5rem;
+  }
+
+  .appointment-img {
+    width: 25rem;
+  }
+}
