@@ -26,7 +26,7 @@ export const registerUser = createAsyncThunk(
         },
       );
       const data = await response.json();
-      if(response.status === 201){
+      if (response.status === 201) {
         localStorage.setItem('token', data.token);
         return data;
       }
@@ -34,6 +34,35 @@ export const registerUser = createAsyncThunk(
       return thunkAPI.rejectWithValue(errors);
     } catch (error) {
       throw thunkAPI.rejectWithValue(error.message)
+    }
+  }
+);
+
+export const loginUser = createAsyncThunk(
+  'user/login',
+  async ({
+    username, password
+  }, thunkAPI) => {
+    try {
+      const response = await fetch(
+        `${myApi}/auth/login`,
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username,
+            password
+          }),
+        },
+      );
+      const data = response.json();
+      console.log("DATALOGIN>>>", data)
+      return data;
+    } catch (error) {
+      throw thunkAPI.rejectWithValue(error.message);
     }
   }
 );
@@ -63,7 +92,7 @@ const userSlice = createSlice({
         newState.pending = true;
         newState.error = false;
       })
-      .addCase(registerUser.fulfilled, (state, action) =>{
+      .addCase(registerUser.fulfilled, (state, action) => {
         const newState = state.user;
         newState.pending = false;
         newState.success = true;
