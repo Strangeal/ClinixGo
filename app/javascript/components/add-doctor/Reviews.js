@@ -16,7 +16,7 @@ const Reviews = ({ prevStep }) => (
         {({ field, meta }) => (
           <div>
             <input
-              id="rating"
+              id="experience"
               type="number"
               className={`form-control ${
                 meta.touched && meta.error ? 'is-invalid' : ''
@@ -32,14 +32,14 @@ const Reviews = ({ prevStep }) => (
     </div>
 
     <div className="mt-2 mb-3">
-      <label htmlFor="hospital" className="form-label">
+      <label htmlFor="ratings" className="form-label">
         Ratings
       </label>
-      <Field name="rating">
+      <Field name="ratings">
         {({ field, meta }) => (
           <div>
             <input
-              id="rating"
+              id="ratings"
               type="number"
               className={`form-control ${
                 meta.touched && meta.error ? 'is-invalid' : ''
@@ -47,7 +47,7 @@ const Reviews = ({ prevStep }) => (
               {...field}
             />
             <div className="text-danger">
-              <ErrorMessage name="rating" />
+              <ErrorMessage name="ratings" />
             </div>
           </div>
         )}
@@ -55,7 +55,7 @@ const Reviews = ({ prevStep }) => (
     </div>
 
     <div className="mt-2 mb-3">
-      <label htmlFor="hospital" className="form-label">
+      <label htmlFor="reviews" className="form-label">
         Reviews
       </label>
       <Field name="reviews">
@@ -78,7 +78,7 @@ const Reviews = ({ prevStep }) => (
     </div>
 
     <div className="mt-2 mb-3">
-      <label htmlFor="hospital" className="form-label">
+      <label htmlFor="patients" className="form-label">
         Number of Patients
       </label>
       <Field name="patients">
