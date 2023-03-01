@@ -8,9 +8,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector(userSelector);
-  console.log("USER>>>", user)
   const { error, errorMessage, message, success } = user.user;
-  console.log("MESSAGE>>>", message)
   const [state, setState] = useState({
     username: '',
     password: ''
