@@ -4,6 +4,7 @@ import { format } from 'date-fns';
 import { Form, Formik } from 'formik';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import { createDoc } from '../../redux/doctors/createDocSlice';
 import '../../styles/AddDoc.css';
@@ -54,6 +55,7 @@ const AddDoctor = () => {
   const [step, setStep] = useState(0);
   const [days, setDays] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onSubmit = (values) => {
     values.available_days = days;
@@ -78,9 +80,8 @@ const AddDoctor = () => {
       experience: values.experience,
     };
 
-    console.log(doctor);
-
     dispatch(createDoc(doctor));
+    navigate('/');
   };
 
   const prevStep = () => {

@@ -88,7 +88,7 @@ doc_4 = Doctor.create(
 
 doc_5 = Doctor.create(
   name: "Bruno Alvarez",
-  bio: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla, blanditiis qui provident doloribus pariatur nesciunt nisi ab excepturi aliquid eum. ",
+  bio: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla, blanditiis qui provident doloribus pariatur nesciunt nisi ab excepturi aliquid eum.",
   photo: "https://res.cloudinary.com/dskl0qde4/image/upload/v1677511768/photo-1622253692010-333f2da6031d-removebg-preview_aiaefb.png",
   available_days: "Monday - Friday",
   specialities: "Radiologist",
