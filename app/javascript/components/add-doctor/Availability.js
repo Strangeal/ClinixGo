@@ -4,11 +4,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/prop-types */
 import { ErrorMessage, Field } from 'formik';
+import { Calendar } from 'primereact/calendar';
 import React, { useCallback, useEffect, useState } from 'react';
 
-const Availability = ({ prevStep, nextStep }) => {
+const Availability = ({ prevStep, nextStep, setDays }) => {
   const [checked, setChecked] = useState([]);
-  const [days, setDays] = useState('');
   const availableDays = [
     'Monday',
     'Tuesday',
@@ -24,7 +24,7 @@ const Availability = ({ prevStep, nextStep }) => {
       ? checked.reduce((total, item) => `${total}, ${item}`)
       : '';
     setDays(checkedItems);
-  }, [checked]);
+  }, [checked, setDays]);
 
   const handleCheck = (e) => {
     const updatedList = [...checked];
@@ -39,8 +39,6 @@ const Availability = ({ prevStep, nextStep }) => {
   useEffect(() => {
     selectedDays();
   }, [checked, selectedDays]);
-
-  console.log(days);
 
   return (
     <section className="mt-3">
@@ -70,11 +68,34 @@ const Availability = ({ prevStep, nextStep }) => {
       </div>
 
       <div className="mt-2 mb-3">
-        <label htmlFor="available_days" className="form-label">
-          Select Available Days
-          <div className="form-check">
+        <label htmlFor="specialities" className="form-label">
+          Specialty
+        </label>
+        <Field name="specialities">
+          {({ field, meta }) => (
+            <div>
+              <input
+                id="specialities"
+                type="text"
+                className={`form-control ${
+                  meta.touched && meta.error ? 'is-invalid' : ''
+                }`}
+                {...field}
+              />
+              <div className="text-danger">
+                <ErrorMessage name="specialities" />
+              </div>
+            </div>
+          )}
+        </Field>
+      </div>
+
+      <div className="mt-2 mb-3">
+        <p className="mb-1">Select Available Days</p>
+        <div className="container-fluid">
+          <div className="form-check d-flex row">
             {availableDays.map((day, index) => (
-              <div key={index}>
+              <div key={index} className="col-6">
                 <input
                   className="form-check-input"
                   type="checkbox"
@@ -88,16 +109,54 @@ const Availability = ({ prevStep, nextStep }) => {
               </div>
             ))}
           </div>
-        </label>
+        </div>
       </div>
 
-      <div>{days}</div>
+      <div className="mt-4 mb-3">
+        <Field name="start_time">
+          {({ field, meta }) => (
+            <div>
+              <span className="p-float-label">
+                <Calendar
+                  inputId="start_time"
+                  {...field}
+                  hourFormat="12"
+                  timeOnly
+                  className={`${
+                    meta.touched && meta.error ? 'is-invalid' : ''
+                  }`}
+                />
+                <label htmlFor="start_time">Start Time</label>
+              </span>
+              <div className="text-danger">
+                <ErrorMessage name="start_time" />
+              </div>
+            </div>
+          )}
+        </Field>
+      </div>
 
-      <div className="mt-2 mb-3">
-        <Field name="available_days">
-          {({ field, meta }) => {
-            c
-          }}
+      <div className="mt-4 mb-3">
+        <Field name="end_time">
+          {({ field, meta }) => (
+            <div>
+              <span className="p-float-label">
+                <Calendar
+                  inputId="end_time"
+                  {...field}
+                  hourFormat="12"
+                  timeOnly
+                  className={`${
+                    meta.touched && meta.error ? 'is-invalid' : ''
+                  }`}
+                />
+                <label htmlFor="start_time">End Time</label>
+              </span>
+              <div className="text-danger">
+                <ErrorMessage name="end_time" />
+              </div>
+            </div>
+          )}
         </Field>
       </div>
 
