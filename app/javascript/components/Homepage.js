@@ -42,7 +42,8 @@ const Homepage = () => {
                 View more
               </Link>
             </div>
-          </div>
+            </div>
+            )}
         ))}
       </main>
     </section>
