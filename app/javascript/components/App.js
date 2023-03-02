@@ -11,11 +11,11 @@ import NotFound from './NotFound';
 
 const App = () => (
   <section className="container-fluid px-0">
-    <div className="row">
-      <div className="col-2">
+    <div className="app-row position-relative">
+      <div className="navigation">
         <Navbar />
       </div>
-      <div className="col-10">
+      <div className="main-routes">
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/demo" element={<Demo />} />
