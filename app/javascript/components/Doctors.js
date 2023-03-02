@@ -46,7 +46,7 @@ const Doctors = () => {
                 </td>
                 <td className="doc-date-data">{doctor.specialities}</td>
                 <td className="doc-status-data">
-                  <span>{doctor.status}</span>
+                  {doctor.active ? <span>active</span> : <span>disabled</span>}
                 </td>
 
                 <td className="">
