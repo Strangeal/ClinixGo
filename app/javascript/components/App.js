@@ -1,12 +1,12 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import '../styles/App.css';
-import Demo from './Demo';
-import Details from './Details';
-import Homepage from './Homepage';
-import Navbar from './Navbar';
-import NotFound from './NotFound';
-import AppointmentCards from './AppointmentCards';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import "../styles/App.css";
+import Demo from "./Demo";
+import Details from "./Details";
+import Homepage from "./Homepage";
+import Navbar from "./Navbar";
+import NotFound from "./NotFound";
+import AppointmentCards from "./AppointmentCards";
 
 const App = () => (
   <section className="container-fluid px-0">
