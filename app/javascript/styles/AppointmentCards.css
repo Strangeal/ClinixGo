@@ -22,7 +22,7 @@ text color ----- #191919 */
   align-items: center;
   position: relative;
   left: -100%;
-  animation: slide-in 2s forwards;
+  animation: slide-in 1.5s forwards;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   background-image: url(https://res.cloudinary.com/db3ckadxp/image/upload/v1677662695/undraw_booking_sousbo.svg);
