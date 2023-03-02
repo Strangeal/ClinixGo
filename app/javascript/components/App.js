@@ -4,6 +4,7 @@ import '../styles/App.css';
 import AddDoctor from './add-doctor/AddDoctor';
 import Demo from './Demo';
 import Details from './Details';
+import Doctors from './Doctors';
 import Homepage from './Homepage';
 import Navbar from './Navbar';
 import NotFound from './NotFound';
@@ -20,6 +21,7 @@ const App = () => (
           <Route path="/demo" element={<Demo />} />
           <Route path="/details/:id" element={<Details />} />
           <Route path="/add_doctor" element={<AddDoctor />} />
+          <Route path="/all_doctors" element={<Doctors />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
