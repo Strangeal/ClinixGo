@@ -61,12 +61,11 @@ const Doctors = () => {
     <div className="">{doctor.specialities}</div>
   );
 
-  const getStatus = (doctor) =>
-    doctor.active ? (
-      <Badge value="active" severity="success" />
-    ) : (
-      <Badge value="inactive" severity="danger" style={{ paddingTop: '2px' }} />
-    );
+  const getStatus = (doctor) => (doctor.active ? (
+    <Badge value="active" severity="success" />
+  ) : (
+    <Badge value="inactive" severity="danger" style={{ paddingTop: '2px' }} />
+  ));
 
   const getActions = (doctor) => (
     <div className="">
@@ -118,67 +117,8 @@ const Doctors = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // console.log(screenSize);
-
   return (
-    <section className="container-fluid doc-section">
-      {/* <div className="doc_container border">
-        <table className="table">
-          <thead className="container">
-            <tr className="">
-              <th scope="col">Basic Info</th>
-              <th scope="col" className="doc-date">
-                Specialities
-              </th>
-              <th scope="col" className="doc-status">
-                Status
-              </th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {doctors.map((doctor) => (
-              <tr key={doctor.id}>
-                <td className="doc-profile">
-                  <img
-                    className="doc-img img-fluid bg-secondary"
-                    src={doctor.photo}
-                    alt=""
-                  />
-                  <div className="doc-content">
-                    <p className="name">{doctor.name}</p>
-                    <p className="contact text-muted">{doctor.email}</p>
-                  </div>
-                </td>
-                <td className="doc-date-data">{doctor.specialities}</td>
-                <td className="doc-status-data">
-                  {doctor.active ? (
-                    <span className="badge rounded-pill bg-success">
-                      active
-                    </span>
-                  ) : (
-                    <span className="badge rounded-pill bg-danger">
-                      removed
-                    </span>
-                  )}
-                </td>
-
-                <td className="">
-                  <div className="flex justify-content-center">
-                    <InputSwitch
-                      checked={doctor.active}
-                      onChange={() => updateStatus(doctor)}
-                    />
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-
-        <div className="doc_profile" />
-      </div> */}
-
+    <section className="container-fluid doc-section mt-5">
       <div className="card">{renderTable()}</div>
     </section>
   );
