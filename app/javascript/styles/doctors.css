@@ -67,6 +67,10 @@ table tr .doc-profile {
     padding: 0.1rem 0.6rem;
   }
 
+  .p-datatable-tbody > tr:nth-child(1) > td:nth-child(3) {
+    width: 15rem !important;
+  }
+
   /* th.d-none {
     display: initial !important;
   } */

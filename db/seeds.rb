@@ -51,8 +51,7 @@ doc_2 = Doctor.create(
 
 doc_3 = Doctor.create(
   name: "Jenna Miles",
-  bio: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-  Pariatur repellendus cumque vero excepturi. Quis quibusdam,
+  bio: "Quis quibusdam,
   expedita sunt modi eaque enim possimus totam, rerum perferendis
   saepe nobis.",
   photo: "https://res.cloudinary.com/dskl0qde4/image/upload/v1677227659/assets/rvzpkwlpfiwtntpdxezk.png",
@@ -66,7 +65,8 @@ doc_3 = Doctor.create(
   reviews: 123,
   experience: 7,
   rating: 4.8,
-  patients: 67
+  patients: 67,
+  active: false
 )
 
 doc_4 = Doctor.create(

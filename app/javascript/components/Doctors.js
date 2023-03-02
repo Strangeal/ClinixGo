@@ -1,10 +1,10 @@
+import { Badge } from 'primereact/badge';
 import { Button } from 'primereact/button';
 import { Column } from 'primereact/column';
 import { DataTable } from 'primereact/datatable';
 import { InputSwitch } from 'primereact/inputswitch';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Badge } from 'primereact/badge';
 import { fetchDocData } from '../redux/doctors/doctorSlice';
 import { updateDocStatus } from '../redux/doctors/updateDocStatusSlice';
 import '../styles/doctors.css';
@@ -61,11 +61,12 @@ const Doctors = () => {
     <div className="">{doctor.specialities}</div>
   );
 
-  const getStatus = (doctor) => (doctor.active ? (
-    <Badge value="active" severity="success" />
-  ) : (
-    <Badge value="inactive" severity="danger" style={{ paddingTop: '2px' }} />
-  ));
+  const getStatus = (doctor) =>
+    doctor.active ? (
+      <Badge value="active" severity="success" />
+    ) : (
+      <Badge value="inactive" severity="danger" style={{ paddingTop: '2px' }} />
+    );
 
   const getActions = (doctor) => (
     <div className="">
@@ -85,11 +86,11 @@ const Doctors = () => {
         </DataTable>
       );
     }
-    if (screenSize >= 800 && screenSize < 840) {
+    if (screenSize > 800 && screenSize < 1200) {
       return (
         <DataTable value={doctors} header={header} stripedRows>
           <Column field="basic_info" header="Basic Info" body={basicInfo} />
-          <Column field="specialty" header="Specialty" body={getSpecialty} />
+          <Column field="status" header="Status" body={getStatus} />
           <Column field="action" header="Action" body={getActions} />
         </DataTable>
       );
