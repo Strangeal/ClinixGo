@@ -1,7 +1,7 @@
 class Api::V1::DoctorsController < ApplicationController
   skip_before_action :authenticate_request, only: %i[index show create update]
   def index
-    @doctors = Doctor.all
+    @doctors = Doctor.all.order(:created_at)
     render json: @doctors, status: :ok
   end
 
