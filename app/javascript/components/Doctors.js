@@ -45,6 +45,8 @@ const Doctors = () => {
                   </div>
                 </td>
                 <td className="doc-date-data">{doctor.specialities}</td>
+                <td className="doc-status-data">
+                  <span>{doctor.status}</span>
                 </td>
 
                 </td>
