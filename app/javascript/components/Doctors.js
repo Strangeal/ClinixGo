@@ -49,6 +49,13 @@ const Doctors = () => {
                   <span>{doctor.status}</span>
                 </td>
 
+                <td className="">
+                  <button
+                    type="button"
+                    className="doc-btn border-0 bg-transparent"
+                  >
+                    <TbTrashOff className="doc-trash text-center text-danger" />
+                  </button>
                 </td>
               </tr>
             ))}
