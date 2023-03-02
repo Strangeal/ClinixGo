@@ -43,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_091919) do
     t.integer "patients"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "status", default: "active"
+    t.boolean "active", default: true
   end
 
   create_table "users", force: :cascade do |t|
