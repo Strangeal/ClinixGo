@@ -8,7 +8,7 @@ import '../styles/AppointmentCards.css';
 const AppointmentCards = () => {
   return (
     <section className="container text-center appointments-section">
-      <div>
+      <div className="header-section">
       <h1 className="appointment-header">Appointments</h1>
         <h5 className="patient"><BsFillPersonFill className="app-icons" />Patient: Amir Khan</h5>
       </div>
