@@ -1,15 +1,17 @@
+/* stylelint-disable csstree/validator */
 .doc-content p {
   margin-bottom: 0;
   font-size: 0.9rem;
 }
 
-.doc-content .name{
+.doc-content .name {
   font-size: 0.8rem;
   font-weight: 600;
 }
 
-.doc-content .contact{
-  font-size: 0.7rem;}
+/* .doc-content .contact {
+  font-size: 0.7rem;
+} */
 
 .doc-img {
   width: 2.5rem;
@@ -19,40 +21,26 @@
 }
 
 table tr .doc-profile {
-  display: flex
+  display: flex;
+  align-items: center;
 }
 
-.doc-date,
-.doc-date-data {
-  display: none;
-  
-}
-
-.doc-status,
-.doc-status-data {
-  display: none;
-}
-
-table tbody .doc-status-data span {
-  color: #fff;
-  background-color: #96bf01;
-  padding: 0.1rem 1rem;
-  border-radius: 4px;
-}
-
-.doc-trash {
-  font-size: 1.5rem;
-}
-
-.doc_container {
+/* .doc_container {
   border-radius: 8px;
+} */
+
+@media screen and (max-width: 768px) {
+  .doc-content p:last-child {
+    font-size: 0.8rem;
+  }
+
+  .table-header {
+    font-size: 1.1rem;
+  }
 }
-
-
-
 
 @media screen and (min-width: 400px) {
-  .doc-content .name{
+  .doc-content .name {
     font-size: 1rem;
   }
 
@@ -63,18 +51,15 @@ table tbody .doc-status-data span {
 }
 
 @media screen and (min-width: 600px) {
-  .doc-content .name{
+  .doc-content .name {
     font-size: 1.2rem;
   }
-
 }
 
 @media screen and (min-width: 768px) {
-
   .doc-section {
     width: 90%;
     margin: auto;
-
   }
 
   .doc-img {
@@ -82,6 +67,7 @@ table tbody .doc-status-data span {
     padding: 0.1rem 0.6rem;
   }
 
+  /* th.d-none {
+    display: initial !important;
+  } */
 }
-
-
