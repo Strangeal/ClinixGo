@@ -23,7 +23,7 @@ doc_1 = Doctor.create(
   hospital: "St. Bonaventure Hospital",
   start_time: "08:00 AM",
   end_time: "09:00 PM",
-  email: "john.smith@gmail.com",
+  email: "justine.smith@gmail.com",
   phone: 1234567890,
   reviews: 123,
   experience: 7,
