@@ -1,13 +1,35 @@
+import { InputSwitch } from 'primereact/inputswitch';
 import React, { useEffect } from 'react';
-import { TbTrashOff } from 'react-icons/tb';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDocData } from '../redux/doctors/doctorSlice';
+import { updateDocStatus } from '../redux/doctors/updateDocStatusSlice';
 import '../styles/doctors.css';
 
 const Doctors = () => {
   const dispatch = useDispatch();
   const { doctors } = useSelector((state) => state.doctors);
-  console.log(doctors);
+
+  const updateStatus = (doctor) => {
+    if (doctor.active) {
+      const data = {
+        id: doctor.id,
+        doctor: {
+          active: false,
+        },
+      };
+      dispatch(updateDocStatus(data));
+      dispatch(fetchDocData());
+    } else {
+      const data = {
+        id: doctor.id,
+        doctor: {
+          active: true,
+        },
+      };
+      dispatch(updateDocStatus(data));
+      dispatch(fetchDocData());
+    }
+  };
 
   useEffect(() => {
     dispatch(fetchDocData());
@@ -50,12 +72,12 @@ const Doctors = () => {
                 </td>
 
                 <td className="">
-                  <button
-                    type="button"
-                    className="doc-btn border-0 bg-transparent"
-                  >
-                    <TbTrashOff className="doc-trash text-center text-danger" />
-                  </button>
+                  <div className="flex justify-content-center">
+                    <InputSwitch
+                      checked={doctor.active}
+                      onChange={() => updateStatus(doctor)}
+                    />
+                  </div>
                 </td>
               </tr>
             ))}
