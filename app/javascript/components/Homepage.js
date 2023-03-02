@@ -23,6 +23,7 @@ const Homepage = () => {
 
       <main className="doctors-container">
         {doctorsList.map((doctor) => (
+          {doctor.active && (
           <div className="mb-5" key={doctor.id}>
             <div className="home-img-container">
               <img src={doctor.photo} alt="doctor" />
