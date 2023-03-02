@@ -87,6 +87,10 @@ text color ----- #191919 */
   gap: 1rem;
 }
 
+.patient {
+    color: grey;
+}
+
 @keyframes slide-in {
   to {
     left: 0;
