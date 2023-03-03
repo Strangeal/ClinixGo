@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUser, userSelector } from '../redux/user/userSlice';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { loginUser, userSelector } from '../redux/user/userSlice';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -11,34 +11,36 @@ const Login = () => {
   const { error, errorMessage, message, success } = user.user;
   const [state, setState] = useState({
     username: '',
-    password: ''
+    password: '',
   });
 
   const handleChange = (e) => {
     setState({
       ...state,
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSubmit = () => {
     const { username, password } = state;
-    dispatch(loginUser({
-      username,
-      password
-    }))
-  }
+    dispatch(
+      loginUser({
+        username,
+        password,
+      })
+    );
+  };
 
   useEffect(() => {
     if (success) {
       toast.success(message);
-      navigate("/appointments");
+      navigate('/');
     }
 
     if (error) {
       toast.error(errorMessage);
     }
-  }, [error, errorMessage, success, message, navigate])
+  }, [error, errorMessage, success, message, navigate]);
   return (
     <div className="container">
       <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
@@ -72,7 +74,13 @@ const Login = () => {
             </label>
           </div>
           <div className="mb-3">
-            <button type="button" className="btn btn-primary" onClick={handleSubmit}>Login</button>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={handleSubmit}
+            >
+              Login
+            </button>
           </div>
         </form>
         <div className="mt-6">
@@ -86,7 +94,7 @@ const Login = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Login;
