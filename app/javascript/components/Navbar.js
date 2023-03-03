@@ -1,139 +1,122 @@
 import React from 'react';
-import { AiOutlineLogin } from 'react-icons/ai';
+import { useSelector } from 'react-redux';
+import { userSelector } from '../redux/user/userSlice';
 import { BsFillJournalBookmarkFill } from 'react-icons/bs';
 import { CgProfile } from 'react-icons/cg';
 import { FaHome } from 'react-icons/fa';
-import { MdBookmarkAdd } from 'react-icons/md';
-import { TiUserAddOutline, TiUserDeleteOutline } from 'react-icons/ti';
-import { Link, NavLink } from 'react-router-dom';
+import { IoMdContacts } from 'react-icons/io';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import '../styles/navbar.css';
 
-const Navbar = () => (
-  <nav className="position-fixed shadow">
-    <div className="nav-logo text-center my-3">
-      <Link to="/" className="logo">
-        <span className="fw-bold">Clinix</span>
-        Go
-      </Link>
-    </div>
+const Navbar = () => {
+  const data = useSelector(userSelector);
+  const navigate = useNavigate();
+  const { username } = data.user;
+  
+  // clears token from local storage then redirects to login page
+  const handleLogOut = () => {
+    localStorage.removeItem('token');
+    if(username){
+      window.location.reload(true)
+    }
 
-    <ul className="navbar-nav mt-5">
-      <li className="nav-item border">
-        <NavLink
-          to="/"
-          className={`nav-link d-flex flex-column align-items-center px-2 py-3 ${({
-            isActive,
-          }) => (isActive ? 'active' : '')}`}
-          data-bs-toggle="tooltip"
-          data-bs-placement="right"
-          data-bs-title="Tooltip on right"
-        >
-          <FaHome className="fs-4 nav-icon" />
-          <span className="d-none d-md-block">Doctors</span>
-        </NavLink>
-        <span className="tooltip-text">Doctors</span>
-      </li>
-      <li className="nav-item border">
-        <NavLink
-          to="/appointments"
-          className={`nav-link d-flex flex-column align-items-center px-2 py-3 ${({
-            isActive,
-          }) => (isActive ? 'active' : '')}`}
-        >
-          <BsFillJournalBookmarkFill className="fs-4 nav-icon" />
-          <span className="d-none d-md-block">My Appointments</span>
-        </NavLink>
-        <span className="tooltip-text">My Appointments</span>
-      </li>
-      <li className="nav-item border">
-        <NavLink
-          to="/demo"
-          className={`nav-link d-flex flex-column align-items-center px-2 py-3 ${({
-            isActive,
-          }) => (isActive ? 'active' : '')}`}
-        >
-          <MdBookmarkAdd className="fs-4 nav-icon" />
-          <span className="d-none d-md-block">Book Appointment</span>
-        </NavLink>
-        <span className="tooltip-text">Book Appointment</span>
-      </li>
-      <li className="nav-item border">
-        <NavLink
-          to="/add_doctor"
-          className={`nav-link d-flex flex-column align-items-center px-2 py-3 ${({
-            isActive,
-          }) => (isActive ? 'active' : '')}`}
-        >
-          <TiUserAddOutline className="fs-4 nav-icon" />
-          <span className="d-none d-md-block">Add Doctor</span>
-        </NavLink>
-        <span className="tooltip-text">Add Doctor</span>
-      </li>
-      <li className="nav-item border">
-        <NavLink
-          to="/all_doctors"
-          className={`nav-link d-flex flex-column align-items-center px-2 py-3 ${({
-            isActive,
-          }) => (isActive ? 'active' : '')}`}
-        >
-          <TiUserDeleteOutline className="fs-4 nav-icon" />
-          <span className="d-none d-md-block">Delete Doctor</span>
-        </NavLink>
-        <span className="tooltip-text">Delete Doctor</span>
-      </li>
-      <li className="nav-item border">
-        <NavLink
-          to="/login"
-          className={`nav-link d-flex flex-column align-items-center px-2 py-3 ${({
-            isActive,
-          }) => (isActive ? 'active' : '')}`}
-        >
-          <AiOutlineLogin className="fs-4 nav-icon" />
-          <span className="d-none d-md-block">Login</span>
-        </NavLink>
-        <span className="tooltip-text">Login</span>
-      </li>
-    </ul>
+    navigate('/login')
+  }
 
-    <div className="user-menu dropup-center dropup">
-      <div
-        className="d-flex justify-content-center align-items-center align-middle px-0 text-white dropdown-toggle"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-        style={{ cursor: 'pointer' }}
-      >
-        <CgProfile className="fs-3 nav-icon" />
-        <span className="current_username text-dark d-none d-md-inline mx-1">
-          Username
-        </span>
+  return (
+    <nav className="nav-bg-color position-fixed">
+      <div className="container-fluid px-0">
+        <div className="row flex-nowrap">
+          <div className="col-auto col-md-3 col-xl-3 mx-sm-auto mx-md-0">
+            <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white vh-100">
+              <NavLink
+                to="/demo"
+                className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white"
+              >
+                <span className="fs-5 d-none d-md-inline nav-brand-color">
+                  ClinixGo
+                </span>
+              </NavLink>
+              <ul className="nav flex-column md-sm-auto mb-0 align-items-center align-items-sm-start">
+                <li className="nav-item pb-2">
+                  <NavLink to="/" className="nav-link align-middle px-0">
+                    <FaHome className="fs-4 nav-icon" />
+                    <span className="sm-1 d-none px-md-2 d-md-inline">
+                      Doctors
+                    </span>
+                  </NavLink>
+                </li>
+                <li className="nav-item pb-2">
+                  <NavLink
+                    to="/appointments"
+                    className="nav-link align-middle px-0 d-flex p-0"
+                  >
+                    <BsFillJournalBookmarkFill className="fs-4 nav-icon" />
+                    <span className="sm-1 d-none px-md-2 d-md-inline">
+                      Appointments
+                    </span>
+                  </NavLink>
+                </li>
+                <li className="nav-item pb-2">
+                  <NavLink 
+                  className="nav-link align-middle px-0"
+                  to="/login"
+                  >
+                    <IoMdContacts className="fs-4 nav-icon" />
+                    <span className="sm-1 d-none px-md-2 d-md-inline">Login</span>
+                  </NavLink>
+                </li>
+                <li className="nav-item pb-2">
+                <NavLink className="nav-link align-middle px-0">
+                    <IoMdContacts className="fs-4 nav-icon" />
+                    <span className="sm-1 d-none px-md-2 d-md-inline">About</span>
+                  </NavLink>
+                </li>
+              </ul>
+
+              {/* Dropdown profile */}
+              <div className="dropdown pb-4 dropdown-nav">
+                <div
+                  className="d-flex align-items-center align-middle px-0 text-white dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  style={{ cursor: 'pointer' }}
+                >
+                  <CgProfile className="fs-3 nav-icon" />
+                  <span className="current_username d-none d-md-inline mx-1">
+                    {username !== '' ? `Logged in as ${username}` : "Not Logged In"}
+                  </span>
+                </div>
+
+                <ul
+                  className="dropdown-menu dropdown-menu-dark text-small shadow"
+                  aria-labelledby="dropdownUser"
+                >
+                  <li>
+                    <Link to="/new_appointment" className="dropdown-item">
+                      New Appointment
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item">Profile</Link>
+                  </li>
+                  <li>
+                    {' '}
+                    <hr className="dropdown-divider" />{' '}
+                  </li>
+                  <li>
+                    {
+                      username === '' ? <Link to="/login" className="dropdown-item">Login</Link>
+                      : <button className="dropdown-item" onClick={handleLogOut}>Sign out</button>
+                    }
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <ul
-        className="dropdown-menu dropdown-menu-dark text-small shadow"
-        aria-labelledby="dropdownUser"
-      >
-        <li>
-          <Link to="/new_appointment" className="dropdown-item">
-            New Appointment
-          </Link>
-        </li>
-        <li>
-          <Link to="/profile" className="dropdown-item">
-            Profile
-          </Link>
-        </li>
-        <li>
-          {' '}
-          <hr className="dropdown-divider" />
-          {' '}
-        </li>
-        <li>
-          <Link to="/sign_out" className="dropdown-item">
-            Sign out
-          </Link>
-        </li>
-      </ul>
-    </div>
-  </nav>
-);
+    </nav>
+  );
+};
 export default Navbar;
