@@ -22,7 +22,7 @@ const Homepage = () => {
       <p className="text-center dotted mb-5">................</p>
 
       <main className="doctors-container">
-        {/* {doctorsList.map((doctor) => { */}
+        {doctorsList.map((doctor) => {
         //  if(doctor.active === true) {
           return (
               <div className="mb-5" key={doctor.id}>
