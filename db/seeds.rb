@@ -24,7 +24,7 @@ doc_1 = Doctor.create(
   start_time: "08:00 AM",
   end_time: "09:00 PM",
   email: "justine.smith@gmail.com",
-  # active: true,
+  active: true,
   phone: 1234567890,
   reviews: 123,
   experience: 7,
