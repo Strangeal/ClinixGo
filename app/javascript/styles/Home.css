@@ -22,12 +22,12 @@ div.home-img-container img {
   height: 24rem;
 }
 
-h1 {
+section.home h1 {
   font-size: 3rem;
   font-weight: 700;
 }
 
-p,
+section.home p,
 .dotted {
   font-size: 1rem;
   color: rgb(189, 188, 188);
@@ -61,6 +61,15 @@ p.btm-text {
 }
 
 @media screen and (min-width: 768px) {
+  .doctors-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    gap: 1rem;
+  }
+}
+
+@media screen and (min-width: 1115px) {
   .doctors-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
