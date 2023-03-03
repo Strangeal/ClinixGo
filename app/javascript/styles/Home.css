@@ -22,13 +22,6 @@ div.home-img-container img {
   height: 24rem;
 }
 
-/*
-.img-fluid {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10rem;
-} */
-
 section.home h1 {
   font-size: 3rem;
   font-weight: 700;
@@ -67,7 +60,7 @@ p.btm-text {
   overflow: hidden;
 }
 
-@media screen and (min-width: 760px) {
+@media screen and (min-width: 768px) {
   .doctors-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

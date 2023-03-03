@@ -8,6 +8,7 @@ import Doctors from './Doctors';
 import Homepage from './Homepage';
 import Navbar from './Navbar';
 import NotFound from './NotFound';
+import AppointmentCards from "./AppointmentCards";
 
 const App = () => (
   <section className="container-fluid px-0">
@@ -19,6 +20,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/demo" element={<Demo />} />
+          <Route path="/appointments" element={<AppointmentCards />} />
           <Route path="/details/:id" element={<Details />} />
           <Route path="/add_doctor" element={<AddDoctor />} />
           <Route path="/all_doctors" element={<Doctors />} />
