@@ -22,28 +22,32 @@ const Homepage = () => {
       <p className="text-center dotted mb-5">................</p>
 
       <main className="doctors-container">
-        {doctorsList.map((doctor) => (
-          <div className="mb-5" key={doctor.id}>
-            <div className="home-img-container">
-              {/* <span className="dot" /> */}
-              <img src={doctor.photo} alt="doctor" />
-            </div>
-            <h3 className="text-center mt-3">{doctor.name}</h3>
+        {doctorsList.map((doctor) => {
+         if(doctor.active === true) {
+          return (
+              <div className="mb-5" key={doctor.id}>
+                <div className="home-img-container">
+                  <img src={doctor.photo} alt="doctor" />
+                </div>
+                <h3 className="text-center mt-3">{doctor.name}</h3>
 
-            <div className="bottom-container text-center">
-              <span className="dotted">................</span>
-              <p className="btm-text">{doctor.bio}</p>
-              <Link
-                to={`details/${doctor.id}`}
-                type="button"
-                className="btn btn-outline-success"
-              >
-                {' '}
-                View more
-              </Link>
+                <div className="bottom-container text-center">
+                  <span className="dotted">................</span>
+                  <p className="btm-text">{doctor.bio}</p>
+                  <Link
+                    to={`details/${doctor.id}`}
+                    type="button"
+                    className="btn btn-outline-success"
+                  >
+                    {' '}
+                    View more
+                  </Link>
+                </div>
             </div>
-          </div>
-        ))}
+          );
+         }
+          return null;
+        })}
       </main>
     </section>
   );
