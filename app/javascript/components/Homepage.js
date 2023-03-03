@@ -25,7 +25,6 @@ const Homepage = () => {
         {doctorsList.map((doctor) => (
           <div className="mb-5" key={doctor.id}>
             <div className="home-img-container">
-              {/* <span className="dot" /> */}
               <img src={doctor.photo} alt="doctor" />
             </div>
             <h3 className="text-center mt-3">{doctor.name}</h3>
