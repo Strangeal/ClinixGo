@@ -37,7 +37,7 @@ const Register = () => {
   useEffect(() => {
     if (success) {
       toast.success(message);
-      navigate('/appointment');
+      navigate('/appointments');
     }
 
     if (error) {
