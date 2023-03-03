@@ -46,7 +46,7 @@ const Homepage = () => {
             </div>
           );
           }
-        // })}
+        })}
       </main>
     </section>
   );
