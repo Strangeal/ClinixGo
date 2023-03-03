@@ -34,13 +34,12 @@ class Api::V1::DoctorsController < ApplicationController
   end
 
   private
-  
+
   def doctor_params
     params.require(:doctor).permit(:name, :bio, :photo, :available_days, :specialities, :hospital, :start_time, :end_time, :email, :phone, :reviews, :experience, :rating, :patients)
   end
-  
+
   def update_status
     params.require(:doctor).permit(:active)
   end
-
 end
