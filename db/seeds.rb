@@ -24,6 +24,7 @@ doc_1 = Doctor.create(
   start_time: "08:00 AM",
   end_time: "09:00 PM",
   email: "justine.smith@gmail.com",
+  active: true,
   phone: 1234567890,
   reviews: 123,
   experience: 7,
@@ -42,6 +43,7 @@ doc_2 = Doctor.create(
   start_time: "08:00 AM",
   end_time: "07:30 PM",
   email: "rodney.stilinsky@gmail.com",
+  active: true,
   phone: 1245367890,
   reviews: 456,
   experience: 14,
@@ -61,12 +63,12 @@ doc_3 = Doctor.create(
   start_time: "08:00 AM",
   end_time: "09:00 PM",
   email: "jenna.miles@gmail.com",
+  active: false,
   phone: 1234567890,
   reviews: 123,
   experience: 7,
   rating: 4.8,
-  patients: 67,
-  active: false
+  patients: 67
 )
 
 doc_4 = Doctor.create(
@@ -79,6 +81,7 @@ doc_4 = Doctor.create(
   start_time: "08:00 AM",
   end_time: "08:00 PM",
   email: "eunice.ramirez@gmail.com",
+  active: false,
   phone: 1234567890,
   reviews: 90,
   experience: 10,
@@ -96,6 +99,7 @@ doc_5 = Doctor.create(
   start_time: "08:00 AM",
   end_time: "09:00 PM",
   email: "bruno.alvarez@gmail.com",
+  active: false,
   phone: 1234567890,
   reviews: 23,
   experience: 5,
@@ -113,6 +117,7 @@ doc_6 = Doctor.create(
   start_time: "08:00 AM",
   end_time: "09:00 PM",
   email: "hugo.smith@gmail.com",
+  active: true,
   phone: 1234567890,
   reviews: 450,
   experience: 17,
