@@ -61,12 +61,11 @@ const Doctors = () => {
     <div className="">{doctor.specialities}</div>
   );
 
-  const getStatus = (doctor) =>
-    doctor.active ? (
-      <Badge value="active" severity="success" />
-    ) : (
-      <Badge value="inactive" severity="danger" style={{ paddingTop: '2px' }} />
-    );
+  const getStatus = (doctor) => (doctor.active ? (
+    <Badge value="active" severity="success" />
+  ) : (
+    <Badge value="inactive" severity="danger" style={{ paddingTop: '2px' }} />
+  ));
 
   const getActions = (doctor) => (
     <div className="">

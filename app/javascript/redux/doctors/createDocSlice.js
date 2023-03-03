@@ -7,7 +7,7 @@ const initialState = {
 };
 
 export const createDoc = createAsyncThunk(
-  'create/createDoc',
+  'create/createDoctor',
   async (payload, thunkAPI) => {
     try {
       const response = await axios.post(`${myApi}/doctors`, {
@@ -21,7 +21,7 @@ export const createDoc = createAsyncThunk(
 );
 
 const createDocSlice = createSlice({
-  name: 'createDoc',
+  name: 'newDoctor',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
