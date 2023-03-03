@@ -22,12 +22,19 @@ div.home-img-container img {
   height: 24rem;
 }
 
-h1 {
+/*
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10rem;
+} */
+
+section.home h1 {
   font-size: 3rem;
   font-weight: 700;
 }
 
-p,
+section.home p,
 .dotted {
   font-size: 1rem;
   color: rgb(189, 188, 188);

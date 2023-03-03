@@ -1,9 +1,11 @@
 import React from 'react';
-import demo from '../styles/demo.module.css';
+import '../styles/demo.module.css';
 
 const Demo = () => (
-  <div>
-    <p className={demo.Min}>demo</p>
+  <div className="container container-position">
+    <p className="row">demo</p>
+    {' '}
+    {/* d-flex justify-content-md-center */}
   </div>
 );
 

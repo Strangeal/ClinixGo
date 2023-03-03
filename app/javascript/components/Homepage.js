@@ -13,7 +13,7 @@ const Homepage = () => {
   }, [dispatch]);
 
   return (
-    <section className="mt-4 main-container">
+    <section className="home mt-4 main-container">
       <div>
         <h1 className="text-center">Oncall Doctors</h1>
         <p className="text-center sub-header">Please choose a specialist</p>
