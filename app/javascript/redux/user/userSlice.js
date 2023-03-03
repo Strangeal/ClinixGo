@@ -73,12 +73,37 @@ export const loginUser = createAsyncThunk(
   }
 );
 
+export const fetchUserByToken = createAsyncThunk(
+  "user/fetchUserByToken",
+  async({token}, thunkAPI) => {
+    try {
+      const response = await fetch(
+        `${myApi}/users`,
+        {
+          method:'GET',
+            headers: {
+              Accept: "application/json",
+              Authorization:token,
+              "Content-Type": "application/json",
+            },
+        }
+      )
+      let data = await response.json();
+      console.log('DATAUSERTOKEN>>>', data, response.status)
+      return {...data}
+    } catch (error) {
+      throw thunkAPI.rejectWithValue(error.message)
+    }
+  }
+);
+
 const initialState = {
   user: {
     name: '',
     username: '',
     email: '',
     password: '',
+    userInfo: null,
     pending: true,
     success: false,
     error: false,
@@ -103,6 +128,7 @@ const userSlice = createSlice({
         newState.pending = false;
         newState.success = true;
         newState.error = false;
+        newState.userInfo = action.payload;
         newState.name = action.payload.user.name;
         newState.email = action.payload.user.email;
         newState.username = action.payload.user.username;
@@ -126,6 +152,7 @@ const userSlice = createSlice({
         newState.pending = false;
         newState.success = true;
         newState.error = false;
+        newState.userInfo = action.payload;
         newState.username = action.payload.user.username;
         newState.message = action.payload.message;
       })
@@ -134,6 +161,26 @@ const userSlice = createSlice({
         newState.pending = false;
         newState.error = true;
         newState.errorMessage = action.payload;
+      })
+    builder
+      .addCase(fetchUserByToken.pending, (state) => {
+        const newState = state.user;
+        newState.pending = true;
+        newState.error = false;
+      })
+      .addCase(fetchUserByToken.fulfilled, (state, { payload }) => {
+        const newState = state.user;
+        newState.pending = false;
+        newState.error = false;
+        newState.success = true;
+        newState.name = payload[0].name;
+        newState.email = payload[0].email;
+        newState.username = payload[0].username;
+      })
+      .addCase(fetchUserByToken.rejected, (state, { payload }) => {
+        const newState = state.user;
+        newState.pending = false;
+        newState.error = true;
       })
   },
 });
