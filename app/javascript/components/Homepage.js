@@ -45,7 +45,8 @@ const Homepage = () => {
                 </div>
             </div>
           );
-          }
+         }
+          return null;
         })}
       </main>
     </section>
