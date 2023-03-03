@@ -75,3 +75,17 @@ table tr .doc-profile {
     display: initial !important;
   } */
 }
+
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+  th.status-col {
+    width: 15rem;
+  }
+
+  th.status-col div {
+    justify-content: center;
+  }
+
+  .p-datatable .p-datatable-tbody > tr > td {
+    text-align: center;
+  }
+}

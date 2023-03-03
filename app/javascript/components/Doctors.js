@@ -61,11 +61,12 @@ const Doctors = () => {
     <div className="">{doctor.specialities}</div>
   );
 
-  const getStatus = (doctor) => (doctor.active ? (
-    <Badge value="active" severity="success" />
-  ) : (
-    <Badge value="inactive" severity="danger" style={{ paddingTop: '2px' }} />
-  ));
+  const getStatus = (doctor) =>
+    doctor.active ? (
+      <Badge value="active" severity="success" />
+    ) : (
+      <Badge value="inactive" severity="danger" style={{ paddingTop: '2px' }} />
+    );
 
   const getActions = (doctor) => (
     <div className="">
@@ -89,8 +90,18 @@ const Doctors = () => {
       return (
         <DataTable value={doctors} header={header} stripedRows>
           <Column field="basic_info" header="Basic Info" body={basicInfo} />
-          <Column field="status" header="Status" body={getStatus} />
-          <Column field="action" header="Action" body={getActions} />
+          <Column
+            field="status"
+            header="Status"
+            body={getStatus}
+            className="status-col"
+          />
+          <Column
+            field="action"
+            header="Action"
+            body={getActions}
+            className="status-col"
+          />
         </DataTable>
       );
     }
