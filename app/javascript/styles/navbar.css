@@ -1,25 +1,75 @@
 /* Lemon green ---- #96bf01
 White
 text color ----- #191919 */
-.nav-bg-color {
-  box-shadow: 0 0 3px 2px #ede7e7;
-  z-index: 99;
-}
-
-.nav-brand-color {
-  color: #96bf01;
-}
-
-.nav-link,
-.current_username {
-  color: #191919;
-}
 
 .nav-icon {
   color: #96bf01;
 }
 
-.dropdown-nav {
+nav {
+  width: inherit !important;
+  height: 100%;
+  z-index: 99;
+}
+
+div.nav-logo a.logo {
+  color: #96bf01;
+  text-decoration: none;
+}
+
+.active .nav-icon {
+  color: #fff;
+}
+
+li.nav-item {
+  position: relative;
+}
+
+li.nav-item .tooltip-text {
+  visibility: hidden;
+  width: 120px;
+  font-size: 0.8rem;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
   position: absolute;
-  bottom: 0;
+  z-index: 1;
+  top: 0.6rem;
+  right: -8rem;
+}
+
+li.nav-item:hover .tooltip-text {
+  visibility: visible;
+}
+
+li.nav-item a:hover {
+  background-color: #96bf01;
+}
+
+li.nav-item a:hover .nav-icon {
+  color: #fff;
+}
+
+.active {
+  background-color: #96bf01;
+}
+
+div.user-menu {
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  div.nav-logo a.logo {
+    font-size: 1.5rem;
+  }
+
+  li.nav-item .tooltip-text {
+    display: none;
+  }
 }

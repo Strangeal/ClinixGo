@@ -1,7 +1,3 @@
-/* Lemon green ---- #96bf01
-White
-text color ----- #191919 */
-
 .appointment-header {
   font-size: 2rem;
 }
@@ -96,6 +92,15 @@ text color ----- #191919 */
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
+  }
+
+  .background-of-card {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .background-of-card:hover {
+    flex-direction: row;
   }
 }
 
