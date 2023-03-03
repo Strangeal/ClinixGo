@@ -45,7 +45,7 @@ const Homepage = () => {
                 </div>
             </div>
           );
-          // }
+          }
         // })}
       </main>
     </section>
