@@ -23,7 +23,7 @@ const Homepage = () => {
 
       <main className="doctors-container">
         {doctorsList.map((doctor) => {
-        //  if(doctor.active === true) {
+         if(doctor.active === true) {
           return (
               <div className="mb-5" key={doctor.id}>
                 <div className="home-img-container">
