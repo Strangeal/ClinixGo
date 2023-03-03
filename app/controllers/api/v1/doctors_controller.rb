@@ -36,7 +36,7 @@ class Api::V1::DoctorsController < ApplicationController
   private
 
   def doctor_params
-    params.require(:doctor).permit(:name, :bio, :photo, :available_days, :specialities, :hospital, :start_time, :end_time, :email, :phone, :reviews, :experience, :rating, :patients)
+    params.require(:doctor).permit(:name, :bio, :photo, :available_days, :specialities, :hospital, :start_time, :end_time, :email, :phone, :reviews, :experience, :rating, :patients, :active)
   end
 
   def update_status
