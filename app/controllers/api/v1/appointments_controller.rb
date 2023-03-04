@@ -1,7 +1,9 @@
 class Api::V1::AppointmentsController < ApplicationController
+  load_and_authorize_resource
+
   def index
-    appointments = current_user.appointments
-    render json: appointments, status: :ok
+    @appointments = current_user.appointments
+    render json: @appointments, status: :ok
   end
 
   def create

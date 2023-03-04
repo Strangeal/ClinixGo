@@ -1,5 +1,6 @@
 class Api::V1::DoctorsController < ApplicationController
-  skip_before_action :authenticate_request, only: %i[index show create update]
+  load_and_authorize_resource
+  skip_before_action :authenticate_request, only: %i[index show update]
   def index
     @doctors = Doctor.all.order(:created_at)
     render json: @doctors, status: :ok
