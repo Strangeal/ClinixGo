@@ -1,71 +1,76 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import myApi from '../myApi';
 
 export const registerUser = createAsyncThunk(
   'user/register',
-  async ({
-    name, username, email, password,
-  }, thunkAPI) => {
+  async ({ name, username, email, password }, thunkAPI) => {
     try {
-      const response = await fetch(
-        `${myApi}/users`,
-        {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            user: {
-              name,
-              username,
-              email,
-              password,
-            },
-          }),
+      const response = await fetch(`${myApi}/users`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
         },
-      );
+        body: JSON.stringify({
+          user: {
+            name,
+            username,
+            email,
+            password,
+          },
+        }),
+      });
       const data = await response.json();
       if (response.status === 201) {
+        const user = {
+          name: data.user.name,
+          username: data.user.username,
+          email: data.user.email,
+        };
+        const userData = JSON.stringify(user);
+        localStorage.setItem('currentUser', userData);
         localStorage.setItem('token', data.token);
         return data;
       }
       const errors = data.errors.map((error) => error);
       return thunkAPI.rejectWithValue(errors);
     } catch (error) {
-      throw thunkAPI.rejectWithValue(error.message)
+      throw thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
 export const loginUser = createAsyncThunk(
   'user/login',
-  async ({
-    username, password
-  }, thunkAPI) => {
+  async ({ username, password }, thunkAPI) => {
     try {
-      const response = await fetch(
-        `${myApi}/auth/login`,
-        {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            user: {
-              username,
-              password
-            }
-          }),
+      const response = await fetch(`${myApi}/auth/login`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
         },
-      );
+        body: JSON.stringify({
+          user: {
+            username,
+            password,
+          },
+        }),
+      });
       const data = await response.json();
-      if(response.status === 200){
-        localStorage.setItem("token", data.token);
+      if (response.status === 200) {
+        const user = {
+          name: data.user.name,
+          username: data.user.username,
+          email: data.user.email,
+        };
+        console.log(user);
+        const userData = JSON.stringify(user);
+        localStorage.setItem('currentUser', userData);
+        localStorage.setItem('token', data.token);
         return data;
       }
-      const error = data.error;
+      const { error } = data;
       return thunkAPI.rejectWithValue(error);
     } catch (error) {
       throw thunkAPI.rejectWithValue(error.message);
@@ -114,7 +119,7 @@ const userSlice = createSlice({
         newState.error = true;
         const err = action.payload.map((e) => e);
         newState.errorMessage = err;
-      })
+      });
     builder
       .addCase(loginUser.pending, (state) => {
         const newState = state.user;
@@ -134,9 +139,15 @@ const userSlice = createSlice({
         newState.pending = false;
         newState.error = true;
         newState.errorMessage = action.payload;
-      })
+      });
   },
 });
 
 export const userSelector = (state) => state.user;
+
+export const currentUser = () => {
+  const user = localStorage.getItem('currentUser');
+  return JSON.parse(user);
+};
 export default userSlice.reducer;
+
