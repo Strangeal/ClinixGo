@@ -1,0 +1,44 @@
+.log-container .form-group {
+  width: -webkit-fill-available;
+}
+
+.log-img {
+  width:15rem;
+}
+
+@media screen and (min-width: 400px) {
+  .log-container {
+    margin: 0 2rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .log-container {
+    margin: 0 4rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .log-section {
+    padding: 0;
+  }
+  .log-container {
+    margin: 0;
+  }
+
+  .log-img {
+    width:22rem;
+  }
+
+  .login-content {
+    background-color: #f7f8fa;
+    padding: 0 1.5rem;
+    height: 100vh;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .log-form {
+    padding: 0 4rem;
+  }
+}
