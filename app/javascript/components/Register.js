@@ -1,20 +1,23 @@
-import React, { useState, useEffect } from "react";
-import { toast } from "react-toastify";
-import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import { registerUser, userSelector } from "../redux/user/userSlice";
-import "../styles/login.css";
+import React, { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { registerUser, userSelector } from '../redux/user/userSlice';
+import '../styles/login.css';
+
 const Register = () => {
   const [state, setState] = useState({
-    name: "",
-    email: "",
-    username: "",
-    password: "",
+    name: '',
+    email: '',
+    username: '',
+    password: '',
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector(userSelector);
-  const { error, errorMessage, success, message } = user.user;
+  const {
+    error, errorMessage, success, message,
+  } = user.user;
   const handleChange = (e) => {
     setState({
       ...state,
@@ -23,21 +26,23 @@ const Register = () => {
   };
 
   const handleSubmit = () => {
-    const { name, email, username, password } = state;
+    const {
+      name, email, username, password,
+    } = state;
     dispatch(
       registerUser({
         name,
         email,
         username,
         password,
-      })
+      }),
     );
   };
 
   useEffect(() => {
     if (success) {
       toast.success(message);
-      navigate("/");
+      navigate('/');
     }
 
     if (error) {

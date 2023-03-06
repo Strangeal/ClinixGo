@@ -3,26 +3,26 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/prop-types */
-import { ErrorMessage, Field } from "formik";
-import { Calendar } from "primereact/calendar";
-import React, { useCallback, useEffect, useState } from "react";
+import { ErrorMessage, Field } from 'formik';
+import { Calendar } from 'primereact/calendar';
+import React, { useCallback, useEffect, useState } from 'react';
 
 const Availability = ({ prevStep, nextStep, setDays }) => {
   const [checked, setChecked] = useState([]);
   const availableDays = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday',
   ];
 
   const selectedDays = useCallback(() => {
     const checkedItems = checked.length
       ? checked.reduce((total, item) => `${total}, ${item}`)
-      : "";
+      : '';
     setDays(checkedItems);
   }, [checked, setDays]);
 
@@ -55,7 +55,7 @@ const Availability = ({ prevStep, nextStep, setDays }) => {
                 id="hospital"
                 type="text"
                 className={`form-control ${
-                  meta.touched && meta.error ? "is-invalid" : ""
+                  meta.touched && meta.error ? 'is-invalid' : ''
                 }`}
                 {...field}
               />
@@ -78,7 +78,7 @@ const Availability = ({ prevStep, nextStep, setDays }) => {
                 id="specialities"
                 type="text"
                 className={`form-control ${
-                  meta.touched && meta.error ? "is-invalid" : ""
+                  meta.touched && meta.error ? 'is-invalid' : ''
                 }`}
                 {...field}
               />
@@ -123,7 +123,7 @@ const Availability = ({ prevStep, nextStep, setDays }) => {
                   hourFormat="12"
                   timeOnly
                   className={`${
-                    meta.touched && meta.error ? "is-invalid" : ""
+                    meta.touched && meta.error ? 'is-invalid' : ''
                   }`}
                 />
                 <label htmlFor="start_time">Start Time</label>
@@ -147,7 +147,7 @@ const Availability = ({ prevStep, nextStep, setDays }) => {
                   hourFormat="12"
                   timeOnly
                   className={`${
-                    meta.touched && meta.error ? "is-invalid" : ""
+                    meta.touched && meta.error ? 'is-invalid' : ''
                   }`}
                 />
                 <label htmlFor="start_time">End Time</label>

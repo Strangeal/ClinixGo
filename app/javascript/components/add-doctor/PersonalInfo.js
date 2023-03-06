@@ -2,8 +2,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/prop-types */
-import { ErrorMessage, Field } from "formik";
-import React from "react";
+import { ErrorMessage, Field } from 'formik';
+import React from 'react';
 
 const PersonalInfo = ({ nextStep }) => (
   <section className="mt-3">
@@ -19,7 +19,7 @@ const PersonalInfo = ({ nextStep }) => (
               id="name"
               type="text"
               className={`form-control ${
-                meta.touched && form.errors.name ? "is-invalid" : ""
+                meta.touched && form.errors.name ? 'is-invalid' : ''
               }`}
               {...field}
             />
@@ -40,7 +40,7 @@ const PersonalInfo = ({ nextStep }) => (
             <input
               id="email"
               className={`form-control ${
-                meta.touched && form.errors.email ? "is-invalid" : ""
+                meta.touched && form.errors.email ? 'is-invalid' : ''
               }`}
               {...field}
             />
@@ -61,7 +61,7 @@ const PersonalInfo = ({ nextStep }) => (
             <input
               id="photo"
               className={`form-control ${
-                meta.touched && form.errors.photo ? "is-invalid" : ""
+                meta.touched && form.errors.photo ? 'is-invalid' : ''
               }`}
               {...field}
               placeholder="Input URL to image"
@@ -83,7 +83,7 @@ const PersonalInfo = ({ nextStep }) => (
             <input
               id="phone"
               className={`form-control ${
-                meta.touched && form.errors.phone ? "is-invalid" : ""
+                meta.touched && form.errors.phone ? 'is-invalid' : ''
               }`}
               {...field}
             />
@@ -104,7 +104,7 @@ const PersonalInfo = ({ nextStep }) => (
             <textarea
               id="bio"
               className={`form-control ${
-                meta.touched && form.errors.bio ? "is-invalid" : ""
+                meta.touched && form.errors.bio ? 'is-invalid' : ''
               }`}
               {...field}
             />

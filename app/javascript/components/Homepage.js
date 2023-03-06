@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { fetchDocData } from "../redux/doctors/doctorSlice";
-import "../styles/Home.css";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { fetchDocData } from '../redux/doctors/doctorSlice';
+import '../styles/Home.css';
 
 const Homepage = () => {
   const dispatch = useDispatch();
@@ -39,7 +39,7 @@ const Homepage = () => {
                     type="button"
                     className="btn btn-outline-success"
                   >
-                    {" "}
+                    {' '}
                     View more
                   </Link>
                 </div>
