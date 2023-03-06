@@ -11,7 +11,12 @@ export const fetchAppointData = createAsyncThunk(
   'appointments/fetchAppointData',
   async (thunkAPI) => {
     try {
-      const response = await axios.get(`${myApi}/appointments`);
+      const response = await axios.get(`${myApi}/appointments`, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        }
+      });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
