@@ -33,20 +33,20 @@ const Reviews = ({ prevStep }) => (
     <div className="mt-2 mb-3">
       <label htmlFor="ratings" className="form-label">
         Ratings
-      <Field name="ratings">
-        {({ field, meta }) => (
-          <div>
-            <input
-              id="ratings"
-              type="number"
-              className={`form-control ${
-                meta.touched && meta.error ? 'is-invalid' : ''
-              }`}
-              value={field.value}
-              onChange={field.onChange}
-            />
-            <div className="text-danger">
-              <ErrorMessage name="ratings" />
+        <Field name="ratings">
+          {({ field, meta }) => (
+            <div>
+              <input
+                id="ratings"
+                type="number"
+                className={`form-control ${
+                  meta.touched && meta.error ? 'is-invalid' : ''
+                }`}
+                value={field.value}
+                onChange={field.onChange}
+              />
+              <div className="text-danger">
+                <ErrorMessage name="ratings" />
               </div>
             </div>
           )}
@@ -57,21 +57,21 @@ const Reviews = ({ prevStep }) => (
     <div className="mt-2 mb-3">
       <label htmlFor="reviews" className="form-label">
         Reviews
-      <Field name="reviews">
-        {({ field, meta }) => (
-          <div>
-            <input
-              id="reviews"
-              type="number"
-              className={`form-control ${
-                meta.touched && meta.error ? 'is-invalid' : ''
-              }`}
-              value={field.value}
-              onChange={field.onChange}
-            />
-            <div className="text-danger">
-              <ErrorMessage name="reviews" />
-            </div>
+        <Field name="reviews">
+          {({ field, meta }) => (
+            <div>
+              <input
+                id="reviews"
+                type="number"
+                className={`form-control ${
+                  meta.touched && meta.error ? 'is-invalid' : ''
+                }`}
+                value={field.value}
+                onChange={field.onChange}
+              />
+              <div className="text-danger">
+                <ErrorMessage name="reviews" />
+              </div>
             </div>
           )}
         </Field>
@@ -81,21 +81,21 @@ const Reviews = ({ prevStep }) => (
     <div className="mt-2 mb-3">
       <label htmlFor="patients" className="form-label">
         Number of Patients
-      <Field name="patients">
-        {({ field, meta }) => (
-          <div>
-            <input
-              id="patients"
-              type="number"
-              className={`form-control ${
-                meta.touched && meta.error ? 'is-invalid' : ''
-              }`}
-              value={field.value}
-              onChange={field.onChange}
-            />
-            <div className="text-danger">
-              <ErrorMessage name="patients" />
-            </div>
+        <Field name="patients">
+          {({ field, meta }) => (
+            <div>
+              <input
+                id="patients"
+                type="number"
+                className={`form-control ${
+                  meta.touched && meta.error ? 'is-invalid' : ''
+                }`}
+                value={field.value}
+                onChange={field.onChange}
+              />
+              <div className="text-danger">
+                <ErrorMessage name="patients" />
+              </div>
             </div>
           )}
         </Field>

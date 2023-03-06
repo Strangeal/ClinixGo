@@ -43,21 +43,21 @@ const Availability = ({ prevStep, nextStep, setDays }) => {
       <div className="mt-2 mb-3">
         <label htmlFor="hospital" className="form-label">
           Hospital
-        </label>
-        <Field name="hospital">
-          {({ field, meta }) => (
-            <div>
-              <input
-                id="hospital"
-                type="text"
-                className={`form-control ${
-                  meta.touched && meta.error ? 'is-invalid' : ''
-                }`}
-                value={field.value}
-                onChange={field.onChange}
-              />
-              <div className="text-danger">
-                <ErrorMessage name="hospital" />
+          <Field name="hospital">
+            {({ field, meta }) => (
+              <div>
+                <input
+                  id="hospital"
+                  type="text"
+                  className={`form-control ${
+                    meta.touched && meta.error ? 'is-invalid' : ''
+                  }`}
+                  value={field.value}
+                  onChange={field.onChange}
+                />
+                <div className="text-danger">
+                  <ErrorMessage name="hospital" />
+                </div>
               </div>
             )}
           </Field>
@@ -67,21 +67,21 @@ const Availability = ({ prevStep, nextStep, setDays }) => {
       <div className="mt-2 mb-3">
         <label htmlFor="specialities" className="form-label">
           Specialty
-        </label>
-        <Field name="specialities">
-          {({ field, meta }) => (
-            <div>
-              <input
-                id="specialities"
-                type="text"
-                className={`form-control ${
-                  meta.touched && meta.error ? 'is-invalid' : ''
-                }`}
-                value={field.value}
-                onChange={field.onChange}
-              />
-              <div className="text-danger">
-                <ErrorMessage name="specialities" />
+          <Field name="specialities">
+            {({ field, meta }) => (
+              <div>
+                <input
+                  id="specialities"
+                  type="text"
+                  className={`form-control ${
+                    meta.touched && meta.error ? 'is-invalid' : ''
+                  }`}
+                  value={field.value}
+                  onChange={field.onChange}
+                />
+                <div className="text-danger">
+                  <ErrorMessage name="specialities" />
+                </div>
               </div>
             )}
           </Field>
@@ -125,7 +125,7 @@ const Availability = ({ prevStep, nextStep, setDays }) => {
                     meta.touched && meta.error ? 'is-invalid' : ''
                   }`}
                 />
-                <label htmlFor="start_time">Start Time</label>
+                <span aria-labelledby="start_time">End Time</span>
               </span>
               <div className="text-danger">
                 <ErrorMessage name="start_time" />
