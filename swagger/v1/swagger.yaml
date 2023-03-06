@@ -145,6 +145,41 @@ paths:
       responses:
         '200':
           description: successful
+    put:
+      summary: update doctor info
+      security:
+      - bearer_auth: []
+      parameters:
+      - name: id
+        in: path
+        description: doctors id
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        required: true
+        description: Client token
+        schema:
+          type: string
+      responses:
+        '201':
+          description: doctor updated
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                doctor:
+                  type: object
+                  properties:
+                    active:
+                      type: boolean
+                  required:
+                  - active
   "/api/v1/users":
     post:
       summary: create user

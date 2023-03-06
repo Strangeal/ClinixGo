@@ -84,4 +84,40 @@ RSpec.describe 'api/v1/doctors', type: :request do
       end
     end
   end
+
+  path '/api/v1/doctors/{id}' do
+    put('update doctor info') do
+      let(:id) { '123' }
+      security [{ bearer_auth: [] }]
+      consumes 'application/json'
+      parameter name: :id, in: :path, type: :string, description: 'doctors id'
+      parameter name: :Authorization, in: :header, type: :string, required: true, description: 'Client token'
+      parameter name: :doctor, in: :body, schema: {
+        type: :object,
+        properties: {
+          doctor: {
+            type: :object,
+            properties: {
+              active: { type: :boolean }
+            },
+            required: %w[active]
+          }
+        }
+      }
+
+      response '201', 'doctor updated' do
+        let(:doctor) do
+          @first_doc = Doctor.update(active: true)
+        end
+        run_test!
+      end
+
+      response '422', 'invalid request' do
+        let(:doctor) do
+          @first_doc = Doctor.update(active: true)
+        end
+        run_test!
+      end
+    end
+  end
 end

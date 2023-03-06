@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Calendar } from 'primereact/calendar';
-import { useDispatch, useSelector } from 'react-redux';
-import { bookAppointment } from '../redux/appointments/bookAppointmentSlice';
-import { fetchDocData } from '../redux/doctors/doctorSlice';
-import { currentUser } from '../redux/user/userSlice';
-import '../styles/appointment.css';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Calendar } from "primereact/calendar";
+import { useDispatch, useSelector } from "react-redux";
+import { bookAppointment } from "../redux/appointments/bookAppointmentSlice";
+import { fetchDocData } from "../redux/doctors/doctorSlice";
+import { currentUser } from "../redux/user/userSlice";
+import "../styles/appointment.css";
 
 const Appointment = () => {
   const [doctor, setDoctor] = useState();
@@ -36,7 +36,7 @@ const Appointment = () => {
       doctor_id: doctor,
     };
     dispatch(bookAppointment(appointment));
-    navigate('/appointments');
+    navigate("/appointments");
   };
 
   return (
@@ -61,7 +61,7 @@ const Appointment = () => {
           <div className="col-md-6 d-flex flex-column justify-content-center">
             <form onSubmit={handleSubmit} className="container px-md-5">
               <div className="form-group mb-2">
-                <label htmlFor="name" className="appointment-label">
+                <label htmlFor="name" className="appointment-label w-100">
                   Name
                   <input
                     id="name"
@@ -74,30 +74,7 @@ const Appointment = () => {
               </div>
 
               <div className="form-group mb-2">
-                {/* <label htmlFor="doctor" className="appointment-label">
-                  Select a doctor
-                  <span className="text-danger">*</span>
-                  <br /> */}
-                {/* <select
-                    className="form-control form-input"
-                    onChange={handleChange}
-                    name="doctor_id"
-                  >
-                    <option value="">Select a doctor</option>
-                    {doctors
-                      && doctors.map((doctor) => (
-                        <option
-                          className="select-input"
-                          key={doctor.id}
-                          value={doctor.id}
-                        >
-                          {doctor.name}
-                        </option>
-                      ))}
-                  </select>
-                </label>
-                <br /> */}
-                <label htmlFor="doctor" className="appointment-label">
+                <label htmlFor="doctor" className="appointment-label w-100">
                   Select a doctor
                   <span className="text-danger">*</span>
                   <br />
@@ -107,16 +84,16 @@ const Appointment = () => {
                     name="doctor_id"
                   >
                     <option value="">Select a doctor</option>
-                    {doctors
-                    && doctors.map((doctor) => (
-                      <option
-                        className="select-input"
-                        key={doctor.id}
-                        value={doctor.id}
-                      >
-                        {doctor.name}
-                      </option>
-                    ))}
+                    {doctors &&
+                      doctors.map((doctor) => (
+                        <option
+                          className="select-input"
+                          key={doctor.id}
+                          value={doctor.id}
+                        >
+                          {doctor.name}
+                        </option>
+                      ))}
                   </select>
                 </label>
               </div>
@@ -134,7 +111,10 @@ const Appointment = () => {
                 </span>
               </div>
               <div className="form-group mb-2">
-                <span aria-labelledby="start_time" className="appointment-label">
+                <span
+                  aria-labelledby="start_time"
+                  className="appointment-label"
+                >
                   Start Time
                   <span className="text-danger">*</span>
                 </span>
