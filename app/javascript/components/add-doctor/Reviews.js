@@ -9,21 +9,21 @@ const Reviews = ({ prevStep }) => (
     <div className="mt-2 mb-3">
       <label htmlFor="experience" className="form-label">
         Years of Experience
-      </label>
-      <Field name="experience">
-        {({ field, meta }) => (
-          <div>
-            <input
-              id="experience"
-              type="number"
-              className={`form-control ${
-                meta.touched && meta.error ? 'is-invalid' : ''
-              }`}
-              value={field.value}
-              onChange={field.onChange}
-            />
-            <div className="text-danger">
-              <ErrorMessage name="experience" />
+        <Field name="experience">
+          {({ field, meta }) => (
+            <div>
+              <input
+                id="experience"
+                type="number"
+                className={`form-control ${
+                  meta.touched && meta.error ? 'is-invalid' : ''
+                }`}
+                value={field.value}
+                onChange={field.onChange}
+              />
+              <div className="text-danger">
+                <ErrorMessage name="experience" />
+              </div>
             </div>
           )}
         </Field>
@@ -33,7 +33,6 @@ const Reviews = ({ prevStep }) => (
     <div className="mt-2 mb-3">
       <label htmlFor="ratings" className="form-label">
         Ratings
-      </label>
       <Field name="ratings">
         {({ field, meta }) => (
           <div>
@@ -48,6 +47,7 @@ const Reviews = ({ prevStep }) => (
             />
             <div className="text-danger">
               <ErrorMessage name="ratings" />
+              </div>
             </div>
           )}
         </Field>
@@ -57,7 +57,6 @@ const Reviews = ({ prevStep }) => (
     <div className="mt-2 mb-3">
       <label htmlFor="reviews" className="form-label">
         Reviews
-      </label>
       <Field name="reviews">
         {({ field, meta }) => (
           <div>
@@ -73,6 +72,7 @@ const Reviews = ({ prevStep }) => (
             <div className="text-danger">
               <ErrorMessage name="reviews" />
             </div>
+            </div>
           )}
         </Field>
       </label>
@@ -81,7 +81,6 @@ const Reviews = ({ prevStep }) => (
     <div className="mt-2 mb-3">
       <label htmlFor="patients" className="form-label">
         Number of Patients
-      </label>
       <Field name="patients">
         {({ field, meta }) => (
           <div>
@@ -96,6 +95,7 @@ const Reviews = ({ prevStep }) => (
             />
             <div className="text-danger">
               <ErrorMessage name="patients" />
+            </div>
             </div>
           )}
         </Field>
