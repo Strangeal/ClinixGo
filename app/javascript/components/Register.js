@@ -69,59 +69,58 @@ const Register = () => {
             <div className=" form-group mb-3">
               <label htmlFor="nameFormControlInput" className="form-label">
                 Name
+                <input
+                  type="text"
+                  className="form-control"
+                  id="nameFormControlInput"
+                  placeholder="Your Name"
+                  name="name"
+                  value={state.name}
+                  onChange={handleChange}
+                />
               </label>
-              <input
-                type="text"
-                className="form-control"
-                id="nameFormControlInput"
-                placeholder="Your Name"
-                name="name"
-                value={state.name}
-                onChange={handleChange}
-              />
             </div>
             <div className="form-group mb-3">
               <label htmlFor="emailFormControlInput" className="form-label">
                 Email address
+                <input
+                  type="email"
+                  className="form-control"
+                  id="emailFormControlInput"
+                  placeholder="example@gmail.com"
+                  name="email"
+                  value={state.email}
+                  onChange={handleChange}
+                />
               </label>
-              <input
-                type="email"
-                className="form-control"
-                id="emailFormControlInput"
-                placeholder="example@gmail.com"
-                name="email"
-                value={state.email}
-                onChange={handleChange}
-              />
             </div>
             <div className="form-group mb-3">
               <label htmlFor="usernameFormControlInput" className="form-label">
                 Username
+                <input
+                  type="text"
+                  className="form-control"
+                  id="usernameFormControlInput"
+                  placeholder="username"
+                  name="username"
+                  value={state.username}
+                  onChange={handleChange}
+                />
               </label>
-
-              <input
-                type="text"
-                className="form-control"
-                id="usernameFormControlInput"
-                placeholder="username"
-                name="username"
-                value={state.username}
-                onChange={handleChange}
-              />
             </div>
             <div className="form-group mb-3">
               <label htmlFor="passwordFormControlInput" className="form-label">
                 Password
+                <input
+                  type="password"
+                  className="form-control"
+                  id="passwordFormControlInput"
+                  placeholder="password"
+                  name="password"
+                  value={state.password}
+                  onChange={handleChange}
+                />
               </label>
-              <input
-                type="password"
-                className="form-control"
-                id="passwordFormControlInput"
-                placeholder="password"
-                name="password"
-                value={state.password}
-                onChange={handleChange}
-              />
             </div>
             <button
               type="button"

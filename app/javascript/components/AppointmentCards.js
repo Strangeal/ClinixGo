@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { format } from 'date-fns';
 import {
   BsFileEarmarkPerson,
@@ -14,6 +15,7 @@ import '../styles/AppointmentCards.css';
 const AppointmentCards = () => {
   const dispatch = useDispatch();
   const { appointments, status } = useSelector((state) => state.appointments);
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchAppointData());
@@ -24,7 +26,7 @@ const AppointmentCards = () => {
   }
 
   if (status === 'rejected') {
-    return <h1>Something went wrong...</h1>;
+    navigate('/login');
   }
 
   if (status === 'fulfilled') {
@@ -39,7 +41,7 @@ const AppointmentCards = () => {
         </div>
         <div className="cards">
           {appointments.map((appointment) => (
-            <div className="container background-of-card" key={appointment.id}>
+            <div key={appointment.id} className="container background-of-card">
               <img
                 src={appointment.doctor_photo}
                 alt="Avatar"
@@ -77,7 +79,6 @@ const AppointmentCards = () => {
       </section>
     );
   }
-
   return null;
 };
 

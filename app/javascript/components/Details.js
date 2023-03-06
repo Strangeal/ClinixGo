@@ -39,7 +39,6 @@ const Details = () => {
     if (doctorObj) {
       return format(new Date(doctorObj.end_time), 'p');
     }
-
     return '';
   };
 

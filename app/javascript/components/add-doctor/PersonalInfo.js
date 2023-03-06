@@ -24,9 +24,9 @@ const PersonalInfo = ({ nextStep }) => (
             <div className="text-danger">
               <ErrorMessage name="name" />
             </div>
-          </div>
-        )}
-      </Field>
+          )}
+        </Field>
+      </label>
     </div>
     <div className="mb-3">
       <label htmlFor="email" className="form-label">
@@ -46,9 +46,9 @@ const PersonalInfo = ({ nextStep }) => (
             <div className="text-danger">
               <ErrorMessage name="email" />
             </div>
-          </div>
-        )}
-      </Field>
+          )}
+        </Field>
+      </label>
     </div>
     <div className="mb-3">
       <label htmlFor="photo" className="form-label">
@@ -69,9 +69,9 @@ const PersonalInfo = ({ nextStep }) => (
             <div className="text-danger">
               <ErrorMessage name="photo" />
             </div>
-          </div>
-        )}
-      </Field>
+          )}
+        </Field>
+      </label>
     </div>
     <div className="mb-3">
       <label htmlFor="phone" className="form-label">
@@ -91,9 +91,9 @@ const PersonalInfo = ({ nextStep }) => (
             <div className="text-danger">
               <ErrorMessage name="phone" />
             </div>
-          </div>
-        )}
-      </Field>
+          )}
+        </Field>
+      </label>
     </div>
     <div className="mb-3">
       <label htmlFor="bio" className="form-label">
@@ -113,9 +113,9 @@ const PersonalInfo = ({ nextStep }) => (
             <div className="text-danger">
               <ErrorMessage name="bio" />
             </div>
-          </div>
-        )}
-      </Field>
+          )}
+        </Field>
+      </label>
     </div>
     <div className="text-end">
       <button

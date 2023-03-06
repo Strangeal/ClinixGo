@@ -63,20 +63,38 @@ const Appointment = () => {
               <div className="form-group mb-2">
                 <label htmlFor="name" className="appointment-label">
                   Name
+                  <input
+                    id="name"
+                    className="form-control form-input shadow-none "
+                    disabled
+                    type="text"
+                    value={user && user.name}
+                  />
                 </label>
-                <input
-                  id="name"
-                  className="form-control form-input shadow-none "
-                  disabled
-                  type="text"
-                  value={user && user.name}
-                />
               </div>
 
               <div className="form-group mb-2">
                 <label htmlFor="doctor" className="appointment-label">
                   Select a doctor
                   <span className="text-danger">*</span>
+                  <br />
+                  <select
+                    className="form-control form-input"
+                    onChange={handleChange}
+                    name="doctor_id"
+                  >
+                    <option value="">Select a doctor</option>
+                    {doctors
+                      && doctors.map((doctor) => (
+                        <option
+                          className="select-input"
+                          key={doctor.id}
+                          value={doctor.id}
+                        >
+                          {doctor.name}
+                        </option>
+                      ))}
+                  </select>
                 </label>
                 <br />
                 <select
@@ -99,35 +117,35 @@ const Appointment = () => {
               </div>
 
               <div className="form-group mb-2">
-                <label htmlFor="date" className="appointment-label">
+                <span aria-labelledby="date" className="appointment-label">
                   Date
                   <span className="text-danger">*</span>
-                </label>
-                <Calendar
-                  // className="form-control form-input shadow-none"
-                  value={appointmentDate}
-                  onChange={(e) => setAppointmentDate(e.value)}
-                  showIcon
-                />
+                  <Calendar
+                    id="date"
+                    value={appointmentDate}
+                    onChange={(e) => setAppointmentDate(e.value)}
+                    showIcon
+                  />
+                </span>
               </div>
               <div className="form-group mb-2">
-                <label htmlFor="state-time" className="appointment-label">
+                <span aria-labelledby="start_time" className="appointment-label">
                   Start Time
                   <span className="text-danger">*</span>
-                </label>
+                </span>
                 <Calendar
                   hourFormat="12"
-                  id="calendar-timeonly"
+                  id="start_time"
                   value={startTime}
                   onChange={(e) => setStartTime(e.value)}
                   timeOnly
                 />
               </div>
               <div className="form-group mb-2">
-                <label htmlFor="end-time" className="appointment-label">
+                <span aria-labelledby="end_time" className="appointment-label">
                   End Time
                   <span className="text-danger">*</span>
-                </label>
+                </span>
                 <Calendar
                   hourFormat="12"
                   id="calendar-timeonly"

@@ -25,9 +25,9 @@ const Reviews = ({ prevStep }) => (
             <div className="text-danger">
               <ErrorMessage name="experience" />
             </div>
-          </div>
-        )}
-      </Field>
+          )}
+        </Field>
+      </label>
     </div>
 
     <div className="mt-2 mb-3">
@@ -49,9 +49,9 @@ const Reviews = ({ prevStep }) => (
             <div className="text-danger">
               <ErrorMessage name="ratings" />
             </div>
-          </div>
-        )}
-      </Field>
+          )}
+        </Field>
+      </label>
     </div>
 
     <div className="mt-2 mb-3">
@@ -73,9 +73,9 @@ const Reviews = ({ prevStep }) => (
             <div className="text-danger">
               <ErrorMessage name="reviews" />
             </div>
-          </div>
-        )}
-      </Field>
+          )}
+        </Field>
+      </label>
     </div>
 
     <div className="mt-2 mb-3">
@@ -97,9 +97,9 @@ const Reviews = ({ prevStep }) => (
             <div className="text-danger">
               <ErrorMessage name="patients" />
             </div>
-          </div>
-        )}
-      </Field>
+          )}
+        </Field>
+      </label>
     </div>
 
     <div className="stepper d-flex justify-content-between">

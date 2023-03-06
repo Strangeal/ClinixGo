@@ -20,7 +20,7 @@ jobs:
           [ -f .rubocop.yml ] || wget https://raw.githubusercontent.com/microverseinc/linters-config/master/ror/.rubocop.yml
       - name: Rubocop Report
         run: rubocop --color
-         eslint:
+  eslint:
     name: ESLint
     runs-on: ubuntu-22.04
     steps:

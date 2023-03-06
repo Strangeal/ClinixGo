@@ -59,9 +59,9 @@ const Availability = ({ prevStep, nextStep, setDays }) => {
               <div className="text-danger">
                 <ErrorMessage name="hospital" />
               </div>
-            </div>
-          )}
-        </Field>
+            )}
+          </Field>
+        </label>
       </div>
 
       <div className="mt-2 mb-3">
@@ -83,17 +83,17 @@ const Availability = ({ prevStep, nextStep, setDays }) => {
               <div className="text-danger">
                 <ErrorMessage name="specialities" />
               </div>
-            </div>
-          )}
-        </Field>
+            )}
+          </Field>
+        </label>
       </div>
 
       <div className="mt-2 mb-3">
         <p className="mb-1">Select Available Days</p>
         <div className="container-fluid">
           <div className="form-check d-flex row">
-            {availableDays.map((day, index) => (
-              <div key={index} className="col-6">
+            {availableDays.map((day) => (
+              <div key={day} className="col-6">
                 <input
                   className="form-check-input"
                   type="checkbox"
@@ -140,6 +140,7 @@ const Availability = ({ prevStep, nextStep, setDays }) => {
           {({ field, meta }) => (
             <div>
               <span className="p-float-label">
+                <span aria-labelledby="end_time">End Time</span>
                 <Calendar
                   inputId="end_time"
                   value={field.value}
@@ -150,7 +151,6 @@ const Availability = ({ prevStep, nextStep, setDays }) => {
                     meta.touched && meta.error ? 'is-invalid' : ''
                   }`}
                 />
-                <label htmlFor="start_time">End Time</label>
               </span>
               <div className="text-danger">
                 <ErrorMessage name="end_time" />
