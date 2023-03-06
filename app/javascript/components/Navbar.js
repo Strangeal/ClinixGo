@@ -13,9 +13,7 @@ import "../styles/navbar.css";
 const Navbar = () => {
   const user = useSelector(currentUser);
   const navigate = useNavigate();
-  // const { username } = data.user;
 
-  // clears token from local storage then redirects to login page
   const handleLogOut = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("currentUser");
@@ -31,7 +29,7 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <ul className="navbar-nav mt-5">
+      <ul className="navbar-nav">
         <li className="nav-item border">
           <NavLink
             to="/"
@@ -135,20 +133,6 @@ const Navbar = () => {
             className="dropdown-menu dropdown-menu-dark text-small shadow"
             aria-labelledby="dropdownUser"
           >
-            <li>
-              <Link to="/add_appointment" className="dropdown-item">
-                New Appointment
-              </Link>
-            </li>
-            <li>
-              <Link to="/profile" className="dropdown-item">
-                Profile
-              </Link>
-            </li>
-            <li>
-              {" "}
-              <hr className="dropdown-divider" />{" "}
-            </li>
             <li>
               {user === "" ? (
                 <Link to="/login" className="dropdown-item">

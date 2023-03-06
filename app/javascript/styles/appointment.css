@@ -15,16 +15,26 @@
   color: #19191971;
 }
 
+.btn-success-cus {
+  /* background-color: #96bf01; */
+  outline: 1px solid #96bf01;
+  color: #96bf01;
+}
+
+.btn-success-cus:hover {
+  color: #fff;
+  background-color: #96bf01;
+}
+
+
 .appointment-label {
   font-size: 0.8rem;
 }
 
 .form-input {
-  border-bottom: 1px solid #ced4da;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-radius: 0;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  padding: 0.7rem;
 }
 
 .form-input:focus {
