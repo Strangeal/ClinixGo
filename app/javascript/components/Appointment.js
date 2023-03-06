@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Calendar } from "primereact/calendar";
-import { useDispatch, useSelector } from "react-redux";
-import { bookAppointment } from "../redux/appointments/bookAppointmentSlice";
-import { fetchDocData } from "../redux/doctors/doctorSlice";
-import { currentUser } from "../redux/user/userSlice";
-import "../styles/appointment.css";
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Calendar } from 'primereact/calendar';
+import { useDispatch, useSelector } from 'react-redux';
+import { bookAppointment } from '../redux/appointments/bookAppointmentSlice';
+import { fetchDocData } from '../redux/doctors/doctorSlice';
+import { currentUser } from '../redux/user/userSlice';
+import '../styles/appointment.css';
 
 const Appointment = () => {
   const [doctor, setDoctor] = useState();
@@ -36,7 +36,7 @@ const Appointment = () => {
       doctor_id: doctor,
     };
     dispatch(bookAppointment(appointment));
-    navigate("/appointments");
+    navigate('/appointments');
   };
 
   return (
@@ -84,8 +84,8 @@ const Appointment = () => {
                     name="doctor_id"
                   >
                     <option value="">Select a doctor</option>
-                    {doctors &&
-                      doctors.map((doctor) => (
+                    {doctors
+                      && doctors.map((doctor) => (
                         <option
                           className="select-input"
                           key={doctor.id}
