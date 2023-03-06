@@ -1,20 +1,23 @@
-import React, { useState, useEffect } from "react";
-import { toast } from "react-toastify";
-import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import { registerUser, userSelector } from "../redux/user/userSlice";
-import "../styles/login.css";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { registerUser, userSelector } from '../redux/user/userSlice';
+import '../styles/login.css';
+
 const Register = () => {
   const [state, setState] = useState({
-    name: "",
-    email: "",
-    username: "",
-    password: "",
+    name: '',
+    email: '',
+    username: '',
+    password: '',
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector(userSelector);
-  const { error, errorMessage, success, message } = user.user;
+  const {
+    error, errorMessage, success, message,
+  } = user.user;
   const handleChange = (e) => {
     setState({
       ...state,
@@ -23,21 +26,23 @@ const Register = () => {
   };
 
   const handleSubmit = () => {
-    const { name, email, username, password } = state;
+    const {
+      name, email, username, password,
+    } = state;
     dispatch(
       registerUser({
         name,
         email,
         username,
         password,
-      })
+      }),
     );
   };
 
   useEffect(() => {
     if (success) {
       toast.success(message);
-      navigate("/");
+      navigate('/');
     }
 
     if (error) {
@@ -64,59 +69,58 @@ const Register = () => {
             <div className=" form-group mb-3">
               <label htmlFor="nameFormControlInput" className="form-label">
                 Name
+                <input
+                  type="text"
+                  className="form-control"
+                  id="nameFormControlInput"
+                  placeholder="Your Name"
+                  name="name"
+                  value={state.name}
+                  onChange={handleChange}
+                />
               </label>
-              <input
-                type="text"
-                className="form-control"
-                id="nameFormControlInput"
-                placeholder="Your Name"
-                name="name"
-                value={state.name}
-                onChange={handleChange}
-              />
             </div>
             <div className="form-group mb-3">
               <label htmlFor="emailFormControlInput" className="form-label">
                 Email address
+                <input
+                  type="email"
+                  className="form-control"
+                  id="emailFormControlInput"
+                  placeholder="example@gmail.com"
+                  name="email"
+                  value={state.email}
+                  onChange={handleChange}
+                />
               </label>
-              <input
-                type="email"
-                className="form-control"
-                id="emailFormControlInput"
-                placeholder="example@gmail.com"
-                name="email"
-                value={state.email}
-                onChange={handleChange}
-              />
             </div>
             <div className="form-group mb-3">
               <label htmlFor="usernameFormControlInput" className="form-label">
                 Username
+                <input
+                  type="text"
+                  className="form-control"
+                  id="usernameFormControlInput"
+                  placeholder="username"
+                  name="username"
+                  value={state.username}
+                  onChange={handleChange}
+                />
               </label>
-
-              <input
-                type="text"
-                className="form-control"
-                id="usernameFormControlInput"
-                placeholder="username"
-                name="username"
-                value={state.username}
-                onChange={handleChange}
-              />
             </div>
             <div className="form-group mb-3">
               <label htmlFor="passwordFormControlInput" className="form-label">
                 Password
+                <input
+                  type="password"
+                  className="form-control"
+                  id="passwordFormControlInput"
+                  placeholder="password"
+                  name="password"
+                  value={state.password}
+                  onChange={handleChange}
+                />
               </label>
-              <input
-                type="password"
-                className="form-control"
-                id="passwordFormControlInput"
-                placeholder="password"
-                name="password"
-                value={state.password}
-                onChange={handleChange}
-              />
             </div>
             <button
               type="button"

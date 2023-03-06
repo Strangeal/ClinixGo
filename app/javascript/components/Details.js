@@ -1,14 +1,14 @@
 /* eslint-disable consistent-return */
 /* eslint-disable import/no-extraneous-dependencies */
-import { format } from "date-fns";
-import React, { useEffect } from "react";
-import { AiOutlineAreaChart } from "react-icons/ai";
-import { FaCommentDots, FaHospitalSymbol, FaUsers } from "react-icons/fa";
-import { GiRoundStar } from "react-icons/gi";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { fetchDocIdData } from "../redux/doctors/doctorIdSlice";
-import "../styles/Details.css";
+import { format } from 'date-fns';
+import React, { useEffect } from 'react';
+import { AiOutlineAreaChart } from 'react-icons/ai';
+import { FaCommentDots, FaHospitalSymbol, FaUsers } from 'react-icons/fa';
+import { GiRoundStar } from 'react-icons/gi';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { fetchDocIdData } from '../redux/doctors/doctorIdSlice';
+import '../styles/Details.css';
 
 const Details = () => {
   const { id } = useParams();
@@ -23,23 +23,21 @@ const Details = () => {
 
   const splitName = () => {
     if (doctorObj) {
-      return String(doctorObj.name).split(" ");
+      return String(doctorObj.name).split(' ');
     }
   };
 
   const getStartTime = () => {
     if (doctorObj) {
-      return format(new Date(doctorObj.start_time), "p");
+      return format(new Date(doctorObj.start_time), 'p');
     }
   };
 
   const getEndTime = () => {
     if (doctorObj) {
-      return format(new Date(doctorObj.end_time), "p");
+      return format(new Date(doctorObj.end_time), 'p');
     }
   };
-
-  console.log(doctorObj);
 
   return (
     <section id="details">
@@ -80,7 +78,10 @@ const Details = () => {
                     <div>
                       <h2>
                         {splitName()[0]}
-                        <span className="fw-light"> {splitName()[1]}</span>
+                        <span className="fw-light">
+                          {' '}
+                          {splitName()[1]}
+                        </span>
                       </h2>
                       <p className="doc-title text-uppercase">
                         {doctorObj.specialities}
@@ -100,7 +101,8 @@ const Details = () => {
                       </div>
                       <div className="d-flex flex-column justify-content-center">
                         <h6 className="text-center fw-bold">
-                          {doctorObj.patients}+
+                          {doctorObj.patients}
+                          +
                         </h6>
                         <span>patients</span>
                       </div>
@@ -111,7 +113,8 @@ const Details = () => {
                       </div>
                       <div className="d-flex flex-column justify-content-center">
                         <h6 className="text-center fw-bold">
-                          {doctorObj.experience}+
+                          {doctorObj.experience}
+                          +
                         </h6>
                         <span>years exper..</span>
                       </div>
@@ -147,7 +150,12 @@ const Details = () => {
                 <div className="mt-4">
                   <h4 className="mb-2">Working Time</h4>
                   <p>
-                    {doctorObj.available_days}, {getStartTime()} -{" "}
+                    {doctorObj.available_days}
+                    ,
+                    {getStartTime()}
+                    {' '}
+                    -
+                    {' '}
                     {getEndTime()}
                   </p>
                 </div>

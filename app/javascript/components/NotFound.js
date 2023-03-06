@@ -1,5 +1,5 @@
-import React from "react";
-import "../styles/NotFound.css";
+import React from 'react';
+import '../styles/NotFound.css';
 
 const NotFound = () => (
   <section className="p-2 vh-100 d-flex flex-column align-items-center gap-3">

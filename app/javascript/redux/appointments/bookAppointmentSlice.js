@@ -1,6 +1,6 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
-import myApi from "../myApi";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
+import myApi from '../myApi';
 
 const initialState = {
   // bookAppointment: null,
@@ -8,7 +8,7 @@ const initialState = {
 };
 
 export const bookAppointment = createAsyncThunk(
-  "bookAppointment/bookAppointment",
+  'bookAppointment/bookAppointment',
   async (payload, thunkAPI) => {
     try {
       const response = await axios.post(
@@ -18,36 +18,36 @@ export const bookAppointment = createAsyncThunk(
         },
         {
           headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
-        }
+        },
       );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
     }
-  }
+  },
 );
 
 const bookAppointmentSlice = createSlice({
-  name: "bookAppointment",
+  name: 'bookAppointment',
   initialState,
   reducers: {},
   extraReducers(builder) {
     builder
       .addCase(bookAppointment.pending, (state) => {
         const IsPending = state;
-        IsPending.status = "pending";
+        IsPending.status = 'pending';
       })
-      .addCase(bookAppointment.fulfilled, (state, action) => {
+      .addCase(bookAppointment.fulfilled, (state) => {
         const IsFulfilled = state;
-        IsFulfilled.status = "fulfilled";
+        IsFulfilled.status = 'fulfilled';
       })
       .addCase(bookAppointment.rejected, (state) => {
         const IsRejected = state;
-        IsRejected.status = "rejected";
+        IsRejected.status = 'rejected';
       });
   },
 });

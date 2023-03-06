@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { loginUser, userSelector } from "../redux/user/userSlice";
-import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import "../styles/login.css";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { loginUser, userSelector } from '../redux/user/userSlice';
+import '../styles/login.css';
 
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector(userSelector);
-  const { error, errorMessage, message, success } = user.user;
+  const {
+    error, errorMessage, message, success,
+  } = user.user;
   const [state, setState] = useState({
-    username: "",
-    password: "",
+    username: '',
+    password: '',
   });
 
   const handleChange = (e) => {
@@ -28,14 +30,14 @@ const Login = () => {
       loginUser({
         username,
         password,
-      })
+      }),
     );
   };
 
   useEffect(() => {
     if (success) {
       toast.success(message);
-      navigate("/");
+      navigate('/');
     }
 
     if (error) {
@@ -60,7 +62,8 @@ const Login = () => {
           <form className="d-flex flex-column justify-content-center align-items-center">
             <div className="form-group mb-3">
               <label htmlFor="usernameFormControlInput" className="form-label">
-                Username{" "}
+                Username
+                {' '}
               </label>
               <input
                 type="text"
@@ -76,16 +79,16 @@ const Login = () => {
             <div className="form-group mb-3">
               <label htmlFor="passwordFormControlInput" className="form-label">
                 Password
+                <input
+                  type="password"
+                  className="form-control"
+                  id="passwordFormControlInput"
+                  placeholder="password"
+                  name="password"
+                  value={state.password}
+                  onChange={handleChange}
+                />
               </label>
-              <input
-                type="password"
-                className="form-control"
-                id="passwordFormControlInput"
-                placeholder="password"
-                name="password"
-                value={state.password}
-                onChange={handleChange}
-              />
             </div>
 
             <button

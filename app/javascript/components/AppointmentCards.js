@@ -1,35 +1,35 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { fetchAppointData } from "../redux/appointments/appointmentSlice";
+import { format } from 'date-fns';
+import React, { useEffect } from 'react';
+import { BiTime } from 'react-icons/bi';
 import {
   BsFileEarmarkPerson,
   BsFillCalendarDateFill,
   BsFillPersonFill,
-} from "react-icons/bs";
-import { BiTime } from "react-icons/bi";
-import { GrStatusCriticalSmall } from "react-icons/gr";
-import "../styles/AppointmentCards.css";
-import { format } from "date-fns";
+} from 'react-icons/bs';
+import { GrStatusCriticalSmall } from 'react-icons/gr';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { fetchAppointData } from '../redux/appointments/appointmentSlice';
+import '../styles/AppointmentCards.css';
 
 const AppointmentCards = () => {
   const dispatch = useDispatch();
   const { appointments, status } = useSelector((state) => state.appointments);
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchAppointData());
   }, [dispatch]);
 
-  if (status === "pending") {
-    return <div class="spinner"></div>;
+  if (status === 'pending') {
+    return <div className="spinner" />;
   }
 
-  if (status === "rejected") {
-    return <h1>Something went wrong...</h1>;
+  if (status === 'rejected') {
+    navigate('/login');
   }
 
-  if (status === "fulfilled") {
+  if (status === 'fulfilled') {
     return (
       <section className="container text-center appointments-section">
         <div className="header-section">
@@ -41,7 +41,7 @@ const AppointmentCards = () => {
         </div>
         <div className="cards">
           {appointments.map((appointment) => (
-            <div className="container background-of-card">
+            <div key={appointment.id} className="container background-of-card">
               <img
                 src={appointment.doctor_photo}
                 alt="Avatar"
@@ -61,8 +61,11 @@ const AppointmentCards = () => {
                 <span>
                   <BiTime className="app-icons" />
                   <b>Time: </b>
-                  {format(new Date(appointment.start_time), "p")} -{" "}
-                  {format(new Date(appointment.end_time), "p")}
+                  {format(new Date(appointment.start_time), 'p')}
+                  {' '}
+                  -
+                  {' '}
+                  {format(new Date(appointment.end_time), 'p')}
                 </span>
                 <span>
                   <GrStatusCriticalSmall className="app-icons" />
@@ -76,6 +79,7 @@ const AppointmentCards = () => {
       </section>
     );
   }
+  return null;
 };
 
 export default AppointmentCards;

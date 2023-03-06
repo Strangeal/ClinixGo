@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { bookAppointment } from "../redux/appointments/bookAppointmentSlice";
-import { fetchDocData } from "../redux/doctors/doctorSlice";
-import { currentUser } from "../redux/user/userSlice";
-import "../styles/appointment.css";
-import { Calendar } from "primereact/calendar";
-import { useNavigate } from "react-router-dom";
+import { Calendar } from 'primereact/calendar';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { bookAppointment } from '../redux/appointments/bookAppointmentSlice';
+import { fetchDocData } from '../redux/doctors/doctorSlice';
+import { currentUser } from '../redux/user/userSlice';
+import '../styles/appointment.css';
 
 const Appointment = () => {
   const [doctor, setDoctor] = useState();
@@ -21,7 +21,7 @@ const Appointment = () => {
 
   useEffect(() => {
     dispatch(fetchDocData());
-  }, []);
+  }, [dispatch]);
 
   const handleChange = (e) => {
     setDoctor(e.target.value);
@@ -36,7 +36,7 @@ const Appointment = () => {
       doctor_id: doctor,
     };
     dispatch(bookAppointment(appointment));
-    navigate("/appointments");
+    navigate('/appointments');
   };
 
   return (
@@ -63,71 +63,71 @@ const Appointment = () => {
               <div className="form-group mb-2">
                 <label htmlFor="name" className="appointment-label">
                   Name
+                  <input
+                    id="name"
+                    className="form-control form-input shadow-none "
+                    disabled
+                    type="text"
+                    value={user && user.name}
+                  />
                 </label>
-                <input
-                  id="name"
-                  className="form-control form-input shadow-none "
-                  disabled
-                  type="text"
-                  value={user && user.name}
-                />
               </div>
 
               <div className="form-group mb-2">
                 <label htmlFor="doctor" className="appointment-label">
                   Select a doctor
                   <span className="text-danger">*</span>
+                  <br />
+                  <select
+                    className="form-control form-input"
+                    onChange={handleChange}
+                    name="doctor_id"
+                  >
+                    <option value="">Select a doctor</option>
+                    {doctors
+                      && doctors.map((doctor) => (
+                        <option
+                          className="select-input"
+                          key={doctor.id}
+                          value={doctor.id}
+                        >
+                          {doctor.name}
+                        </option>
+                      ))}
+                  </select>
                 </label>
-                <br />
-                <select
-                  className="form-control form-input"
-                  onChange={handleChange}
-                  name="doctor_id"
-                >
-                  <option value="">Select a doctor</option>
-                  {doctors &&
-                    doctors.map((doctor) => (
-                      <option
-                        className="select-input"
-                        key={doctor.id}
-                        value={doctor.id}
-                      >
-                        {doctor.name}
-                      </option>
-                    ))}
-                </select>
               </div>
 
               <div className="form-group mb-2">
-                <label htmlFor="date" className="appointment-label">
+                <span aria-labelledby="date" className="appointment-label">
                   Date
                   <span className="text-danger">*</span>
-                </label>
-                <Calendar
-                  // className="form-control form-input shadow-none"
-                  value={appointmentDate}
-                  onChange={(e) => setAppointmentDate(e.value)}
-                  showIcon
-                />
+                  <Calendar
+                    id="date"
+                    value={appointmentDate}
+                    onChange={(e) => setAppointmentDate(e.value)}
+                    showIcon
+                  />
+                </span>
               </div>
               <div className="form-group mb-2">
-                <label htmlFor="state-time" className="appointment-label">
+                <span aria-labelledby="start_time" className="appointment-label">
                   Start Time
                   <span className="text-danger">*</span>
-                </label>
+                </span>
                 <Calendar
                   hourFormat="12"
-                  id="calendar-timeonly"
+                  id="start_time"
                   value={startTime}
                   onChange={(e) => setStartTime(e.value)}
                   timeOnly
                 />
               </div>
               <div className="form-group mb-2">
-                <label htmlFor="end-time" className="appointment-label">
+                <span aria-labelledby="end_time" className="appointment-label">
                   End Time
                   <span className="text-danger">*</span>
-                </label>
+                </span>
                 <Calendar
                   hourFormat="12"
                   id="calendar-timeonly"
