@@ -3,7 +3,6 @@ import axios from 'axios';
 import myApi from '../myApi';
 
 const initialState = {
-  // bookAppointment: null,
   status: null,
 };
 
@@ -41,7 +40,7 @@ const bookAppointmentSlice = createSlice({
         const IsPending = state;
         IsPending.status = 'pending';
       })
-      .addCase(bookAppointment.fulfilled, (state, action) => {
+      .addCase(bookAppointment.fulfilled, (state) => {
         const IsFulfilled = state;
         IsFulfilled.status = 'fulfilled';
       })

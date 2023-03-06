@@ -79,16 +79,16 @@ const Login = () => {
             <div className="form-group mb-3">
               <label htmlFor="passwordFormControlInput" className="form-label">
                 Password
+                <input
+                  type="password"
+                  className="form-control"
+                  id="passwordFormControlInput"
+                  placeholder="password"
+                  name="password"
+                  value={state.password}
+                  onChange={handleChange}
+                />
               </label>
-              <input
-                type="password"
-                className="form-control"
-                id="passwordFormControlInput"
-                placeholder="password"
-                name="password"
-                value={state.password}
-                onChange={handleChange}
-              />
             </div>
 
             <button

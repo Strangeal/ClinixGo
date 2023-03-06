@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { format } from 'date-fns';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchAppointData } from '../redux/appointments/appointmentSlice';
 import {
   BsFileEarmarkPerson,
   BsFillCalendarDateFill,
@@ -8,12 +9,15 @@ import {
 } from 'react-icons/bs';
 import { BiTime } from 'react-icons/bi';
 import { GrStatusCriticalSmall } from 'react-icons/gr';
+import { currentUser } from '../redux/user/userSlice';
+import { fetchAppointData } from '../redux/appointments/appointmentSlice';
 import '../styles/AppointmentCards.css';
-import { format } from 'date-fns';
 
 const AppointmentCards = () => {
   const dispatch = useDispatch();
   const { appointments, status } = useSelector((state) => state.appointments);
+  const user = useSelector(currentUser);
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchAppointData());
@@ -34,12 +38,14 @@ const AppointmentCards = () => {
           <h1 className="appointment-header">Appointments</h1>
           <h5 className="patient">
             <BsFillPersonFill className="app-icons" />
-            Patient: Amir Khan
+            Patient:
+            {' '}
+            {user.name}
           </h5>
         </div>
         <div className="cards">
           {appointments.map((appointment) => (
-            <div className="container background-of-card">
+            <div key={appointment.id} className="container background-of-card">
               <img
                 src={appointment.doctor_photo}
                 alt="Avatar"
@@ -77,6 +83,7 @@ const AppointmentCards = () => {
       </section>
     );
   }
+  return null;
 };
 
 export default AppointmentCards;

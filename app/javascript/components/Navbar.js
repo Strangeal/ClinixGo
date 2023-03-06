@@ -6,18 +6,17 @@ import { FaHome } from 'react-icons/fa';
 import { MdBookmarkAdd } from 'react-icons/md';
 import { TiUserAddOutline, TiUserDeleteOutline } from 'react-icons/ti';
 import { useSelector } from 'react-redux';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { currentUser } from '../redux/user/userSlice';
 import '../styles/navbar.css';
 
 const Navbar = () => {
   const user = useSelector(currentUser);
-  const navigate = useNavigate();
 
   const handleLogOut = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('currentUser');
-    navigate('/');
+    window.location.reload(true);
   };
 
   return (
@@ -31,69 +30,59 @@ const Navbar = () => {
 
       <ul className="navbar-nav">
         <li className="nav-item border">
-          <NavLink
+          <Link
             to="/"
-            className={`nav-link d-flex flex-column align-items-center px-2 py-3 ${({
-              isActive,
-            }) => (isActive ? 'active' : '')}`}
+            className="nav-link d-flex flex-column align-items-center px-2 py-3"
             data-bs-toggle="tooltip"
             data-bs-placement="right"
             data-bs-title="Tooltip on right"
           >
             <FaHome className="fs-4 nav-icon" />
             <span className="d-none d-md-block">Doctors</span>
-          </NavLink>
+          </Link>
           <span className="tooltip-text">Doctors</span>
         </li>
         <li className="nav-item border">
-          <NavLink
+          <Link
             to={`${user ? '/appointments' : '/login'}`}
-            className={`nav-link d-flex flex-column align-items-center px-2 py-3 ${({
-              isActive,
-            }) => (isActive ? 'active' : '')}`}
+            className="nav-link d-flex flex-column align-items-center px-2 py-3"
           >
             <BsFillJournalBookmarkFill className="fs-4 nav-icon" />
             <span className="d-none d-md-block">My Appointments</span>
-          </NavLink>
+          </Link>
           <span className="tooltip-text">My Appointments</span>
         </li>
         <li className="nav-item border">
-          <NavLink
+          <Link
             to={`${user ? '/add_appointment' : '/login'}`}
-            className={`nav-link d-flex flex-column align-items-center px-2 py-3 ${({
-              isActive,
-            }) => (isActive ? 'active' : '')}`}
+            className="nav-link d-flex flex-column align-items-center px-2 py-3"
           >
             <MdBookmarkAdd className="fs-4 nav-icon" />
             <span className="d-none d-md-block">Book Appointment</span>
-          </NavLink>
+          </Link>
           <span className="tooltip-text">Book Appointment</span>
         </li>
 
         {user && user.role === 'admin' && (
           <>
             <li className="nav-item border">
-              <NavLink
+              <Link
                 to="/add_doctor"
-                className={`nav-link d-flex flex-column align-items-center px-2 py-3 ${({
-                  isActive,
-                }) => (isActive ? 'active' : '')}`}
+                className="nav-link d-flex flex-column align-items-center px-2 py-3"
               >
                 <TiUserAddOutline className="fs-4 nav-icon" />
                 <span className="d-none d-md-block">Add Doctor</span>
-              </NavLink>
+              </Link>
               <span className="tooltip-text">Add Doctor</span>
             </li>
             <li className="nav-item border">
-              <NavLink
+              <Link
                 to="/all_doctors"
-                className={`nav-link d-flex flex-column align-items-center px-2 py-3 ${({
-                  isActive,
-                }) => (isActive ? 'active' : '')}`}
+                className="nav-link d-flex flex-column align-items-center px-2 py-3"
               >
                 <TiUserDeleteOutline className="fs-4 nav-icon" />
                 <span className="d-none d-md-block">Delete Doctor</span>
-              </NavLink>
+              </Link>
               <span className="tooltip-text">Delete Doctor</span>
             </li>
           </>
@@ -101,15 +90,13 @@ const Navbar = () => {
 
         {!user && (
           <li className="nav-item border">
-            <NavLink
+            <Link
               to="/login"
-              className={`nav-link d-flex flex-column align-items-center px-2 py-3 ${({
-                isActive,
-              }) => (isActive ? 'active' : '')}`}
+              className="nav-link d-flex flex-column align-items-center px-2 py-3"
             >
               <AiOutlineLogin className="fs-4 nav-icon" />
               <span className="d-none d-md-block">Login</span>
-            </NavLink>
+            </Link>
             <span className="tooltip-text">Login</span>
           </li>
         )}

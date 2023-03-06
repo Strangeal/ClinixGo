@@ -1,5 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable import/no-extraneous-dependencies */
 import { format } from 'date-fns';
 import React, { useEffect } from 'react';
 import { AiOutlineAreaChart } from 'react-icons/ai';
@@ -25,21 +23,24 @@ const Details = () => {
     if (doctorObj) {
       return String(doctorObj.name).split(' ');
     }
+
+    return '';
   };
 
   const getStartTime = () => {
     if (doctorObj) {
       return format(new Date(doctorObj.start_time), 'p');
     }
+
+    return '';
   };
 
   const getEndTime = () => {
     if (doctorObj) {
       return format(new Date(doctorObj.end_time), 'p');
     }
+    return '';
   };
-
-  console.log(doctorObj);
 
   return (
     <section id="details">

@@ -1,8 +1,6 @@
-/* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable react/prop-types */
 import { ErrorMessage, Field } from 'formik';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Reviews = ({ prevStep }) => (
   <section id="reviews" className="mt-3">
@@ -11,93 +9,97 @@ const Reviews = ({ prevStep }) => (
     <div className="mt-2 mb-3">
       <label htmlFor="experience" className="form-label">
         Years of Experience
-      </label>
-      <Field name="experience">
-        {({ field, meta }) => (
-          <div>
-            <input
-              id="experience"
-              type="number"
-              className={`form-control ${
-                meta.touched && meta.error ? 'is-invalid' : ''
-              }`}
-              {...field}
-            />
-            <div className="text-danger">
-              <ErrorMessage name="experience" />
+        <Field name="experience">
+          {({ field, meta }) => (
+            <div>
+              <input
+                id="experience"
+                type="number"
+                className={`form-control ${
+                  meta.touched && meta.error ? 'is-invalid' : ''
+                }`}
+                value={field.value}
+                onChange={field.onChange}
+              />
+              <div className="text-danger">
+                <ErrorMessage name="experience" />
+              </div>
             </div>
-          </div>
-        )}
-      </Field>
+          )}
+        </Field>
+      </label>
     </div>
 
     <div className="mt-2 mb-3">
       <label htmlFor="ratings" className="form-label">
         Ratings
-      </label>
-      <Field name="ratings">
-        {({ field, meta }) => (
-          <div>
-            <input
-              id="ratings"
-              type="number"
-              className={`form-control ${
-                meta.touched && meta.error ? 'is-invalid' : ''
-              }`}
-              {...field}
-            />
-            <div className="text-danger">
-              <ErrorMessage name="ratings" />
+        <Field name="ratings">
+          {({ field, meta }) => (
+            <div>
+              <input
+                id="ratings"
+                type="number"
+                className={`form-control ${
+                  meta.touched && meta.error ? 'is-invalid' : ''
+                }`}
+                value={field.value}
+                onChange={field.onChange}
+              />
+              <div className="text-danger">
+                <ErrorMessage name="ratings" />
+              </div>
             </div>
-          </div>
-        )}
-      </Field>
+          )}
+        </Field>
+      </label>
     </div>
 
     <div className="mt-2 mb-3">
       <label htmlFor="reviews" className="form-label">
         Reviews
-      </label>
-      <Field name="reviews">
-        {({ field, meta }) => (
-          <div>
-            <input
-              id="reviews"
-              type="number"
-              className={`form-control ${
-                meta.touched && meta.error ? 'is-invalid' : ''
-              }`}
-              {...field}
-            />
-            <div className="text-danger">
-              <ErrorMessage name="reviews" />
+        <Field name="reviews">
+          {({ field, meta }) => (
+            <div>
+              <input
+                id="reviews"
+                type="number"
+                className={`form-control ${
+                  meta.touched && meta.error ? 'is-invalid' : ''
+                }`}
+                value={field.value}
+                onChange={field.onChange}
+              />
+              <div className="text-danger">
+                <ErrorMessage name="reviews" />
+              </div>
             </div>
-          </div>
-        )}
-      </Field>
+          )}
+        </Field>
+      </label>
     </div>
 
     <div className="mt-2 mb-3">
       <label htmlFor="patients" className="form-label">
         Number of Patients
-      </label>
-      <Field name="patients">
-        {({ field, meta }) => (
-          <div>
-            <input
-              id="patients"
-              type="number"
-              className={`form-control ${
-                meta.touched && meta.error ? 'is-invalid' : ''
-              }`}
-              {...field}
-            />
-            <div className="text-danger">
-              <ErrorMessage name="patients" />
+        <Field name="patients">
+          {({ field, meta }) => (
+            <div>
+              <input
+                id="patients"
+                type="number"
+                className={`form-control ${
+                  meta.touched && meta.error ? 'is-invalid' : ''
+                }`}
+                value={field.value}
+                onChange={field.onChange}
+              />
+              <div className="text-danger">
+                <ErrorMessage name="patients" />
+              </div>
             </div>
-          </div>
-        )}
-      </Field>
+          )}
+        </Field>
+      </label>
     </div>
 
     <div className="stepper d-flex justify-content-between">
@@ -114,5 +116,9 @@ const Reviews = ({ prevStep }) => (
     </div>
   </section>
 );
+
+Reviews.propTypes = {
+  prevStep: PropTypes.func.isRequired,
+};
 
 export default Reviews;
