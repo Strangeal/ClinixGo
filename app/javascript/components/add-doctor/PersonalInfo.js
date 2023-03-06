@@ -1,9 +1,6 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable react/prop-types */
-import { ErrorMessage, Field } from "formik";
-import React from "react";
+import { ErrorMessage, Field } from 'formik';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const PersonalInfo = ({ nextStep }) => (
   <section className="mt-3">
@@ -19,9 +16,10 @@ const PersonalInfo = ({ nextStep }) => (
               id="name"
               type="text"
               className={`form-control ${
-                meta.touched && form.errors.name ? "is-invalid" : ""
+                meta.touched && form.errors.name ? 'is-invalid' : ''
               }`}
-              {...field}
+              value={field.value}
+              onChange={field.onChange}
             />
             <div className="text-danger">
               <ErrorMessage name="name" />
@@ -40,9 +38,10 @@ const PersonalInfo = ({ nextStep }) => (
             <input
               id="email"
               className={`form-control ${
-                meta.touched && form.errors.email ? "is-invalid" : ""
+                meta.touched && form.errors.email ? 'is-invalid' : ''
               }`}
-              {...field}
+              value={field.value}
+              onChange={field.onChange}
             />
             <div className="text-danger">
               <ErrorMessage name="email" />
@@ -61,9 +60,10 @@ const PersonalInfo = ({ nextStep }) => (
             <input
               id="photo"
               className={`form-control ${
-                meta.touched && form.errors.photo ? "is-invalid" : ""
+                meta.touched && form.errors.photo ? 'is-invalid' : ''
               }`}
-              {...field}
+              value={field.value}
+              onChange={field.onChange}
               placeholder="Input URL to image"
             />
             <div className="text-danger">
@@ -83,9 +83,10 @@ const PersonalInfo = ({ nextStep }) => (
             <input
               id="phone"
               className={`form-control ${
-                meta.touched && form.errors.phone ? "is-invalid" : ""
+                meta.touched && form.errors.phone ? 'is-invalid' : ''
               }`}
-              {...field}
+              value={field.value}
+              onChange={field.onChange}
             />
             <div className="text-danger">
               <ErrorMessage name="phone" />
@@ -104,9 +105,10 @@ const PersonalInfo = ({ nextStep }) => (
             <textarea
               id="bio"
               className={`form-control ${
-                meta.touched && form.errors.bio ? "is-invalid" : ""
+                meta.touched && form.errors.bio ? 'is-invalid' : ''
               }`}
-              {...field}
+              value={field.value}
+              onChange={field.onChange}
             />
             <div className="text-danger">
               <ErrorMessage name="bio" />
@@ -126,5 +128,9 @@ const PersonalInfo = ({ nextStep }) => (
     </div>
   </section>
 );
+
+PersonalInfo.propTypes = {
+  nextStep: PropTypes.func.isRequired,
+};
 
 export default PersonalInfo;

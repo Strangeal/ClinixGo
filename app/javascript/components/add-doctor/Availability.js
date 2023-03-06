@@ -1,28 +1,24 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable react/prop-types */
-import { ErrorMessage, Field } from "formik";
-import { Calendar } from "primereact/calendar";
-import React, { useCallback, useEffect, useState } from "react";
+import { ErrorMessage, Field } from 'formik';
+import { Calendar } from 'primereact/calendar';
+import React, { useCallback, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 const Availability = ({ prevStep, nextStep, setDays }) => {
   const [checked, setChecked] = useState([]);
   const availableDays = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday',
   ];
 
   const selectedDays = useCallback(() => {
     const checkedItems = checked.length
       ? checked.reduce((total, item) => `${total}, ${item}`)
-      : "";
+      : '';
     setDays(checkedItems);
   }, [checked, setDays]);
 
@@ -55,9 +51,10 @@ const Availability = ({ prevStep, nextStep, setDays }) => {
                 id="hospital"
                 type="text"
                 className={`form-control ${
-                  meta.touched && meta.error ? "is-invalid" : ""
+                  meta.touched && meta.error ? 'is-invalid' : ''
                 }`}
-                {...field}
+                value={field.value}
+                onChange={field.onChange}
               />
               <div className="text-danger">
                 <ErrorMessage name="hospital" />
@@ -78,9 +75,10 @@ const Availability = ({ prevStep, nextStep, setDays }) => {
                 id="specialities"
                 type="text"
                 className={`form-control ${
-                  meta.touched && meta.error ? "is-invalid" : ""
+                  meta.touched && meta.error ? 'is-invalid' : ''
                 }`}
-                {...field}
+                value={field.value}
+                onChange={field.onChange}
               />
               <div className="text-danger">
                 <ErrorMessage name="specialities" />
@@ -119,11 +117,12 @@ const Availability = ({ prevStep, nextStep, setDays }) => {
               <span className="p-float-label">
                 <Calendar
                   inputId="start_time"
-                  {...field}
+                  value={field.value}
+                  onChange={field.onChange}
                   hourFormat="12"
                   timeOnly
                   className={`${
-                    meta.touched && meta.error ? "is-invalid" : ""
+                    meta.touched && meta.error ? 'is-invalid' : ''
                   }`}
                 />
                 <label htmlFor="start_time">Start Time</label>
@@ -143,11 +142,12 @@ const Availability = ({ prevStep, nextStep, setDays }) => {
               <span className="p-float-label">
                 <Calendar
                   inputId="end_time"
-                  {...field}
+                  value={field.value}
+                  onChange={field.onChange}
                   hourFormat="12"
                   timeOnly
                   className={`${
-                    meta.touched && meta.error ? "is-invalid" : ""
+                    meta.touched && meta.error ? 'is-invalid' : ''
                   }`}
                 />
                 <label htmlFor="start_time">End Time</label>
@@ -178,6 +178,12 @@ const Availability = ({ prevStep, nextStep, setDays }) => {
       </div>
     </section>
   );
+};
+
+Availability.propTypes = {
+  prevStep: PropTypes.func.isRequired,
+  nextStep: PropTypes.func.isRequired,
+  setDays: PropTypes.func.isRequired,
 };
 
 export default Availability;
