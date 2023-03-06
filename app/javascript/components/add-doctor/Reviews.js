@@ -108,7 +108,7 @@ const Reviews = ({ prevStep }) => (
       >
         Back
       </button>
-      <button type="submit" className="btn btn-outline-success">
+      <button type="submit" className="btn btn-success-cus">
         Create Doctor
       </button>
     </div>

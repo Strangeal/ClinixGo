@@ -119,7 +119,7 @@ const PersonalInfo = ({ nextStep }) => (
       <button
         type="button"
         onClick={nextStep}
-        className="btn btn-outline-success btn-sm px-4"
+        className="btn btn-success-cus btn-sm px-4"
       >
         Next
       </button>

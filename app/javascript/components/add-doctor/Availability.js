@@ -171,7 +171,7 @@ const Availability = ({ prevStep, nextStep, setDays }) => {
         <button
           type="button"
           onClick={nextStep}
-          className="btn btn-outline-success"
+          className="btn btn-success-cus"
         >
           Next
         </button>

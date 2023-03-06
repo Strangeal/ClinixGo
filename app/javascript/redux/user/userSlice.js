@@ -23,9 +23,7 @@ export const registerUser = createAsyncThunk(
       const data = await response.json();
       if (response.status === 201) {
         const user = {
-          name: data.user.name,
           username: data.user.username,
-          email: data.user.email,
           role: data.user.role,
         };
         const userData = JSON.stringify(user);
@@ -62,8 +60,6 @@ export const loginUser = createAsyncThunk(
       if (response.status === 200) {
         const user = {
           name: data.user.name,
-          username: data.user.username,
-          email: data.user.email,
           role: data.user.role,
         };
         console.log(user);
