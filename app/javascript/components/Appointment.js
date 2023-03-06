@@ -74,11 +74,11 @@ const Appointment = () => {
               </div>
 
               <div className="form-group mb-2">
-                <label htmlFor="doctor" className="appointment-label">
+                {/* <label htmlFor="doctor" className="appointment-label">
                   Select a doctor
                   <span className="text-danger">*</span>
-                  <br />
-                  <select
+                  <br /> */}
+                {/* <select
                     className="form-control form-input"
                     onChange={handleChange}
                     name="doctor_id"
@@ -96,14 +96,18 @@ const Appointment = () => {
                       ))}
                   </select>
                 </label>
-                <br />
-                <select
-                  className="form-control form-input"
-                  onChange={handleChange}
-                  name="doctor_id"
-                >
-                  <option value="">Select a doctor</option>
-                  {doctors
+                <br /> */}
+                <label htmlFor="doctor" className="appointment-label">
+                  Select a doctor
+                  <span className="text-danger">*</span>
+                  <br />
+                  <select
+                    className="form-control form-input"
+                    onChange={handleChange}
+                    name="doctor_id"
+                  >
+                    <option value="">Select a doctor</option>
+                    {doctors
                     && doctors.map((doctor) => (
                       <option
                         className="select-input"
@@ -113,7 +117,8 @@ const Appointment = () => {
                         {doctor.name}
                       </option>
                     ))}
-                </select>
+                  </select>
+                </label>
               </div>
 
               <div className="form-group mb-2">
