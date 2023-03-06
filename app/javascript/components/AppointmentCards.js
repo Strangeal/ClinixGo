@@ -1,14 +1,14 @@
-import { format } from 'date-fns';
 import React, { useEffect } from 'react';
-import { BiTime } from 'react-icons/bi';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { format } from 'date-fns';
 import {
   BsFileEarmarkPerson,
   BsFillCalendarDateFill,
   BsFillPersonFill,
 } from 'react-icons/bs';
+import { BiTime } from 'react-icons/bi';
 import { GrStatusCriticalSmall } from 'react-icons/gr';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { fetchAppointData } from '../redux/appointments/appointmentSlice';
 import '../styles/AppointmentCards.css';
 

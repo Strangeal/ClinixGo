@@ -1,5 +1,6 @@
 import { ErrorMessage, Field } from 'formik';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Reviews = ({ prevStep }) => (
   <section id="reviews" className="mt-3">
@@ -17,7 +18,8 @@ const Reviews = ({ prevStep }) => (
                 className={`form-control ${
                   meta.touched && meta.error ? 'is-invalid' : ''
                 }`}
-                {...field}
+                value={field.value}
+                onChange={field.onChange}
               />
               <div className="text-danger">
                 <ErrorMessage name="experience" />
@@ -31,19 +33,20 @@ const Reviews = ({ prevStep }) => (
     <div className="mt-2 mb-3">
       <label htmlFor="ratings" className="form-label">
         Ratings
-        <Field name="ratings">
-          {({ field, meta }) => (
-            <div>
-              <input
-                id="ratings"
-                type="number"
-                className={`form-control ${
-                  meta.touched && meta.error ? 'is-invalid' : ''
-                }`}
-                {...field}
-              />
-              <div className="text-danger">
-                <ErrorMessage name="ratings" />
+      <Field name="ratings">
+        {({ field, meta }) => (
+          <div>
+            <input
+              id="ratings"
+              type="number"
+              className={`form-control ${
+                meta.touched && meta.error ? 'is-invalid' : ''
+              }`}
+              value={field.value}
+              onChange={field.onChange}
+            />
+            <div className="text-danger">
+              <ErrorMessage name="ratings" />
               </div>
             </div>
           )}
@@ -54,20 +57,21 @@ const Reviews = ({ prevStep }) => (
     <div className="mt-2 mb-3">
       <label htmlFor="reviews" className="form-label">
         Reviews
-        <Field name="reviews">
-          {({ field, meta }) => (
-            <div>
-              <input
-                id="reviews"
-                type="number"
-                className={`form-control ${
-                  meta.touched && meta.error ? 'is-invalid' : ''
-                }`}
-                {...field}
-              />
-              <div className="text-danger">
-                <ErrorMessage name="reviews" />
-              </div>
+      <Field name="reviews">
+        {({ field, meta }) => (
+          <div>
+            <input
+              id="reviews"
+              type="number"
+              className={`form-control ${
+                meta.touched && meta.error ? 'is-invalid' : ''
+              }`}
+              value={field.value}
+              onChange={field.onChange}
+            />
+            <div className="text-danger">
+              <ErrorMessage name="reviews" />
+            </div>
             </div>
           )}
         </Field>
@@ -77,20 +81,21 @@ const Reviews = ({ prevStep }) => (
     <div className="mt-2 mb-3">
       <label htmlFor="patients" className="form-label">
         Number of Patients
-        <Field name="patients">
-          {({ field, meta }) => (
-            <div>
-              <input
-                id="patients"
-                type="number"
-                className={`form-control ${
-                  meta.touched && meta.error ? 'is-invalid' : ''
-                }`}
-                {...field}
-              />
-              <div className="text-danger">
-                <ErrorMessage name="patients" />
-              </div>
+      <Field name="patients">
+        {({ field, meta }) => (
+          <div>
+            <input
+              id="patients"
+              type="number"
+              className={`form-control ${
+                meta.touched && meta.error ? 'is-invalid' : ''
+              }`}
+              value={field.value}
+              onChange={field.onChange}
+            />
+            <div className="text-danger">
+              <ErrorMessage name="patients" />
+            </div>
             </div>
           )}
         </Field>
@@ -111,5 +116,9 @@ const Reviews = ({ prevStep }) => (
     </div>
   </section>
 );
+
+Reviews.propTypes = {
+  prevStep: PropTypes.func.isRequired,
+};
 
 export default Reviews;

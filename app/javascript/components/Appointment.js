@@ -1,7 +1,7 @@
-import { Calendar } from 'primereact/calendar';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { Calendar } from 'primereact/calendar';
 import { bookAppointment } from '../redux/appointments/bookAppointmentSlice';
 import { fetchDocData } from '../redux/doctors/doctorSlice';
 import { currentUser } from '../redux/user/userSlice';
@@ -96,6 +96,24 @@ const Appointment = () => {
                       ))}
                   </select>
                 </label>
+                <br />
+                <select
+                  className="form-control form-input"
+                  onChange={handleChange}
+                  name="doctor_id"
+                >
+                  <option value="">Select a doctor</option>
+                  {doctors
+                    && doctors.map((doctor) => (
+                      <option
+                        className="select-input"
+                        key={doctor.id}
+                        value={doctor.id}
+                      >
+                        {doctor.name}
+                      </option>
+                    ))}
+                </select>
               </div>
 
               <div className="form-group mb-2">

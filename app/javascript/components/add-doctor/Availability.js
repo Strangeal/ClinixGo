@@ -1,6 +1,7 @@
 import { ErrorMessage, Field } from 'formik';
 import { Calendar } from 'primereact/calendar';
 import React, { useCallback, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 const Availability = ({ prevStep, nextStep, setDays }) => {
   const [checked, setChecked] = useState([]);
@@ -42,20 +43,21 @@ const Availability = ({ prevStep, nextStep, setDays }) => {
       <div className="mt-2 mb-3">
         <label htmlFor="hospital" className="form-label">
           Hospital
-          <Field name="hospital">
-            {({ field, meta }) => (
-              <div>
-                <input
-                  id="hospital"
-                  type="text"
-                  className={`form-control ${
-                    meta.touched && meta.error ? 'is-invalid' : ''
-                  }`}
-                  {...field}
-                />
-                <div className="text-danger">
-                  <ErrorMessage name="hospital" />
-                </div>
+        </label>
+        <Field name="hospital">
+          {({ field, meta }) => (
+            <div>
+              <input
+                id="hospital"
+                type="text"
+                className={`form-control ${
+                  meta.touched && meta.error ? 'is-invalid' : ''
+                }`}
+                value={field.value}
+                onChange={field.onChange}
+              />
+              <div className="text-danger">
+                <ErrorMessage name="hospital" />
               </div>
             )}
           </Field>
@@ -65,20 +67,21 @@ const Availability = ({ prevStep, nextStep, setDays }) => {
       <div className="mt-2 mb-3">
         <label htmlFor="specialities" className="form-label">
           Specialty
-          <Field name="specialities">
-            {({ field, meta }) => (
-              <div>
-                <input
-                  id="specialities"
-                  type="text"
-                  className={`form-control ${
-                    meta.touched && meta.error ? 'is-invalid' : ''
-                  }`}
-                  {...field}
-                />
-                <div className="text-danger">
-                  <ErrorMessage name="specialities" />
-                </div>
+        </label>
+        <Field name="specialities">
+          {({ field, meta }) => (
+            <div>
+              <input
+                id="specialities"
+                type="text"
+                className={`form-control ${
+                  meta.touched && meta.error ? 'is-invalid' : ''
+                }`}
+                value={field.value}
+                onChange={field.onChange}
+              />
+              <div className="text-danger">
+                <ErrorMessage name="specialities" />
               </div>
             )}
           </Field>
@@ -111,14 +114,19 @@ const Availability = ({ prevStep, nextStep, setDays }) => {
         <Field name="start_time">
           {({ field, meta }) => (
             <div>
-              <span aria-labelledby="start_time">Start Time</span>
-              <Calendar
-                id="start_time"
-                {...field}
-                hourFormat="12"
-                timeOnly
-                className={`${meta.touched && meta.error ? 'is-invalid' : ''}`}
-              />
+              <span className="p-float-label">
+                <Calendar
+                  inputId="start_time"
+                  value={field.value}
+                  onChange={field.onChange}
+                  hourFormat="12"
+                  timeOnly
+                  className={`${
+                    meta.touched && meta.error ? 'is-invalid' : ''
+                  }`}
+                />
+                <label htmlFor="start_time">Start Time</label>
+              </span>
               <div className="text-danger">
                 <ErrorMessage name="start_time" />
               </div>
@@ -134,8 +142,9 @@ const Availability = ({ prevStep, nextStep, setDays }) => {
               <span className="p-float-label">
                 <span aria-labelledby="end_time">End Time</span>
                 <Calendar
-                  id="end_time"
-                  {...field}
+                  inputId="end_time"
+                  value={field.value}
+                  onChange={field.onChange}
                   hourFormat="12"
                   timeOnly
                   className={`${
@@ -169,6 +178,12 @@ const Availability = ({ prevStep, nextStep, setDays }) => {
       </div>
     </section>
   );
+};
+
+Availability.propTypes = {
+  prevStep: PropTypes.func.isRequired,
+  nextStep: PropTypes.func.isRequired,
+  setDays: PropTypes.func.isRequired,
 };
 
 export default Availability;

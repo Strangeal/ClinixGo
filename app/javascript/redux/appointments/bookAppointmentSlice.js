@@ -3,7 +3,6 @@ import axios from 'axios';
 import myApi from '../myApi';
 
 const initialState = {
-  // bookAppointment: null,
   status: null,
 };
 
