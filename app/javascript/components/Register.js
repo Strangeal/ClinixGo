@@ -67,7 +67,7 @@ const Register = () => {
         <div className="log-form col-md-6 d-flex flex-column justify-content-center">
           <form className="d-flex flex-column justify-content-center align-items-center">
             <div className=" form-group mb-3">
-              <label htmlFor="nameFormControlInput" className="form-label">
+              <label htmlFor="nameFormControlInput" className="form-label w-100">
                 Name
                 <input
                   type="text"
@@ -81,7 +81,7 @@ const Register = () => {
               </label>
             </div>
             <div className="form-group mb-3">
-              <label htmlFor="emailFormControlInput" className="form-label">
+              <label htmlFor="emailFormControlInput" className="form-label w-100">
                 Email address
                 <input
                   type="email"
@@ -95,7 +95,7 @@ const Register = () => {
               </label>
             </div>
             <div className="form-group mb-3">
-              <label htmlFor="usernameFormControlInput" className="form-label">
+              <label htmlFor="usernameFormControlInput" className="form-label w-100">
                 Username
                 <input
                   type="text"
@@ -109,7 +109,7 @@ const Register = () => {
               </label>
             </div>
             <div className="form-group mb-3">
-              <label htmlFor="passwordFormControlInput" className="form-label">
+              <label htmlFor="passwordFormControlInput" className="form-label w-100">
                 Password
                 <input
                   type="password"
@@ -124,14 +124,14 @@ const Register = () => {
             </div>
             <button
               type="button"
-              className="btn btn-success d-block w-100 rounded-pill"
+              className="btn btn-success-cus d-block w-100 rounded-pill"
               onClick={handleSubmit}
             >
               Register
             </button>
           </form>
 
-          <div className="mt-6">
+          <div className="mt-2">
             <div className="relative">
               <div className="relative d-flex flex-column justify-center align-items-center text-sm">
                 <span className="px-2 bg-white text-gray-500">

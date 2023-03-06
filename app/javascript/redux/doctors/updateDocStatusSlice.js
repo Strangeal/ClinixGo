@@ -8,9 +8,16 @@ export const updateDocStatus = createAsyncThunk(
   'docStatus/updateDocStatus',
   async (payload, thunkAPI) => {
     try {
-      const response = await axios.put(`${myApi}/doctors/${payload.id}`, {
-        doctor: payload.doctor,
-      });
+      const response = await axios.put(
+        `${myApi}/doctors/${payload.id}`,
+        { doctor: payload.doctor },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        },
+      );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);

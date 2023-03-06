@@ -36,6 +36,10 @@ const Doctors = () => {
     }
   };
 
+  useEffect(() => {
+    dispatch(fetchDocData());
+  }, [dispatch]);
+
   const header = (
     <div className="d-flex flex-wrap align-items-center justify-content-between gap-2">
       <h3 className="table-header text-uppercase fw-bold">Manage Doctors</h3>

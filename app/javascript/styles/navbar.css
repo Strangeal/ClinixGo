@@ -10,6 +10,8 @@ nav {
   width: inherit !important;
   height: 100%;
   z-index: 99;
+  z-index: 9999;
+  background-color: #fff;
 }
 
 div.nav-logo a.logo {

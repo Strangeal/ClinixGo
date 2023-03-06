@@ -116,8 +116,9 @@ const Availability = ({ prevStep, nextStep, setDays }) => {
           {({ field, meta }) => (
             <div>
               <span className="p-float-label">
+                <span aria-labelledby="start_time">Start Time</span>
                 <Calendar
-                  inputId="start_time"
+                  id="start_time"
                   value={field.value}
                   onChange={field.onChange}
                   hourFormat="12"
@@ -126,7 +127,6 @@ const Availability = ({ prevStep, nextStep, setDays }) => {
                     meta.touched && meta.error ? 'is-invalid' : ''
                   }`}
                 />
-                <span aria-labelledby="start_time">End Time</span>
               </span>
               <div className="text-danger">
                 <ErrorMessage name="start_time" />
@@ -143,7 +143,7 @@ const Availability = ({ prevStep, nextStep, setDays }) => {
               <span className="p-float-label">
                 <span aria-labelledby="end_time">End Time</span>
                 <Calendar
-                  inputId="end_time"
+                  id="end_time"
                   value={field.value}
                   onChange={field.onChange}
                   hourFormat="12"

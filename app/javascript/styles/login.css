@@ -1,9 +1,19 @@
-/* .log-container .form-group {
-  width: -webkit-fill-available;
-} */
+.log-container .form-group {
+  width: 100%;
+}
 
 .log-img {
   width: 15rem;
+}
+
+.btn-success-cus {
+  outline: 1px solid #96bf01;
+  color: #96bf01;
+}
+
+.btn-success-cus:hover {
+  color: #fff;
+  background-color: #96bf01;
 }
 
 @media screen and (min-width: 400px) {

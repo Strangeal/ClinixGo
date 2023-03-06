@@ -10,9 +10,16 @@ export const createDoc = createAsyncThunk(
   'create/createDoctor',
   async (payload, thunkAPI) => {
     try {
-      const response = await axios.post(`${myApi}/doctors`, {
-        doctor: payload,
-      });
+      const response = await axios.post(
+        `${myApi}/doctors`,
+        { doctor: payload },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        },
+      );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);

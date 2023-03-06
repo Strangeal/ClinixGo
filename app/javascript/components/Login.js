@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -77,7 +77,7 @@ const Login = () => {
             </div>
 
             <div className="form-group mb-3">
-              <label htmlFor="passwordFormControlInput" className="form-label">
+              <label htmlFor="passwordFormControlInput" className="form-label w-100">
                 Password
                 <input
                   type="password"
@@ -93,14 +93,14 @@ const Login = () => {
 
             <button
               type="button"
-              className="btn btn-success d-block w-100 rounded-pill"
+              className="btn btn-success-cus d-block w-100 rounded-pill"
               onClick={handleSubmit}
             >
               Login
             </button>
           </form>
 
-          <div className="mt-6">
+          <div className="mt-2">
             <div className="relative">
               <div className="relative d-flex flex-column justify-content-center align-items-center text-sm">
                 <span className="px-2 bg-white text-gray-500">

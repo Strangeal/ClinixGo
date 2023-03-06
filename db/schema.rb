@@ -36,7 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_04_110907) do
     t.time "start_time"
     t.time "end_time"
     t.string "email"
-    t.integer "phone"
+    t.string "phone"
     t.integer "reviews"
     t.integer "experience"
     t.float "rating"

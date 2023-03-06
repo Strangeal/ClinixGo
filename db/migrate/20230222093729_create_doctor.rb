@@ -10,7 +10,7 @@ class CreateDoctor < ActiveRecord::Migration[7.0]
       t.time :start_time
       t.time :end_time
       t.string :email
-      t.integer :phone
+      t.string :phone
       t.integer :reviews
       t.integer :experience
       t.float :rating

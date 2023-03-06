@@ -11,6 +11,8 @@
 #   users = User.create(name: "Adel", gender: "male", age: 25)
 # end
 
+admin = User.create(name: "admin", username: "admin", password: "admin123", email: "admin@example.com", role: "admin")
+
 doc_1 = Doctor.create(
   name: "Dr. Justine Smith",
   bio: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.
