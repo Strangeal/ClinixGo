@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { format } from 'date-fns';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   BsFileEarmarkPerson,
   BsFillCalendarDateFill,
@@ -9,15 +8,14 @@ import {
 } from 'react-icons/bs';
 import { BiTime } from 'react-icons/bi';
 import { GrStatusCriticalSmall } from 'react-icons/gr';
-import { fetchAppointData } from '../redux/appointments/appointmentSlice';
 import { currentUser } from '../redux/user/userSlice';
+import { fetchAppointData } from '../redux/appointments/appointmentSlice';
 import '../styles/AppointmentCards.css';
 
 const AppointmentCards = () => {
   const dispatch = useDispatch();
   const { appointments, status } = useSelector((state) => state.appointments);
   const user = useSelector(currentUser);
-  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchAppointData());
@@ -28,7 +26,7 @@ const AppointmentCards = () => {
   }
 
   if (status === 'rejected') {
-    navigate('/login');
+    return <h1>Something went wrong...</h1>;
   }
 
   if (status === 'fulfilled') {
@@ -38,7 +36,9 @@ const AppointmentCards = () => {
           <h1 className="appointment-header">Appointments</h1>
           <h5 className="patient">
             <BsFillPersonFill className="app-icons" />
-            Patient: {user.name}
+            Patient:
+            {' '}
+            {user.name}
           </h5>
         </div>
         <div className="cards">

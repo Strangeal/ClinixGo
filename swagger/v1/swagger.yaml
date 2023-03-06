@@ -1,0 +1,210 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/appointments":
+    get:
+      summary: list appointments
+      security:
+      - bearer_auth: []
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        description: Client token
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create appointment
+      security:
+      - bearer_auth: []
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        description: Client token
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appointment:
+                  type: object
+                  properties:
+                    appointment_date:
+                      type: string
+                    start_time:
+                      type: string
+                    end_time:
+                      type: string
+                    doctor_id:
+                      type: number
+                  required:
+                  - appointment_date
+                  - start_time
+                  - end_time
+                  - doctor_id
+  "/api/v1/doctors":
+    get:
+      summary: list doctors
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create doctor
+      security:
+      - bearer_auth: []
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        description: Client token
+        schema:
+          type: string
+      responses:
+        '201':
+          description: doctor created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                doctor:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    bio:
+                      type: text
+                    photo:
+                      type: string
+                    available_days:
+                      type: string
+                    specialities:
+                      type: string
+                    hospital:
+                      type: string
+                    start_time:
+                      type: string
+                    end_time:
+                      type: string
+                    email:
+                      type: string
+                    active:
+                      type: boolean
+                    phone:
+                      type: number
+                    reviews:
+                      type: number
+                    experience:
+                      type: number
+                    rating:
+                      type: float
+                    patients:
+                      type: number
+                  required:
+                  - name
+                  - bio
+                  - photo
+                  - available_days
+                  - specialities
+                  - hospital
+                  - start_time
+                  - end_time
+                  - email
+                  - active
+                  - phone
+                  - reviews
+                  - experience
+                  - rating
+                  - patients
+  "/api/v1/doctors/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show doctor
+      responses:
+        '200':
+          description: successful
+  "/api/v1/users":
+    post:
+      summary: create user
+      parameters: []
+      responses:
+        '201':
+          description: user created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    username:
+                      type: string
+                    email:
+                      type: string
+                    password:
+                      type: string
+                  required:
+                  - name
+                  - username
+                  - email
+                  - password
+  "/api/v1/auth/login":
+    post:
+      summary: login user
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    username:
+                      type: string
+                    password:
+                      type: string
+                  required:
+                  - username
+                  - password
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000
+components:
+  securitySchemes:
+    bearer_auth:
+      type: http
+      scheme: bearer
+      bearer_format: JWT

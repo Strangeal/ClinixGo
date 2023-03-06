@@ -1,6 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { ErrorMessage, Field } from 'formik';
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 const Reviews = ({ prevStep }) => (
   <section id="reviews" className="mt-3">

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Calendar } from 'primereact/calendar';
+import { useDispatch, useSelector } from 'react-redux';
 import { bookAppointment } from '../redux/appointments/bookAppointmentSlice';
 import { fetchDocData } from '../redux/doctors/doctorSlice';
 import { currentUser } from '../redux/user/userSlice';

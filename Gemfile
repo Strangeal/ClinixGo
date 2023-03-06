@@ -60,6 +60,7 @@ group :development, :test do
   gem 'rack-test'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
+  gem 'rswag-specs'
   gem 'shoulda-matchers', '~> 5.3'
 end
 
@@ -84,3 +85,5 @@ end
 gem 'rubocop', '>= 1.0', '< 2.0'
 
 gem 'cancancan'
+
+gem 'rswag'
