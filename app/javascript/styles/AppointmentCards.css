@@ -84,7 +84,7 @@
 .spinner {
   display: inline-block;
   width: 30px;
-  height: 3 0px;
+  height: 30px;
   border-radius: 50%;
   border: 3px solid #ccc;
   border-top-color: #333;
@@ -94,7 +94,6 @@
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
-
 
 @keyframes slide-in {
   to {
