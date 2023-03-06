@@ -1,13 +1,13 @@
-import { Badge } from 'primereact/badge';
-import { Button } from 'primereact/button';
-import { Column } from 'primereact/column';
-import { DataTable } from 'primereact/datatable';
-import { InputSwitch } from 'primereact/inputswitch';
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchDocData } from '../redux/doctors/doctorSlice';
-import { updateDocStatus } from '../redux/doctors/updateDocStatusSlice';
-import '../styles/doctors.css';
+import { Badge } from "primereact/badge";
+import { Button } from "primereact/button";
+import { Column } from "primereact/column";
+import { DataTable } from "primereact/datatable";
+import { InputSwitch } from "primereact/inputswitch";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchDocData } from "../redux/doctors/doctorSlice";
+import { updateDocStatus } from "../redux/doctors/updateDocStatusSlice";
+import "../styles/doctors.css";
 
 const Doctors = () => {
   const dispatch = useDispatch();
@@ -61,11 +61,12 @@ const Doctors = () => {
     <div className="">{doctor.specialities}</div>
   );
 
-  const getStatus = (doctor) => (doctor.active ? (
-    <Badge value="active" severity="success" />
-  ) : (
-    <Badge value="inactive" severity="danger" style={{ paddingTop: '2px' }} />
-  ));
+  const getStatus = (doctor) =>
+    doctor.active ? (
+      <Badge value="active" severity="success" />
+    ) : (
+      <Badge value="inactive" severity="danger" style={{ paddingTop: "2px" }} />
+    );
 
   const getActions = (doctor) => (
     <div className="">
@@ -122,9 +123,9 @@ const Doctors = () => {
     function handleResize() {
       setScreenSize(window.innerWidth);
     }
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     handleResize(); // Initial screen size
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (

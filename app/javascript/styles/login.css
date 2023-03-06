@@ -1,9 +1,9 @@
-.log-container .form-group {
+/* .log-container .form-group {
   width: -webkit-fill-available;
-}
+} */
 
 .log-img {
-  width:15rem;
+  width: 15rem;
 }
 
 @media screen and (min-width: 400px) {
@@ -22,12 +22,13 @@
   .log-section {
     padding: 0;
   }
+
   .log-container {
     margin: 0;
   }
 
   .log-img {
-    width:22rem;
+    width: 22rem;
   }
 
   .login-content {

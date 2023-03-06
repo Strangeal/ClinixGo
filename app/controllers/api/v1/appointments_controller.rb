@@ -1,7 +1,19 @@
 class Api::V1::AppointmentsController < ApplicationController
   def index
-    appointments = current_user.appointments
-    render json: appointments, status: :ok
+    appointments = current_user.appointments.includes(:doctor)
+    appointments_array = []
+    appointments.each do |appointment|
+      new_data = {
+        appointment_date: appointment.appointment_date,
+        start_time: appointment.start_time,
+        end_time: appointment.end_time,
+        doctor_name: appointment.doctor.name,
+        doctor_specialty: appointment.doctor.specialities,
+        doctor_photo: appointment.doctor.photo
+      }
+      appointments_array << new_data
+    end
+    render json: appointments_array, status: :ok
   end
 
   def create

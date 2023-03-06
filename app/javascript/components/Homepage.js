@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { fetchDocData } from '../redux/doctors/doctorSlice';
-import '../styles/Home.css';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { fetchDocData } from "../redux/doctors/doctorSlice";
+import "../styles/Home.css";
 
 const Homepage = () => {
   const dispatch = useDispatch();
@@ -23,8 +23,8 @@ const Homepage = () => {
 
       <main className="doctors-container">
         {doctorsList.map((doctor) => {
-         if(doctor.active === true) {
-          return (
+          if (doctor.active === true) {
+            return (
               <div className="mb-5" key={doctor.id}>
                 <div className="home-img-container">
                   <img src={doctor.photo} alt="doctor" />
@@ -39,13 +39,13 @@ const Homepage = () => {
                     type="button"
                     className="btn btn-outline-success"
                   >
-                    {' '}
+                    {" "}
                     View more
                   </Link>
                 </div>
-            </div>
-          );
-         }
+              </div>
+            );
+          }
           return null;
         })}
       </main>

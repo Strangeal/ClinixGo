@@ -1,81 +1,81 @@
 import React from "react";
-import { BsFileEarmarkPerson, BsFillCalendarDateFill, BsFillPersonFill} from "react-icons/bs";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { fetchAppointData } from "../redux/appointments/appointmentSlice";
+import {
+  BsFileEarmarkPerson,
+  BsFillCalendarDateFill,
+  BsFillPersonFill,
+} from "react-icons/bs";
 import { BiTime } from "react-icons/bi";
 import { GrStatusCriticalSmall } from "react-icons/gr";
-import '../styles/AppointmentCards.css';
-
+import "../styles/AppointmentCards.css";
+import { format } from "date-fns";
 
 const AppointmentCards = () => {
-  return (
-    <section className="container text-center appointments-section">
-      <div className="header-section">
-      <h1 className="appointment-header">Appointments</h1>
-        <h5 className="patient"><BsFillPersonFill className="app-icons" />Patient: Amir Khan</h5>
-      </div>
-<div className="cards">
-    <div className="container background-of-card">
-      <img src="https://res.cloudinary.com/db3ckadxp/image/upload/v1677239541/doc2_nv5ug5.png" alt="Avatar" className="card-image" />
-      <div className="content">
-      <span><BsFileEarmarkPerson className="app-icons"/><b>Doctor: </b>Cincinatti Pagne</span>
-      <span><BsFillCalendarDateFill className="app-icons"/><b>Date: </b>10th May 2023</span>
-      <span><BiTime className="app-icons"/><b>Time: </b>11:54am - 12:54pm</span>
-        <span><GrStatusCriticalSmall className="app-icons"/><b>Status: </b>pending</span>
-        </div>
-      </div>
+  const dispatch = useDispatch();
+  const { appointments, status } = useSelector((state) => state.appointments);
 
-      <div className="container background-of-card">
-      <img src="https://res.cloudinary.com/dskl0qde4/image/upload/v1677227659/assets/rvzpkwlpfiwtntpdxezk.png" alt="Avatar" className="card-image" />
-      <div className="content">
-      <span><BsFileEarmarkPerson className="app-icons"/><b>Doctor: </b>Cincinatti Pagne</span>
-      <span><BsFillCalendarDateFill className="app-icons"/><b>Date: </b>10th May 2023</span>
-      <span><BiTime className="app-icons"/><b>Time: </b>11:54am - 12:54pm</span>
-        <span><GrStatusCriticalSmall className="app-icons"/><b>Status: </b>pending</span>
-        </div>
-      </div>
+  useEffect(() => {
+    dispatch(fetchAppointData());
+  }, [dispatch]);
 
-      <div className="container background-of-card">
-      <img src="https://res.cloudinary.com/dskl0qde4/image/upload/v1677331291/assets/doc_2_pbbvzx.png" alt="Avatar" className="card-image" />
-      <div className="content">
-      <span><BsFileEarmarkPerson className="app-icons"/><b>Doctor: </b>Cincinatti Pagne</span>
-      <span><BsFillCalendarDateFill className="app-icons"/><b>Date: </b>10th May 2023</span>
-      <span><BiTime className="app-icons"/><b>Time: </b>11:54am - 12:54pm</span>
-        <span><GrStatusCriticalSmall className="app-icons"/><b>Status: </b>pending</span>
-        </div>
-      </div>
-      
-      <div className="container background-of-card">
-      <img src="https://res.cloudinary.com/db3ckadxp/image/upload/v1677239541/doc2_nv5ug5.png" alt="Avatar" className="card-image" />
-      <div className="content">
-      <span><BsFileEarmarkPerson className="app-icons"/><b>Doctor: </b>Cincinatti Pagne</span>
-      <span><BsFillCalendarDateFill className="app-icons"/><b>Date: </b>10th May 2023</span>
-      <span><BiTime className="app-icons"/><b>Time: </b>11:54am - 12:54pm</span>
-        <span><GrStatusCriticalSmall className="app-icons"/><b>Status: </b>pending</span>
-        </div>
-      </div>
+  if (status === "pending") {
+    return <div class="spinner"></div>;
+  }
 
-      <div className="container background-of-card">
-      <img src="https://res.cloudinary.com/dskl0qde4/image/upload/v1677227659/assets/rvzpkwlpfiwtntpdxezk.png" alt="Avatar" className="card-image" />
-      <div className="content">
-      <span><BsFileEarmarkPerson className="app-icons"/><b>Doctor: </b>Cincinatti Pagne</span>
-      <span><BsFillCalendarDateFill className="app-icons"/><b>Date: </b>10th May 2023</span>
-      <span><BiTime className="app-icons"/><b>Time: </b>11:54am - 12:54pm</span>
-        <span><GrStatusCriticalSmall className="app-icons"/><b>Status: </b>pending</span>
-        </div>
-      </div>
+  if (status === "rejected") {
+    return <h1>Something went wrong...</h1>;
+  }
 
-      <div className="container background-of-card">
-      <img src="https://res.cloudinary.com/dskl0qde4/image/upload/v1677331291/assets/doc_2_pbbvzx.png" alt="Avatar" className="card-image" />
-      <div className="content">
-      <span><BsFileEarmarkPerson className="app-icons"/><b>Doctor: </b>Cincinatti Pagne</span>
-      <span><BsFillCalendarDateFill className="app-icons"/><b>Date: </b>10th May 2023</span>
-      <span><BiTime className="app-icons"/><b>Time: </b>11:54am - 12:54pm</span>
-        <span><GrStatusCriticalSmall className="app-icons"/><b>Status: </b>pending</span>
+  if (status === "fulfilled") {
+    return (
+      <section className="container text-center appointments-section">
+        <div className="header-section">
+          <h1 className="appointment-header">Appointments</h1>
+          <h5 className="patient">
+            <BsFillPersonFill className="app-icons" />
+            Patient: Amir Khan
+          </h5>
         </div>
-      </div>
-      </div>
+        <div className="cards">
+          {appointments.map((appointment) => (
+            <div className="container background-of-card">
+              <img
+                src={appointment.doctor_photo}
+                alt="Avatar"
+                className="card-image"
+              />
+              <div className="content">
+                <span>
+                  <BsFileEarmarkPerson className="app-icons" />
+                  <b>Doctor: </b>
+                  {appointment.doctor_name}
+                </span>
+                <span>
+                  <BsFillCalendarDateFill className="app-icons" />
+                  <b>Date: </b>
+                  {appointment.appointment_date}
+                </span>
+                <span>
+                  <BiTime className="app-icons" />
+                  <b>Time: </b>
+                  {format(new Date(appointment.start_time), "p")} -{" "}
+                  {format(new Date(appointment.end_time), "p")}
+                </span>
+                <span>
+                  <GrStatusCriticalSmall className="app-icons" />
+                  <b>Speciality: </b>
+                  {appointment.doctor_specialty}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
-  );
+    );
+  }
 };
-
 
 export default AppointmentCards;
