@@ -81,7 +81,7 @@
   color: grey;
 }
 
-/* .spinner {
+.spinner {
   display: inline-block;
   width: 30px;
   height: 3 0px;
@@ -93,7 +93,7 @@
 
 @keyframes spin {
   to { transform: rotate(360deg); }
-} */
+}
 
 
 @keyframes slide-in {
