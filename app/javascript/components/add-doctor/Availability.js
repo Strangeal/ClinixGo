@@ -1,7 +1,8 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { ErrorMessage, Field } from 'formik';
 import { Calendar } from 'primereact/calendar';
-import React, { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import React, { useCallback, useEffect, useState } from 'react';
 
 const Availability = ({ prevStep, nextStep, setDays }) => {
   const [checked, setChecked] = useState([]);

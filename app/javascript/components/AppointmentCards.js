@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { format } from 'date-fns';
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -17,7 +16,6 @@ const AppointmentCards = () => {
   const dispatch = useDispatch();
   const { appointments, status } = useSelector((state) => state.appointments);
   const user = useSelector(currentUser);
-  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchAppointData());
