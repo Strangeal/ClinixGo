@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :doctors, through: :appointments
 
   validates :name, presence: true
+  validates :password, presence: true, length: { minimum: 6 }
   validates :email, presence: true
   validates :username, presence: true, uniqueness: true
 
