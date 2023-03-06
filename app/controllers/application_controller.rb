@@ -13,6 +13,11 @@ class ApplicationController < ActionController::Base
     HashWithIndifferentAccess.new decoded
   end
 
+  # rescue from cancan authorized access errors
+  rescue_from CanCan::AccessDenied do |exception|
+    render json: { waring: exception, status: 'authorization_failed' }
+  end
+
   private
 
   def authenticate_request

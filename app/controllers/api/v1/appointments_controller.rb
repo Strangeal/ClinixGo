@@ -1,4 +1,6 @@
 class Api::V1::AppointmentsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     appointments = current_user.appointments.includes(:doctor)
     appointments_array = []
