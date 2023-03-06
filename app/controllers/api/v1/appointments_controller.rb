@@ -9,13 +9,13 @@ class Api::V1::AppointmentsController < ApplicationController
         end_time: appointment.end_time,
         doctor_name: appointment.doctor.name,
         doctor_specialty: appointment.doctor.specialities,
-        doctor_photo: appointment.doctor.photo,
+        doctor_photo: appointment.doctor.photo
       }
       appointments_array << new_data
     end
     render json: appointments_array, status: :ok
   end
-  
+
   def create
     appointment = Appointment.new(appointment_params)
     appointment.user = current_user
