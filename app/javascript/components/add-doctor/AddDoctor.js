@@ -1,67 +1,67 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable import/no-extraneous-dependencies */
-import { format } from 'date-fns';
-import { Form, Formik } from 'formik';
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import * as Yup from 'yup';
-import { createDoc } from '../../redux/doctors/createDocSlice';
-import '../../styles/AddDoc.css';
-import Availability from './Availability';
-import PersonalInfo from './PersonalInfo';
-import Reviews from './Reviews';
+import { format } from "date-fns";
+import { Form, Formik } from "formik";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import * as Yup from "yup";
+import { createDoc } from "../../redux/doctors/createDocSlice";
+import "../../styles/AddDoc.css";
+import Availability from "./Availability";
+import PersonalInfo from "./PersonalInfo";
+import Reviews from "./Reviews";
 
 const initialValues = {
-  name: '',
-  email: '',
-  phone: '',
-  photo: '',
-  bio: '',
-  available_days: '',
-  specialities: '',
-  hospital: '',
-  start_time: '',
-  end_time: '',
-  reviews: '',
-  ratings: '',
-  patients: '',
-  experience: '',
+  name: "",
+  email: "",
+  phone: "",
+  photo: "",
+  bio: "",
+  available_days: "",
+  specialities: "",
+  hospital: "",
+  start_time: "",
+  end_time: "",
+  reviews: "",
+  ratings: "",
+  patients: "",
+  experience: "",
 };
 
 const validationSchema = Yup.object({
   name: Yup.string()
-    .min(3, 'must be at least 3 characters')
-    .required('Name is required'),
+    .min(3, "must be at least 3 characters")
+    .required("Name is required"),
   email: Yup.string()
-    .email('Must be a valid email address')
-    .required('Email is required'),
-  phone: Yup.string().required('Phone is required'),
-  photo: Yup.string().required('Photo is required'),
+    .email("Must be a valid email address")
+    .required("Email is required"),
+  phone: Yup.string().required("Phone is required"),
+  photo: Yup.string().required("Photo is required"),
   bio: Yup.string()
-    .min(5, 'must be at least 3 characters')
-    .required('Bio is required'),
-  specialities: Yup.string().required('Specialities is required'),
-  hospital: Yup.string().required('Hospital name is required'),
-  start_time: Yup.string().required('Start time is required'),
-  end_time: Yup.string().required('End time is required'),
-  reviews: Yup.number().required('Reviews is required'),
-  ratings: Yup.number().required('Ratings is required'),
-  patients: Yup.number().required('Patients is required'),
-  experience: Yup.number().required('Years of experience is required'),
+    .min(5, "must be at least 3 characters")
+    .required("Bio is required"),
+  specialities: Yup.string().required("Specialities is required"),
+  hospital: Yup.string().required("Hospital name is required"),
+  start_time: Yup.string().required("Start time is required"),
+  end_time: Yup.string().required("End time is required"),
+  reviews: Yup.number().required("Reviews is required"),
+  ratings: Yup.number().required("Ratings is required"),
+  patients: Yup.number().required("Patients is required"),
+  experience: Yup.number().required("Years of experience is required"),
 });
 
 const AddDoctor = () => {
   const [step, setStep] = useState(0);
-  const [days, setDays] = useState('');
+  const [days, setDays] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const onSubmit = (values) => {
     values.available_days = days;
 
-    const startTime = format(values.start_time, 'p');
-    const endTime = format(values.end_time, 'p');
+    const startTime = format(values.start_time, "p");
+    const endTime = format(values.end_time, "p");
 
     const doctor = {
       name: values.name,
@@ -81,7 +81,7 @@ const AddDoctor = () => {
     };
 
     dispatch(createDoc(doctor));
-    navigate('/');
+    navigate("/");
   };
 
   const prevStep = () => {

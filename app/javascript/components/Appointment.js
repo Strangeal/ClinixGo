@@ -1,5 +1,5 @@
-import React from 'react';
-import '../styles/appointment.css';
+import React from "react";
+import "../styles/appointment.css";
 
 const Appointment = () => (
   <div>
