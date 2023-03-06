@@ -28,6 +28,16 @@ span.is-invalid input#end_time:focus {
   box-shadow: 0 0 0 0.2rem red;
 }
 
+.btn-success-cus {
+  outline: 1px solid #96bf01;
+  color: #96bf01;
+}
+
+.btn-success-cus:hover {
+  color: #fff;
+  background-color: #96bf01;
+}
+
 @media screen and (min-width: 768px) {
   section#add-doctor form {
     width: 50%;

@@ -1,15 +1,15 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import myApi from '../myApi';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import myApi from "../myApi";
 
 export const registerUser = createAsyncThunk(
-  'user/register',
+  "user/register",
   async ({ name, username, email, password }, thunkAPI) => {
     try {
       const response = await fetch(`${myApi}/users`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
+          Accept: "application/json",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           user: {
@@ -23,13 +23,12 @@ export const registerUser = createAsyncThunk(
       const data = await response.json();
       if (response.status === 201) {
         const user = {
-          name: data.user.name,
           username: data.user.username,
-          email: data.user.email,
+          role: data.user.role,
         };
         const userData = JSON.stringify(user);
-        localStorage.setItem('currentUser', userData);
-        localStorage.setItem('token', data.token);
+        localStorage.setItem("currentUser", userData);
+        localStorage.setItem("token", data.token);
         return data;
       }
       const errors = data.errors.map((error) => error);
@@ -41,14 +40,14 @@ export const registerUser = createAsyncThunk(
 );
 
 export const loginUser = createAsyncThunk(
-  'user/login',
+  "user/login",
   async ({ username, password }, thunkAPI) => {
     try {
       const response = await fetch(`${myApi}/auth/login`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
+          Accept: "application/json",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           user: {
@@ -61,13 +60,12 @@ export const loginUser = createAsyncThunk(
       if (response.status === 200) {
         const user = {
           name: data.user.name,
-          username: data.user.username,
-          email: data.user.email,
+          role: data.user.role,
         };
         console.log(user);
         const userData = JSON.stringify(user);
-        localStorage.setItem('currentUser', userData);
-        localStorage.setItem('token', data.token);
+        localStorage.setItem("currentUser", userData);
+        localStorage.setItem("token", data.token);
         return data;
       }
       const { error } = data;
@@ -80,20 +78,20 @@ export const loginUser = createAsyncThunk(
 
 const initialState = {
   user: {
-    name: '',
-    username: '',
-    email: '',
-    password: '',
+    name: "",
+    username: "",
+    email: "",
+    password: "",
     pending: true,
     success: false,
     error: false,
-    errorMessage: '',
-    message: '',
+    errorMessage: "",
+    message: "",
   },
 };
 
 const userSlice = createSlice({
-  name: 'user',
+  name: "user",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -146,8 +144,7 @@ const userSlice = createSlice({
 export const userSelector = (state) => state.user;
 
 export const currentUser = () => {
-  const user = localStorage.getItem('currentUser');
+  const user = localStorage.getItem("currentUser");
   return JSON.parse(user);
 };
 export default userSlice.reducer;
-
