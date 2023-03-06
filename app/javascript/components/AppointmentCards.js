@@ -10,11 +10,13 @@ import {
 import { BiTime } from 'react-icons/bi';
 import { GrStatusCriticalSmall } from 'react-icons/gr';
 import { fetchAppointData } from '../redux/appointments/appointmentSlice';
+import { currentUser } from '../redux/user/userSlice';
 import '../styles/AppointmentCards.css';
 
 const AppointmentCards = () => {
   const dispatch = useDispatch();
   const { appointments, status } = useSelector((state) => state.appointments);
+  const user = useSelector(currentUser);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -36,7 +38,7 @@ const AppointmentCards = () => {
           <h1 className="appointment-header">Appointments</h1>
           <h5 className="patient">
             <BsFillPersonFill className="app-icons" />
-            Patient: Amir Khan
+            Patient: {user.name}
           </h5>
         </div>
         <div className="cards">
