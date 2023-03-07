@@ -14,10 +14,10 @@ RSpec.describe 'api/v1/appointments', type: :request do
           JWT.encode(payload, 'mysecret')
         end
         let(:user) do
-          @user = User.create(name: "John Smith", username: "smithey", email: "john@smithey.com", password: "smithey123")
+          @user = User.create(name: 'John Smith', username: 'smithey', email: 'john@smithey.com', password: 'smithey123')
         end
         let(:auth_token) { encode_token({ user_id: user.id }) }
-        let(:Authorization) { 'Bearer ' + auth_token }
+        let(:Authorization) { "Bearer #{auth_token}" }
         run_test!
       end
     end
@@ -44,14 +44,13 @@ RSpec.describe 'api/v1/appointments', type: :request do
       }
 
       response(201, 'appointment created') do
-
         def encode_token(payload, exp = 7.days.from_now)
           payload[:exp] = exp.to_i
           JWT.encode(payload, 'mysecret')
         end
 
         let(:user) do
-          @user = User.create(name: "John Smith", username: "smithey", email: "john@smithey.com", password: "smithey123")
+          @user = User.create(name: 'John Smith', username: 'smithey', email: 'john@smithey.com', password: 'smithey123')
         end
 
         let(:doctor) do
@@ -60,12 +59,12 @@ RSpec.describe 'api/v1/appointments', type: :request do
         end
 
         let(:appointment) do
-          @appointment = Appointment.create(appointment_date: "2023-04-04", start_time: "10:00 AM", end_time: "10:30 AM", doctor: doctor)
+          @appointment = Appointment.create(appointment_date: '2023-04-04', start_time: '10:00 AM', end_time: '10:30 AM', doctor:)
         end
 
         let(:auth_token) { encode_token({ user_id: user.id }) }
 
-        let(:Authorization) { 'Bearer ' + auth_token }
+        let(:Authorization) { "Bearer #{auth_token}" }
 
         after do |example|
           example.metadata[:response][:content] = {

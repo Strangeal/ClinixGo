@@ -31,8 +31,8 @@ paths:
         schema:
           type: string
       responses:
-        '200':
-          description: successful
+        '201':
+          description: appointment created
       requestBody:
         content:
           application/json:
@@ -152,7 +152,7 @@ paths:
       parameters:
       - name: id
         in: path
-        description: doctors id
+        description: id
         required: true
         schema:
           type: string
@@ -163,10 +163,8 @@ paths:
         schema:
           type: string
       responses:
-        '201':
+        '200':
           description: doctor updated
-        '422':
-          description: invalid request
       requestBody:
         content:
           application/json:
