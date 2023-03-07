@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :doctors, only: [:index, :show, :create, :update]
-      resources :users
-      resources :appointments
+      resources :users, only: [:create]
+      resources :appointments, only: [:index, :create]
       post "auth/login", to: "users#login"
     end
   end
