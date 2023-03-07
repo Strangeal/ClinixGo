@@ -13,23 +13,28 @@ RSpec.describe 'api/v1/users', type: :request do
             properties: {
               name: { type: :string },
               username: { type: :string },
-              email: { type: :string },
-              password: { type: :string }
+              password: { type: :string },
+              email: { type: :string }
             },
-            required: %w[name username email password]
+            required: %w[name username password email]
           }
         }
       }
 
       response 201, 'user created' do
         let(:user) do
-          @user = User.create(name: 'John Smith', username: 'smithey', email: 'john@smithey.com', password: 'smithey123')
+          { user: { name: 'John Smith', username: 'smithey11', password: 'smithey123', email: 'john@smithey.com' } }
         end
         run_test!
       end
 
       # response 4
-
+      response 422, 'Invalid user data' do
+        let(:user) do
+          { user: { name: 'John Smith', username: 'smithey11', password: 's123', email: 'john@smithey.com' } }
+        end
+        run_test!
+      end
     end
   end
 
@@ -50,16 +55,19 @@ RSpec.describe 'api/v1/users', type: :request do
           }
         }
       }
-      response(200, 'successful') do
-        let(:user) do
-          User.create(username: 'riley12', password: 'riley123')
+      response 200, 'successful' do
+        before do
+          User.create(name: 'John Smith', username: 'smithey11', password: 'smithey123', email: 'john@smithey.com')
         end
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
+        let(:user) do
+          { user: { username: 'smithey11', password: 'smithey123' } }
+        end
+        run_test!
+      end
+
+      response 401, 'Invalid user data' do
+        let(:user) do
+          { user: { username: 'smithey11', password: 's' } }
         end
         run_test!
       end
