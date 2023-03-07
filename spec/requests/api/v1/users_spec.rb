@@ -21,18 +21,15 @@ RSpec.describe 'api/v1/users', type: :request do
         }
       }
 
-      response(201, 'user created') do
-        let(:user) { create(:user) }
-
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
+      response 201, 'user created' do
+        let(:user) do
+          @user = User.create(name: 'John Smith', username: 'smithey', email: 'john@smithey.com', password: 'smithey123')
         end
         run_test!
       end
+
+      # response 4
+
     end
   end
 
@@ -54,6 +51,9 @@ RSpec.describe 'api/v1/users', type: :request do
         }
       }
       response(200, 'successful') do
+        let(:user) do
+          User.create(username: 'riley12', password: 'riley123')
+        end
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
