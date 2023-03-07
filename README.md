@@ -99,24 +99,45 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-`gem install rails`
+- Mac OS or Linux/Debian **(strongly recommended)**
+  > If you are running on Windows, you can use WSL to install Ubuntu.
+- Latest version of Node installed
+- Latest version of Yarn installed
+- Latest version of Ruby installed
+- Latest version of Rails installed
+- Latest version of PostgreSQL installed
+
+```sh
+ gem install rails
+```
 
 ### Setup
 
 Clone this repository to your desired folder:
 
-`git clone git@github.com:Strangeal/ClinixGo.git`
-
-then
-
-`cd ClinixGo`
+```sh
+  cd my-folder
+  git clone https://github.com/Strangeal/ClinixGo.git
+```
 
 ### Install
 
 Install this project dependencies with:
 
-`bundle install` <br />
-`npm install`
+
+```sh
+  cd ClinixGo
+  bundle install
+  npm install
+```
+
+Create the app database:
+
+```sh
+  rails db:create
+  rails db:migrate
+  rails db:seed
+```
 
 ### Usage
 
