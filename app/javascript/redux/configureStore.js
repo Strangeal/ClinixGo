@@ -1,5 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { logger } from 'redux-logger';
 import appointmentReducer from './appointments/appointmentSlice';
 import createDocSlice from './doctors/createDocSlice';
 import doctorIdReducer from './doctors/doctorIdSlice';
@@ -18,7 +17,6 @@ const store = configureStore({
     newDoctor: createDocSlice,
     updateDoctorStatusSlice,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
 
 export default store;
