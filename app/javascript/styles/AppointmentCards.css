@@ -2,6 +2,19 @@
   font-size: 2rem;
 }
 
+.no-content {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
 .cards {
   display: flex;
   flex-direction: column;
@@ -82,14 +95,11 @@
   color: grey;
 }
 
-.spinner {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: 3px solid #ccc;
-  border-top-color: #333;
-  animation: spin 1s ease-in-out infinite;
+.spinner-here {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
 }
 
 @keyframes spin {

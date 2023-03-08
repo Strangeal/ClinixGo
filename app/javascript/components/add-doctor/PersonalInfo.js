@@ -7,7 +7,7 @@ const PersonalInfo = ({ nextStep }) => (
   <section className="mt-3">
     <p className="text-decoration-underline">Personal Information</p>
     <div className="mt-2 mb-3">
-      <label htmlFor="name" className="form-label">
+      <label htmlFor="name" className="form-label w-100">
         Name
         <Field name="name">
           {({ field, meta, form }) => (
@@ -30,7 +30,7 @@ const PersonalInfo = ({ nextStep }) => (
       </label>
     </div>
     <div className="mb-3">
-      <label htmlFor="email" className="form-label">
+      <label htmlFor="email" className="form-label w-100">
         Email
         <Field type="email" name="email">
           {({ field, meta, form }) => (
@@ -52,7 +52,7 @@ const PersonalInfo = ({ nextStep }) => (
       </label>
     </div>
     <div className="mb-3">
-      <label htmlFor="photo" className="form-label">
+      <label htmlFor="photo" className="form-label w-100">
         Doctor&apos;s Image
         <Field name="photo">
           {({ field, meta, form }) => (
@@ -75,7 +75,7 @@ const PersonalInfo = ({ nextStep }) => (
       </label>
     </div>
     <div className="mb-3">
-      <label htmlFor="phone" className="form-label">
+      <label htmlFor="phone" className="form-label w-100">
         Phone Number
         <Field name="phone">
           {({ field, meta, form }) => (
@@ -97,7 +97,7 @@ const PersonalInfo = ({ nextStep }) => (
       </label>
     </div>
     <div className="mb-3">
-      <label htmlFor="bio" className="form-label">
+      <label htmlFor="bio" className="form-label w-100">
         Tell us about the doctor
         <Field name="bio">
           {({ field, meta, form }) => (

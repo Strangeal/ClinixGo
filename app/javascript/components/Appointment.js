@@ -68,7 +68,7 @@ const Appointment = () => {
                     className="form-control form-input shadow-none "
                     disabled
                     type="text"
-                    value={user && user.name}
+                    value={user && user.username}
                   />
                 </label>
               </div>

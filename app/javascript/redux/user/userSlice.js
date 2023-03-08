@@ -61,7 +61,7 @@ export const loginUser = createAsyncThunk(
       const data = await response.json();
       if (response.status === 200) {
         const user = {
-          name: data.user.name,
+          username: data.user.username,
           role: data.user.role,
         };
         const userData = JSON.stringify(user);

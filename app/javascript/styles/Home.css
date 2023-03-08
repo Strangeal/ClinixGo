@@ -60,12 +60,23 @@ p.btm-text {
   overflow: hidden;
 }
 
+.spinner-here-appointment {
+  position: absolute;
+  right: 0;
+  left: 100px;
+  top: 0;
+}
+
 @media screen and (min-width: 768px) {
   .doctors-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: space-between;
     gap: 1rem;
+  }
+
+  .spinner-here-appointment {
+    left: 190px;
   }
 }
 
