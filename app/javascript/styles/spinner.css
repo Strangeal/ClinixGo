@@ -6,7 +6,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
 .loader {
@@ -16,7 +15,8 @@
   font-family: inherit;
 }
 
-.loader::before, .loader::after {
+.loader::before,
+.loader::after {
   content: "";
   width: 0;
   height: 0;
@@ -59,8 +59,9 @@
   overflow: hidden;
 }
 
-.loader .binary::before, .loader .binary::after {
-  font-family: "Lato";
+.loader .binary::before,
+.loader .binary::after {
+  font-family: "Lato", sans-serif;
   font-size: 24px;
   position: absolute;
   top: 0;
@@ -88,7 +89,8 @@
   animation: d 0.7s linear infinite;
 }
 
-.loader.JS_on::before, .loader.JS_on::after {
+.loader.JS_on::before,
+.loader.JS_on::after {
   transform: scale(1);
 }
 
