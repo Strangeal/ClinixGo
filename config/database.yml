@@ -84,3 +84,4 @@ production:
   database: ClinixGo_production
   username: ClinixGo
   password: <%= ENV["CLINIXGO_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
