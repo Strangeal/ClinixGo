@@ -17,6 +17,7 @@ const Navbar = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('currentUser');
     window.location.reload(true);
+    window.location.href = '/';
   };
 
   return (
@@ -112,7 +113,7 @@ const Navbar = () => {
           >
             <CgProfile className="fs-3 nav-icon" />
             <span className="current_username text-dark d-none d-md-inline mx-1">
-              {user.name}
+              {user.username}
             </span>
           </div>
 
