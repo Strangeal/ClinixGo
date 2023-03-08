@@ -68,7 +68,7 @@ const Doctors = () => {
   const getStatus = (doctor) => (doctor.active ? (
     <Badge value="active" severity="success" />
   ) : (
-    <Badge value="inactive" severity="danger"/>
+    <Badge value="inactive" severity="danger" />
   ));
 
   const getActions = (doctor) => (
