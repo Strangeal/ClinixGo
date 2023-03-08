@@ -62,7 +62,7 @@ const Doctors = () => {
   );
 
   const getSpecialty = (doctor) => (
-    <div className="">{doctor.specialities}</div>
+    <div>{doctor.specialities}</div>
   );
 
   const getStatus = (doctor) => (doctor.active ? (
@@ -72,7 +72,7 @@ const Doctors = () => {
   ));
 
   const getActions = (doctor) => (
-    <div className="">
+    <div>
       <InputSwitch
         checked={doctor.active}
         onChange={() => updateStatus(doctor)}

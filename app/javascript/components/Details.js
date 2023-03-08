@@ -1,14 +1,14 @@
-import { format } from 'date-fns';
-import React, { useEffect } from 'react';
-import { AiOutlineAreaChart } from 'react-icons/ai';
-import { FaCommentDots, FaHospitalSymbol, FaUsers } from 'react-icons/fa';
-import { GiRoundStar } from 'react-icons/gi';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams, Link } from 'react-router-dom';
-import { fetchDocIdData } from '../redux/doctors/doctorIdSlice';
-import '../styles/Details.css';
-import { currentUser } from '../redux/user/userSlice';
-import Spinner from './Spinner';
+import { format } from "date-fns";
+import React, { useEffect } from "react";
+import { AiOutlineAreaChart } from "react-icons/ai";
+import { FaCommentDots, FaHospitalSymbol, FaUsers } from "react-icons/fa";
+import { GiRoundStar } from "react-icons/gi";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams, Link } from "react-router-dom";
+import { fetchDocIdData } from "../redux/doctors/doctorIdSlice";
+import "../styles/Details.css";
+import { currentUser } from "../redux/user/userSlice";
+import Spinner from "./Spinner";
 
 const Details = () => {
   const { id } = useParams();
@@ -24,31 +24,31 @@ const Details = () => {
 
   const splitName = () => {
     if (doctorsId) {
-      return String(doctorsId.name).split(' ');
+      return String(doctorsId.name).split(" ");
     }
 
-    return '';
+    return "";
   };
 
   const getStartTime = () => {
     if (doctorsId) {
-      return format(new Date(doctorsId.start_time), 'p');
+      return format(new Date(doctorsId.start_time), "p");
     }
 
-    return '';
+    return "";
   };
 
   const getEndTime = () => {
     if (doctorsId) {
-      return format(new Date(doctorsId.end_time), 'p');
+      return format(new Date(doctorsId.end_time), "p");
     }
-    return '';
+    return "";
   };
-  
+
   return (
     <section id="details">
       <div className="container mt-5">
-        {status === null || status === 'pending' ? (
+        {status === null || status === "pending" ? (
           <div className="spinner-here">
             <Spinner />
           </div>
@@ -92,10 +92,7 @@ const Details = () => {
                       <div>
                         <h2>
                           {splitName()[0]}
-                          <span className="fw-light">
-                            {' '}
-                            {splitName()[1]}
-                          </span>
+                          <span className="fw-light"> {splitName()[1]}</span>
                         </h2>
                         <p className="doc-title text-uppercase">
                           {doctorsId.specialities}
@@ -115,8 +112,7 @@ const Details = () => {
                         </div>
                         <div className="d-flex flex-column justify-content-center">
                           <h6 className="text-center fw-bold">
-                            {doctorsId.patients}
-                            +
+                            {doctorsId.patients}+
                           </h6>
                           <span>patients</span>
                         </div>
@@ -127,8 +123,7 @@ const Details = () => {
                         </div>
                         <div className="d-flex flex-column justify-content-center">
                           <h6 className="text-center fw-bold">
-                            {doctorsId.experience}
-                            +
+                            {doctorsId.experience}+
                           </h6>
                           <span>years exper..</span>
                         </div>
@@ -163,19 +158,15 @@ const Details = () => {
                   </div>
                   <div className="mt-4">
                     <h4 className="mb-2">Working Time</h4>
-                    <p>
+                    <p className="mb-0">
                       {doctorsId.available_days}
-                      ,
-                      {getStartTime()}
-                      {' '}
-                      -
-                      {' '}
-                      {getEndTime()}
-                    </p>
+                      </p>
+                      <p>{getStartTime()} -{" "}
+                      {getEndTime()}</p>
                   </div>
-                  <div className="doc-details-actions mt-4 mt-sm-2">
+                  <div className="doc-details-actions mt-4 mt-sm-2 mb-5">
                     <Link
-                      to={user ? '/add_appointment' : '/login'}
+                      to={user ? "/add_appointment" : "/login"}
                       type="button"
                       className="btn btn-success-cus d-block w-100 rounded-pill"
                     >
