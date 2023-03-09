@@ -4,10 +4,10 @@ import { AiOutlineAreaChart } from 'react-icons/ai';
 import { FaCommentDots, FaHospitalSymbol, FaUsers } from 'react-icons/fa';
 import { GiRoundStar } from 'react-icons/gi';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { fetchDocIdData } from '../redux/doctors/doctorIdSlice';
-import '../styles/Details.css';
 import { currentUser } from '../redux/user/userSlice';
+import '../styles/Details.css';
 import Spinner from './Spinner';
 
 const Details = () => {
@@ -92,9 +92,11 @@ const Details = () => {
                       <div>
                         <h2>
                           {splitName()[0]}
+                          {' '}
+                          {splitName()[1]}
                           <span className="fw-light">
                             {' '}
-                            {splitName()[1]}
+                            {splitName()[2]}
                           </span>
                         </h2>
                         <p className="doc-title text-uppercase">
@@ -163,9 +165,7 @@ const Details = () => {
                   </div>
                   <div className="mt-4">
                     <h4 className="mb-2">Working Time</h4>
-                    <p className="mb-0">
-                      {doctorsId.available_days}
-                    </p>
+                    <p className="mb-0">{doctorsId.available_days}</p>
                     <p>
                       {getStartTime()}
                       {' '}

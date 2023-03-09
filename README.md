@@ -7,6 +7,7 @@
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
+- [Kanban Board](#kanban-board)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -81,11 +82,14 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
-
-- [Coming Soon 🎈]()
+- [ClinixGo Live Demo🎈](https://clinixgo.up.railway.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## :notebook_with_decorative_cover: Kanban Board
+- Link to our [kanban-board](https://github.com/users/Strangeal/projects/3)
+- Link to initial [kanban-board-screenshot](https://user-images.githubusercontent.com/20049193/220385323-6515c1e1-0fc1-454c-af09-45e3ab48e94c.png)
+- We are **four** in the group.
 
 <!-- GETTING STARTED -->
 
@@ -140,24 +144,33 @@ Create the app database:
 ```
 
 ### Usage
+To run the application, run the following command:
 
-`./bin/dev`
+```sh
+  ./bin/dev
+```
 
 ### Run Test
 
 To run app test. run the following commad:
 
-`rspec`
+```sh
+  rspec
+```
 
 ### Run Linters
 
 To run tests, run the following command:
 
-`rubocop`
+```sh
+  rubocop
+```
 
 OR
 
-`rubocop -a`
+```sh
+  rubocop -A
+```
 
 **it will automatically correct the errors**
 
@@ -199,10 +212,10 @@ Run the below commands to generate API documentation routes:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> In upcoming weeks I will add some features as mentioned below
+In upcoming weeks, we will add some features as mentioned below
 
-- [ ] **Documentation**
-- [ ] **High UI**
+- [ ] **Add a search feature to allow users to search for doctors.**
+- [ ] **Improve the app UI.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
