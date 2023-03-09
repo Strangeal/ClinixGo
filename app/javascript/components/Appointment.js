@@ -85,15 +85,20 @@ const Appointment = () => {
                   >
                     <option value="">Select a doctor</option>
                     {doctors
-                      && doctors.map((doctor) => (
-                        <option
-                          className="select-input"
-                          key={doctor.id}
-                          value={doctor.id}
-                        >
-                          {doctor.name}
-                        </option>
-                      ))}
+                      && doctors.map((doctor) => {
+                        if (doctor.active === true) {
+                          return (
+                            <option
+                              className="select-input"
+                              key={doctor.id}
+                              value={doctor.id}
+                            >
+                              {doctor.name}
+                            </option>
+                          );
+                        }
+                        return null;
+                      })}
                   </select>
                 </label>
               </div>
