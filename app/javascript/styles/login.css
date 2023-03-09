@@ -1,0 +1,55 @@
+.log-container .form-group {
+  width: 100%;
+}
+
+.log-img {
+  width: 15rem;
+}
+
+.btn-success-cus {
+  outline: 1px solid #96bf01;
+  color: #96bf01;
+}
+
+.btn-success-cus:hover {
+  color: #fff;
+  background-color: #96bf01;
+}
+
+@media screen and (min-width: 400px) {
+  .log-container {
+    margin: 0 2rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .log-container {
+    margin: 0 4rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .log-section {
+    padding: 0;
+  }
+
+  .log-container {
+    margin: 0;
+  }
+
+  .log-img {
+    width: 22rem;
+  }
+
+  .login-content {
+    background-color: #f7f8fa;
+    padding: 0 1.5rem;
+    height: 100vh;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .log-form {
+    padding: 0 4rem;
+  }
+}
