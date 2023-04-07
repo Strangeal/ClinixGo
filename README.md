@@ -82,7 +82,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [ClinixGo Live Demo🎈](https://clinixgo.up.railway.app/)
+- [ClinixGo Live Demo🎈](https://clinixgo-production.up.railway.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
